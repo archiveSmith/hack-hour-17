@@ -20,10 +20,8 @@
 
 function fizzbuzz(num) {
     newArr = [];
-    for(var i = 0; i <= num; i++){
-        if(i === 0){
-          newArr[i] = 0;
-        }else if(i % 3 === 0 && i % 5 === 0){
+    for(var i = 1; i <= num; i++){
+        if(i % 3 === 0 && i % 5 === 0){
             newArr[i] = "fizzbuzz";
         }else if(i % 5 === 0){
             newArr[i] = "fizz";
@@ -33,6 +31,7 @@ function fizzbuzz(num) {
             newArr[i] = i;
         }
     }
+    newArr.splice(0,1);
     return newArr;
 }
 
