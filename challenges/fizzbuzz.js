@@ -37,7 +37,7 @@ function fizzbuzz(num) {
   }
   // calls recursively
   // returns array
-  return fizzbuzz(num - 1);
+  return array.concat(fizzbuzz(num - 1));
 }
 console.log(fizzbuzz(10))
 module.exports = fizzbuzz;
