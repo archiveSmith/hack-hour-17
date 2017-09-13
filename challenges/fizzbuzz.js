@@ -18,6 +18,7 @@
 
 function fizzbuzz(num) {
     // SECOND TRY
+    let output = [];
     for (let x = 1; x <= num; x++) {
         (x % 3 === 0) ? output.push("fizz") : (x % 5 === 0) ? output.push("buzz") : (x % 3 === 0 && x % 5 === 0) ? output.push("fizzbuzz") : output.push(x) ;
         }
