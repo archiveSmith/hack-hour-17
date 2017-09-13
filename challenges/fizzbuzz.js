@@ -20,6 +20,9 @@
 function fizzbuzz(num) {
     let result = [];
 
+    if(num === 0) return 0;
+    if(num < 0) return num;
+
     for (let i = 1; i <= num; i++) {
         if (!(i % 3) && !(i % 5)) result.push('fizzbuzz');
         else if (!(i % 3)) result.push('fizz')
