@@ -14,7 +14,7 @@
 */
 
 function drawStairs(n) {
-    let star = "";
+    let stair = "";
     // edge case
     if (n < 0 || n > 100) {
         return 'Error';
@@ -22,14 +22,20 @@ function drawStairs(n) {
     for (let i = 0; i < n; i++) {
         for (let j = 0; j < n; j++) {
             if (i < n - j - 1) {
-                star += " ";
+                stair += " ";
             } else {
-                star += "*";
+                stair += "*";
             }
         }
-        star += '\n'
+        stair += '\n'
     }
-    console.log(star)
+    console.log(stair)
+
+    // let stair = '';
+    // for (var i = 1; i <= n; i++) {
+    //     stair += ' '.repeat(n - i) + '*'.repeat(i) + '\n';
+    // }
+    // return stair;
 }
 
 
