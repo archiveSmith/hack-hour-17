@@ -17,10 +17,13 @@
 function drawStairs(n) {
     let asterisks = '*';
     let spaces = ' ';
+    let str = '';
 
     for (let i = 1; i <= n; i++) {
-        console.log(spaces.repeat(n-i) + asterisks.repeat(i));
+        str += spaces.repeat(n-i) + asterisks.repeat(i);
+        if (i !== n) str += '\n';
     }
+    console.log(str);
 }
 
 
