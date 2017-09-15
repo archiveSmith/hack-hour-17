@@ -13,8 +13,14 @@
 
 */
 
-function drawStairs(n) {
 
+function drawStairs(n) {
+    let asterisks = '*';
+    let spaces = ' ';
+
+    for (let i = 1; i <= n; i++) {
+        console.log(spaces.repeat(n-i) + asterisks.repeat(i));
+    }
 }
 
 
