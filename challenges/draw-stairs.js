@@ -17,14 +17,15 @@ function drawStairs(n) {
 // create result variable
 let stairs = "";
 // create a for loop to iterate through number of stairs 
-  for (let i = 1; i <= n; i++) {
-    //create number of spaces(n - i) concat with stair (n)
+  for (let i = 1; i < n; i++) {
+    //create number of spaces(n - i) concat with stair (n) except for last
     stairs += ' '.repeat(n-i) + '*'.repeat(i) + '\n';
   }
+  //*last stairs without training return character. 
+  stairs += '*'.repeat(n);
 // return result;
 return stairs;
 }
-
 console.log(drawStairs(6));
 
 
