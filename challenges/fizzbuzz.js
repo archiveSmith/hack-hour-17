@@ -51,6 +51,28 @@ function fizzbuzz(num) {
 }
 
 
+function fizzBuzz(num) {
+    function fizzBuzzRecursive(num) {
+      var results = [];
+      if (num === 1) {
+        return '1';
+      } else {
+        if (num % 3 === 0 && num % 5 === 0) {
+          results.push('FizzBuzz');
+        } else if (num % 5 === 0) {
+          results.push('Buzz');
+        } else if (num % 3 === 0) {
+          results.push('Fizz');
+        } else {
+          results.push(''+ num);
+        }
+      }
+    }
+    return results.concat(fizzBuzzRecursive(n - 1));
+}
+   
+
+
 module.exports = fizzbuzz;
 
 //return array
