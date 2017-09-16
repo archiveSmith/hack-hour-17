@@ -45,3 +45,4 @@ else {
   return false
 }
 }
+module.exports = modemean
