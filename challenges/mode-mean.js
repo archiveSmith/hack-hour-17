@@ -6,7 +6,7 @@
  * 	- If there are multiple modes, use the max of the modes
  *
  * Return true or false
- *
+ * 
  */
 
 
