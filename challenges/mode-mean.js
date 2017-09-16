@@ -12,6 +12,9 @@
 
 function modemean(array) {
   const modeObj = {};
+  if (array.length === 0) {
+    return true;
+  }
   array.forEach((num) => {
     modeObj[num] = modeObj.hasOwnProperty(num) ? modeObj[num] += 1 : 1;
   });
