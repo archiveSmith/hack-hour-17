@@ -9,8 +9,6 @@
  *
  */
 
-let arr = [1, 2, 2, 3]
-
 function modemean(array) {
   let modeCheck = mode(array);
   let meanCheck = mean(array);
