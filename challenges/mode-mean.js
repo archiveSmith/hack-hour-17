@@ -31,7 +31,7 @@ for (let i in modeObj) {
   }
 }
 
-if (prev[0] === mean)
+if (prev[0] === Math.floor(mean))
   return true;
   else return false;
 }
