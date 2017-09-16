@@ -14,8 +14,18 @@
 */
 
 function drawStairs(n) {
+<<<<<<< HEAD
+    //n <=100 & n < >= 0
+    for(let i = 1; i <= n; i++){
+        console.log('*'.repeat(i));
+      }
+}
+
+// module.exports = drawStairs;
+=======
 
 }
 
 
 module.exports = drawStairs;
+>>>>>>> 33f042bb7b5fe675eb799a30535e4dc5c19cf066
