@@ -21,7 +21,7 @@ function modemean(array) {
         else obj[element] = 1;
     }
     
-    mean = sum / array.length;
+    mean = Math.floor(sum / array.length);
     
     let modeNum = 0;
     let modeKey;
