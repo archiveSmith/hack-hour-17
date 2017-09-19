@@ -22,6 +22,23 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
+  //initiate node you are looking at
+  let currNode = head;
+  //create cache of values? starting at first node, loop through Linked List
+  let position = 0
+  let cache = {};
+  
+  while (currNode) {
+    cache[position] = currNode.value;
+    position++;
+    currNode = currNode.next;
+  }
+
+  
+  //return value at kth to the last
+
+  return cache[position - (k)];
+  
 
 }
 
