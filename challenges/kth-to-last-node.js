@@ -16,7 +16,7 @@
  d.next = e;
  e.next = f;
  
- kthToLastNode(2, a); //-> returns 'D' (the value on the second to last node)
+ //kthToLastNode(3, a); -> returns 'D' (the value on the second to last node)
  
 
 function Node(val) {
@@ -25,25 +25,23 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
-  if (!head.next) {
+  if (head.next === null) {
     return undefined;
   }
   let curr = head;
-  let counter = 0;;
+  let counter = 0;
   while (curr.next) {
     curr = curr.next;
     counter += 1;
   }
   let times = counter - k;
-
   let current = head;
-  
   while (times > 0) {
     current = current.next;
     times -= 1;
   }
-
+  // console.log(current.next.value);
   return current.next.value;
 }
-
+console.log(kthToLastNode(3, a));
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
