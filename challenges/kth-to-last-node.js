@@ -22,7 +22,25 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
-
+  let listLength = 1;
+  let currentNode;
+  if (head) {
+    currentNode = head;
+  }
+  //loop through chain, and create a previous value to loop through the chain backwards
+  while(currentNode.next) {
+    currentNode.next.prevNode = currentNode;
+    currentNode = currentNode.next;
+    listLength++;
+  }
+  if(k > listLength) {return "'k' exceeded length of list."}
+  if(k === listLength) {return head.value}
+  //loop through the chain backwards until reaching the kth value
+  let tail = currentNode;
+  for (let i = 1; i < k; i++) {
+    tail = tail.prevNode
+  }
+  return tail.value;
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
