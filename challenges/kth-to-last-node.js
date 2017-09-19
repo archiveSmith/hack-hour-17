@@ -61,7 +61,7 @@ function kthToLastNode(k, head) {
     endPointer = endPointer.next;
     kThPointer = kThPointer.next;
   }
-  return kThPointer;
+  return kThPointer.value;
 }
 
 
@@ -77,7 +77,8 @@ function kthToLastNode(k, head) {
  c.next = d;
  d.next = e;
  
- console.log(kthToLastNode(5, a));
+ console.log(kthToLastNode(2, a));
  */
+ 
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
