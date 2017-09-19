@@ -24,9 +24,12 @@ function Node(val) {
 function kthToLastNode(k, head) {
   // console.log(head);
   // console.log(k);
+  const string = 'out of index range'
+  if (k < 0) return string;
   let currNode = head;
   for (let i = 0; i <= k; i++) {
     currNode = currNode.next;
+    if (!currNode.next) return undefined;
   }
 
   return currNode.value;
@@ -46,4 +49,4 @@ b.next = c;
 c.next = d;
 d.next = e;
 
-console.log(kthToLastNode(-2, a));
+console.log(kthToLastNode(6, a));
