@@ -40,18 +40,18 @@ function Node(val) {
 //   return currentNode;
 // }
 
-//Above works but is forced to loop twice through Linked List.
-//Below version is quicker as only navigates through Linked List once..
+// Above works but is forced to loop twice through Linked List.
+// Below version is quicker as only navigates through Linked List once..
 
 function kthToLastNode(k, head) {
   let endPointer = head;
   if (k < 1) {
-    return null;
+    return;
   }
   let counter = 1;
   while (counter < k) {
     if (endPointer.next == null) {
-      return null;
+      return;
     }
     endPointer = endPointer.next;
     counter += 1;
@@ -65,7 +65,8 @@ function kthToLastNode(k, head) {
 }
 
 
- /*const a = new Node('A');
+ /*
+ const a = new Node('A');
  const b = new Node('B');
  const c = new Node('C');
  const d = new Node('D');
@@ -76,6 +77,7 @@ function kthToLastNode(k, head) {
  c.next = d;
  d.next = e;
  
- console.log(kthToLastNode(5, a));*/
+ console.log(kthToLastNode(5, a));
+ */
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
