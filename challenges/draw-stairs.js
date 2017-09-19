@@ -6,9 +6,9 @@
  For example:
  drawStairs(6) ->
 =======
- 
- For example:     
- drawStairs(6) ->          
+
+ For example:
+ drawStairs(6) ->
 >>>>>>> 33f042bb7b5fe675eb799a30535e4dc5c19cf066
      *
     **
@@ -20,7 +20,7 @@
 */
 
 function drawStairs(n) {
-<<<<<<< HEAD
+
 	for (let i = 1; i <= n; i++) {
 		let str = '';
 
@@ -37,13 +37,5 @@ function drawStairs(n) {
 		console.log(str);
 	}
 }
-
-drawStairs(100);
-
-=======
-
-}
-
->>>>>>> 33f042bb7b5fe675eb799a30535e4dc5c19cf066
 
 module.exports = drawStairs;
