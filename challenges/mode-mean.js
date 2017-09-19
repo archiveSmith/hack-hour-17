@@ -11,6 +11,7 @@
 
 
 function modemean(array) {
+<<<<<<< HEAD
   let mean = 0;
   let modeMap = {};
   let mode;
@@ -43,6 +44,9 @@ function modemean(array) {
     mode = Number(mode);
     if ( mean === mode) return true;
     return false;
+=======
+
+>>>>>>> a68eaeded4afcd23dbb19083bc1a00b412342367
 }
 
 module.exports = modemean;
