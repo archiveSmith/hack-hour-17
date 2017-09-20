@@ -47,7 +47,7 @@ function kthToLastNode(k, head) {
     counter++
   
     }
-
+    return obj[counter-k].value
 
 
 }
