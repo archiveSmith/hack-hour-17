@@ -12,7 +12,7 @@
 function modemean(array) {
   let modeCheck = mode(array);
   let meanCheck = mean(array);
- return modeCheck == meanCheck ? true : false;
+  return modeCheck == meanCheck ? true : false;
 }
 
 /*
@@ -26,7 +26,7 @@ function mode(array) {
   let maxCount = 0;
   let mode;
 
-  array.forEach(ele => {obj[ele] ? obj[ele]++ : obj[ele] = 1})
+  array.forEach(ele => { obj[ele] ? obj[ele]++ : obj[ele] = 1 })
   for (prop in obj) {
     if (obj[prop] > maxCount) {
       maxCount = obj[prop];
@@ -44,7 +44,5 @@ function mean(array) {
 
   return mean;
 }
-
-
 
 module.exports = modemean;
