@@ -14,18 +14,15 @@
 */
 
 function drawStairs(n) {
-<<<<<<< HEAD
     //n <=100 & n < >= 0
+    let space = ' ';
+    let star = '*';
     for(let i = 1; i <= n; i++){
-        console.log('*'.repeat(i));
+        console.log(space.repeat(n-i) + star.repeat(i));
       }
 }
 
 // module.exports = drawStairs;
-=======
 
-}
-
-
-module.exports = drawStairs;
->>>>>>> 33f042bb7b5fe675eb799a30535e4dc5c19cf066
+// console.log(' '.repeat(4) + '*'.repeat(1));
+console.log(drawStairs(5));
