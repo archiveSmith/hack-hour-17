@@ -21,5 +21,4 @@ return (calcPow(base, power, total));
 
 }
 
-// module.exports = pow;
-console.log(pow(4,5));
+module.exports = pow;
