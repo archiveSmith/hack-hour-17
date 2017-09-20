@@ -26,7 +26,6 @@ let stairs = "";
 // return result;
 return stairs;
 }
-console.log(drawStairs(6));
 
 
 module.exports = drawStairs;
