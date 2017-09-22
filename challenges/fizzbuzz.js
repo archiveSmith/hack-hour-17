@@ -42,3 +42,13 @@ function fizzbuzz(num) {
 
 module.exports = fizzbuzz;
 
+function fizzbuzz2(num) {
+    //input = num
+    output = [];
+    //check if each number is divisble by 3 and 5
+    for (let i = 1; i <= num; i++){
+        i % 15 === 0 ? output.push('fizzbuzz') : (i % 3 === 0) ? output.push('fizz') : (i % 3 === 0) ? output.push('buzz') : output.push(i);
+    }
+    return output;
+    //return an arrray
+}
