@@ -14,7 +14,25 @@
  */
 
 function reverseInPlace(array) {
-
+	if(!Array.isArray(array) || array.length <= 0) return;
+	if(array.length === 1) return array;
+	const middle = Math.floor(array.length / 2);
+	const lastItem = array.length - 1;
+	for(let cur = 0; cur < middle; cur++){
+		let front = array[cur];
+		let back = array[lastItem - cur];
+		array[cur] = back;
+		array[lastItem - cur] = front;
+	}
+	return array;
 }
+
+// ====
+// TEST
+// ====
+// console.log('Sam ==> ', reverseInPlace(['m', 'a', 'S']));
+// console.log('Sivahn ==> ', reverseInPlace(['n', 'h', 'a', 'v', 'i', 'S']));
+// console.log('Brice ==> ', reverseInPlace(['e', 'c', 'i', 'r', 'B']));
+// console.log('54321 ==> ', reverseInPlace(['1', '2', '3', '4', '5']));
 
 module.exports = reverseInPlace;
