@@ -3,7 +3,6 @@
  */
 
 function pow(base, power) {
-  count = 0;
   if(power === 1) {
     return base;
   } else {
