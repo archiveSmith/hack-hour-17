@@ -30,4 +30,16 @@ function binToDec(binary) {
     return result;
 }
 
+function decToBin(decimal) {
+    if (decimal === '0' || decimal === 0) return '0';
+    let result = '';
+    let quotient = Number(decimal);
+    while (quotient) {
+        result += quotient % 2;
+        quotient = Math.floor(quotient / 2);
+    }
+    return result.split('').reverse().join('');
+}
+
+
 module.exports = binToDec;
