@@ -14,7 +14,19 @@
  */
 
 function binToDec(binary) {
+  let binArr = binary.split('');
 
-}
 
-module.exports = binToDec;
+    let number = binArr.reduce(function(acc, curr, index) {
+
+      curr = Number(curr);
+      console.log(index);
+       acc+= (curr * curr * 2 ^ (binArr.length-index-1));
+       return acc;
+    },0);
+  //console.log(number);
+  return number;
+  }
+
+
+//module.exports = binToDec;
