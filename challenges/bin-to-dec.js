@@ -2,6 +2,7 @@
  *
  * Write a function that converts the binary string to a decimal number
  *
+ * 
  * Example:
 * 	binToDec('0')   -> 0
  * 	binToDec('11')  -> 3
