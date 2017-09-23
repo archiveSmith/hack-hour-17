@@ -14,7 +14,10 @@
  */
 
 function binToDec(binary) {
-
+let deci = parseInt(binary,2)
+let bi = parseInt(deci.toString(2));
+let hex = parseInt(bi.toString(16));
+return hex;
 }
 
 module.exports = binToDec;
