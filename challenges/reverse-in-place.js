@@ -14,6 +14,7 @@
  */
 
 function reverseInPlace(array) {
+<<<<<<< HEAD
     if (array === undefined || array.length === 0) {
       return [];
     } else if (Array.isArray(array) === false) {
@@ -31,6 +32,8 @@ let j = array.length - 1;
         j--;
     }
       return array;
+=======
+>>>>>>> f9ae9448c4d187e2e69072f41d660a7865c2e3e6
 
 }
 
