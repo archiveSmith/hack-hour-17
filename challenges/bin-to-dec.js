@@ -18,4 +18,4 @@ function binToDec(binary) {
   return bin.reduce((acc, ele, ind) => { return acc += ele * (Math.pow(2, ind))},0)
 }
 
-// module.exports = binToDec;
+module.exports = binToDec;
