@@ -20,7 +20,7 @@ function binToDec(binary) {
     for (let i = 0; i < binary.length; i += 1) {
         decimal += binary[i] * Math.pow(2, binary.length - 1 - i);
     }
-    return decimall
+    return decimal;
 }
 
 module.exports = binToDec;
