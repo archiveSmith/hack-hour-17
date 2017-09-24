@@ -29,7 +29,7 @@ function fizzbuzz(num) {
   const result = [];
 
   // iterate each array number from 1 to number
-  for (let i = 1; i <= num; i++) {
+  for (let i = 1; i <= num; i += 1) {
     // go through the three condition
     // if a condition pass, push the result to the empty array
     if (i % 3 === 0 && i % 5 === 0) {
