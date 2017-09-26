@@ -39,5 +39,4 @@ function balancedParens(input){
     return stack.length === 0;
   }	
   
-
 module.exports = balancedParens;
