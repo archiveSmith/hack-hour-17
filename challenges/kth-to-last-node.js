@@ -22,6 +22,7 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
+<<<<<<< HEAD
   //check for edge cases
 
   /* Solution 1
@@ -70,3 +71,9 @@ console.log(kthToLastNode(2, a));
 
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
+=======
+
+}
+
+module.exports = {Node: Node, kthToLastNode: kthToLastNode};
+>>>>>>> 1b9f9e7ca977c816643da732fe31a1bbee0fe302

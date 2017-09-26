@@ -3,6 +3,7 @@
  */
 
 function pow(base, power) {
+<<<<<<< HEAD
     
     // let temp = base;
     // if(base === 0){
@@ -38,3 +39,9 @@ function pow(base, power) {
 console.log(pow(3,3));
 
 module.exports = pow;
+=======
+
+}
+
+module.exports = pow;
+>>>>>>> 1b9f9e7ca977c816643da732fe31a1bbee0fe302
