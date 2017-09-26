@@ -25,7 +25,38 @@
  */
 
 function balancedParens(input){
+    const string = input.split('');
+    const parens = [];
+    for(let i = 0; i < string.length; i++) {
+        if(string[i] === '[' || string [i] === '(' || string [i] === '{') {
+            parens.push(string[i]);
+        }
+            
+        else if (string[i] === ')') {
+            if (parens[parens.length-1] === '(') {
+                parens.pop();
+            } else {
+                return false;
+            }
+        } else if (string[i] === '}') {
+            if (parens[parens.length-1] === '{') {
+                parens.pop();
+            } else {
+                return false;
+            }
+        } else if (string[i] === ']') {
+            if (parens[parens.length-1] === '[') {
+                parens.pop();
+            } else {
+                return false;
+            }
+        }
+    }
 
+    if(parens.length !== 0)
+        return false;
+    else
+        return true;
 }
 
 module.exports = balancedParens;
