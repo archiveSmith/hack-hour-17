@@ -14,7 +14,8 @@
  */
 
 function binToDec(binary) {
-    
+    //edge cases
+    if (typeof binary != 'string') return 'not a valid entry';
     //split the binary number
     let binArr = binary.split('');
     //setup output
