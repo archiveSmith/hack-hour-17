@@ -19,10 +19,10 @@
 
 function romanNumeral(n) {
     let result = '';
-
-    if (n > 1000) return;
     
-    if (n === 1000) {
+    if (n > 4999) return;
+    
+    while (n >= 1000) {
         result += 'M';
         n -= 1000;
     }
