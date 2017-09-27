@@ -35,6 +35,5 @@ function romanNumeral(n) {
     return result;
 }
 
-console.log(romanNumeral(999));
 
 module.exports = romanNumeral;
