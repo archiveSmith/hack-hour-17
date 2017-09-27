@@ -40,6 +40,4 @@ function romanNumeral(n) {
     return value;
 }
 
-console.log(romanNumeral('MDCCC'));
-
 module.exports = romanNumeral;
