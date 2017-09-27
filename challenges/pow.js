@@ -48,6 +48,4 @@ function crappyToFraction(decimal) {
     return fraction;
 }
 
-console.log(pow(-3, 2));
-
 module.exports = pow;
