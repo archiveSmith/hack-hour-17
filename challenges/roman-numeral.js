@@ -20,7 +20,7 @@
 function romanNumeral(n) {
   let returnStr = '';
   let number = n;
-  const highestRomanNumerals = { M: 1000, CM: 900, D: 500, CD: 400, C: 100, L: 50, XL: 40, X: 10, XI: 9, V: 5, VI: 4, I: 1 };
+  const highestRomanNumerals = { M: 1000, CM: 900, D: 500, CD: 400, C: 100, XC: 90, L: 50, XL: 40, X: 10, IX: 9, V: 5, IV: 4, I: 1 };
   const romamNumeralsArr = Object.entries(highestRomanNumerals);
   let lastNumeralSize = 0;
   while (number > 0) {
@@ -36,6 +36,6 @@ function romanNumeral(n) {
   return returnStr;  
 }
 
-//console.log(romanNumeral(1));
+console.log(romanNumeral(99));
 
 module.exports = romanNumeral;
