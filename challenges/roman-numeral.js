@@ -35,4 +35,7 @@ function romanNumeral(n) {
   }
   return returnStr;  
 }
+
+//console.log(romanNumeral(1));
+
 module.exports = romanNumeral;
