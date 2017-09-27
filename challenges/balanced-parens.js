@@ -21,7 +21,8 @@
  * balancedParens(' var wow  = { yo: thisIsAwesome() }'); // true
  * balancedParens(' var hubble = function() { telescopes.awesome();'); // false
  *
- * 
+ * Solution
+ * http://clarkfeusier.com/2015/01/16/interview-question-balanced-parentheses-stack.html
  */
 
 function balancedParens(input){
