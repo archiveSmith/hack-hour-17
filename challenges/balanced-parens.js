@@ -24,6 +24,7 @@
  *
  */
 
+<<<<<<< HEAD
 function balancedParens(input) {
     let array = [];
     let pairs = {
@@ -45,6 +46,10 @@ function balancedParens(input) {
         }
     }
     return array.length === 0;
+=======
+function balancedParens(input){
+
+>>>>>>> 87f06dc0d55fb788bfa384c8ef02a514745661a4
 }
 
 module.exports = balancedParens;
