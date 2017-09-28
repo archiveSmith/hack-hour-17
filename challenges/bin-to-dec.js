@@ -14,6 +14,7 @@
  */
 
 function binToDec(binary) {
+	
 	let result = 0;
 	let index = 0;
 	for (let i = binary.length - 1; i >= 0; i--) {
