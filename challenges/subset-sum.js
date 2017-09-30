@@ -9,7 +9,30 @@
  */
 
 function subsetSum(array, target) {
-
+  let sumsNeeded = [];
+  for(let i = 0; i < array.length; i++){
+    if(sumsNeeded.indexOf(array[i]) !== -1) return true;
+    console.log('sumsNeeded length is currently', sumsNeeded.length);
+    if(sumsNeeded.length > 0){
+      let sNLen = sumsNeeded.length;
+      for(j = 0; j < sumsNeeded.sNLen; j++) {
+        console.log('subtracting j value ', sumsNeeded[j], ' from i value ', array[i], ' which is ', sumsNeeded[j] - array[i]);
+        sumsNeeded.push(sumsNeeded[j] - array[i]);
+      }
+    }
+    console.log('target value ', target, ' from i value ', array[i], ' which is ', target - array[i]);
+    sumsNeeded.push(target - array[i]);
+  }
+  console.log('end sumsNeeded', sumsNeeded);
+  return false;
 }
+
+// ========== //
+// TEST CASES //
+// ========== //
+// console.log('true ==> ', subsetSum([3, 7, 4, 2], 5));
+console.log('true ==> ', subsetSum([3, 34, 4, 12, 5, 12], 32));
+// console.log('false ==> ', subsetSum([8, 2, 4, 12], 13));
+// console.log('true ==> ', subsetSum([8, -2, 1, -3], 6));
 
 module.exports = subsetSum;
