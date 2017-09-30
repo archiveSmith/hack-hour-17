@@ -16,7 +16,22 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
-
+  //edge cases
+  if (s1.length !== s2.length) return false;
+  if (typeof s1 !== 'string' && typeof s2 !== 'string') return false;
+  //split string
+  s1Arr = s1.split('');
+  s2Arr = s2.split('');
+  //check to see if s1 is spelled out in s2 sequentially
+  //match the first value of s1 in s2
+  let temp = [];
+  let idx = s2Arr.indexOf(s1Arr[0]);
+  temp.push(s2Arr[idx]);
+  s2Arr.splice(idx, 1);
+  //then start iterating through the string and match if s1[1] === s2[index where we found s1[1]]
+  return s1 === temp.join('');
 }
 
-module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
+console.log(stringRotation('hello', 'llohe'));
+
+module.exports = { isSubstring: isSubstring, stringRotation: stringRotation };
