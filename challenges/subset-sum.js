@@ -9,37 +9,21 @@
  */
 
 function subsetSum(array, target) {
-    // 3
-    // 7
-    // 4
-    // 2
-    // 3 7
-    // 3 4
-    // 3 2
-    // 7 4
-    // 7 2
-    // 4 2
-    // 3 7 4
-    // 3 7 2
-    // 3 4 2
-    // 7 4 2
 
-    // 14
-    if (target === 0) return true;
+    if (array.length === 0) return false;
+    
+    if (array.includes(target)) return true;
 
-    if (array.length === 0 && target !== 0) {
-      console.log('test1');
-      return false;
+    for (let i = 0; i < array.length; i++) {
+      
+      let newArray = [...array.slice(0, i), ...array.slice(i + 1)];
+      
+      let newTarget = target - array[i];
+      
+      if (subsetSum(newArray, newTarget)) return true;
     }
 
-    if (array[array.length - 1] > target) {
-      console.log('test2');
-      array = array.slice(0, -1);
-      return subsetSum(array, target);
-    }
-    console.log('test3');
-    array = array.slice(0, -1);
-    return subsetSum(array, target) || subsetSum(array, target - array.slice(0, -1)); 
+    return false;
 }
 
 module.exports = subsetSum;
