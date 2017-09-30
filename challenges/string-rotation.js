@@ -16,7 +16,28 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
-
+  // input two strings, one base and the second a potential rotation of the first
+  // output true or false, if second string is a rotation of first
+  // rotate the first string
+    // slice into two segments
+    // iterate through first string and slice
+    // concat the two segments and push to container array
+  const rotatedStrings = [];
+  for (let i = 0; i < s1.length; i++) {
+    let seg1 = s1.slice(0,i);
+    let seg2 = s1.slice(i);
+    let rotatedStr = seg2 + seg1;
+    rotatedStrings.push(rotatedStr)
+    console.log(rotatedStr);
+  }
+  for (let i = 0; i < rotatedStrings.length; i++) {
+    let rotatedStr = rotatedStrings[i];
+    if (s2 === rotatedStr) {
+      return true;
+    }
+  }
+  return false;
 }
+// console.log(stringRotation('code', 'code'));
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
