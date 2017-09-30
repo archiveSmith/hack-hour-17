@@ -16,7 +16,23 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
+  //find which string is longer
+  if (s1.length!==s2.length)
+  return isSubstring(s1,s2);
+
+    let s1arr = s1.split('');
+    let s2arr = s2.split('');
+
+    let sorted1 = s1arr.sort((a,b) => {
+      return a.charCodeAt(0)-b.charCodeAt(0);
+    })
+    let sorted2 = s2arr.sort((a,b) => {
+      return  a.charCodeAt(0)-b.charCodeAt(0);
+    })
+    console.log(sorted1,sorted2)
+    return isSubstring(sorted1.join(), sorted2.join())
 
 }
 
+console.log(stringRotation('hello','elloh'));
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
