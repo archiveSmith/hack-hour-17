@@ -9,19 +9,30 @@
  */
 
 function subsetSum(array, target) {
-    let result = 0;
+    if (array.length === 0) return false;
+    if (array.includes(target)) return true;
 
-    for (var i = 0; i < array.length; i++) {
-        if (array[i] === target) return true;
-        if (result === target) return true;
-        if (result < target) {
-            result += array[i];
-        } else {
-            result -= array[i-1];
-            result += array[i]
-        }
-    }
-    return false
+    for (let i = 0; i < array.length; i += 1) {
+        const newArr = [...array.slice(0, i), ...array.slice(i + 1)];
+        const newtarget = target - array[i];
+        if (subsetSum(newArr, newtarget)) return true;
+    } return false;
+}
+
+
+    // let result = 0;
+
+    // for (var i = 0; i < array.length; i++) {
+    //     if (array[i] === target) return true;
+    //     if (result === target) return true;
+    //     if (result < target) {
+    //         result += array[i];
+    //     } else {
+    //         result -= array[i-1];
+    //         result += array[i]
+    //     }
+    // }
+    // return false
 
 }
 
