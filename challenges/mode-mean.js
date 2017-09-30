@@ -8,7 +8,6 @@
  * Return true or false
  *
  */
-<<<<<<< HEAD
 function modeMean(array){
   if (array.length === 0) return false; //base case
   // MEAN
@@ -111,12 +110,8 @@ function mode(array)
 }
 
 console.log(mode([2,2,3,3,3,3,5,5,5,5]));
-=======
 
 
 function modemean(array) {
 
 }
-
-module.exports = modemean;
->>>>>>> 1b9f9e7ca977c816643da732fe31a1bbee0fe302
