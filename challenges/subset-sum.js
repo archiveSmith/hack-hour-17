@@ -10,6 +10,36 @@
 
 function subsetSum(array, target) {
 
+// have only elements smaller than target or equal to target
+let number = array.filter(function(element) {
+    if(element <= target) {
+        return element;
+    }
+});
+
+//sort big to small
+let sorted = number.sort(function(a,b) {
+    return b-a;
+});
+
+let sum = 0;
+let result = [];
+for(let i=0; i<sorted.length; i++) {
+    if(sum + sorted[i] <= target) {
+        sum += sorted[i];
+        result.push(sorted[i]);
+    }
+}
+
+if(result.reduce(function(sum,ele) {
+    return sum+ele
+}) === target) {
+    return true;
+}
+else {
+    return false;
+}
+
 }
 
 module.exports = subsetSum;
