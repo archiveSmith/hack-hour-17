@@ -45,6 +45,31 @@ function matches(topOfStack, closedParenthesis) {
   for (var k = 0; k < tokens.length; k++) {
     if (tokens[k][0] === topOfStack && 
         tokens[k][1] === closedParenthesis) {
+var tokens = [ ['{','}'] , ['[',']'] , ['(',')'] ];
+
+
+function isParenthesis(char) {
+  var str = '{}[]()';
+  if (str.indexOf(char) > -1) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function isOpenParenthesis(parenthesisChar) {
+  for (var j = 0; j < tokens.length; j++) {
+    if (tokens[j][0] === parenthesisChar) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function matches(topOfStack, closedParenthesis) {
+  for (var k = 0; k < tokens.length; k++) {
+    if (tokens[k][0] === topOfStack && 
+        tokens[k][1] === closedParenthesis) {
       return true;
     }
   }
@@ -75,5 +100,8 @@ function balancedParens(input){
       }
     }
   }
+        }
+  }
+}
 
 module.exports = balancedParens;
