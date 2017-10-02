@@ -17,6 +17,34 @@ function isSubstring(s1, s2) {
 
 function stringRotation(s1, s2) {
 
+//concat s2 to itself then run isSubstring.
+
+  if (s1.length !== s2.length) {
+    return false;
+  }
+  if (s1 === s2) {
+    return true;
+  }
+
+  return isSubstring(s2.concat(s2), s1);
+
+//determine potential shift
+// let shift;
+// for (let i = 0; i < s2.length; i++) {
+//   if (s2.charAt(i) === s1.charAt(0)) {
+//     shift = i;
+//   }
+// }
+
+//could check concatinating strings...
+// let partTwo = s2.slice(shift);
+// let partOne = s2.slice(0,shift);
+
+// if (partTwo.concat(partOne) === s1) {
+//   return true;
+// }
+
+// return false;
 }
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
