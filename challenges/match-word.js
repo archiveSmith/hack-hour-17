@@ -8,7 +8,29 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-
+    //edge cases
+    if (str.length <= 1) return true;
+    //use regex to clean up non alphanumeric char
+    //replace non alphanumeric
+    let temp = str.replace(/[^a-z0-9]/gi, ' ').replace(/\s+/g, ' ').trim().split(' ');
+    // console.log(temp);
+    //grab each word
+    for (let i = 0; i < temp.length; i++) {
+        //reverse the word
+        let revTemp = temp[i].split('').reverse().join('');
+        //use indexof to find the word 
+        if (temp.indexOf(revTemp) === -1) {
+            return false;
+        } else {
+            //shift 1st value off of array
+            temp.shift();
+            //splice the matching value
+            temp.splice(temp.indexOf(revTemp), 1);
+        }
+    }
+    if (temp.length <= 1) return true;
 }
+
+console.log(matchWord('for__if__rof__fi'));
 
 module.exports = matchWord;
