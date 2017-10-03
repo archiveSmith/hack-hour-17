@@ -25,9 +25,7 @@ function stringRotation(s1, s2) {
 }
 
 //=========REFACTORED VERSION=========//
-function stringRotation(s1, s2) {
-  if (s1.length !== s2.length) return false;
-  return isSubstring(s1 + s1, s2);
+const stringRotation (s1, s2) => s1.length === s2.length && isSubstring(s1 + s1, s2);
 }
 
 
