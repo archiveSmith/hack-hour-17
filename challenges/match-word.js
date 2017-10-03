@@ -13,18 +13,23 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
+  let result;
   // change string to lower case
   const input = str.toLowerCase().replace(/[^a-z]/gi, ' ');
   const arr = input.split(' ');
   const filteredArr = arr.filter(index => index !== '');
 
   const first = filteredArr[0];
-  const last = filteredArr[filteredArr.length - 1].split('').reverse().join('');
-
+  const last = filteredArr[filteredArr.length - 1];
+  const revLast = last.split('').reverse().join('');
   if (first === last) {
-    return true;
+    result = false;
+  } else if (first === revLast) {
+    result = true;
+  } else {
+    result = false;
   }
-  return false;
+  return result;
 }
 
 module.exports = matchWord;
