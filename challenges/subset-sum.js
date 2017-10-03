@@ -9,6 +9,7 @@
  */
 
 function subsetSum(array, target) {
+<<<<<<< HEAD
     if (array.length === 0) return false;
     if (array.includes(target)) return true;
 
@@ -33,6 +34,8 @@ function subsetSum(array, target) {
     //     }
     // }
     // return false
+=======
+>>>>>>> 1efc993ded5f1141fa29d0de8eb932e57112a378
 
 }
 
