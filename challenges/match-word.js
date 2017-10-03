@@ -29,6 +29,6 @@ function matchWord(str) {
 function removeSpace(arr) 
 
 
-module.exports = matchWord;
-// Tests
+module.exports = matchWord; 
+// Test
 // console.log(matchWord('__END_DNE-----'));
