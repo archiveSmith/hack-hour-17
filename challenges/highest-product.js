@@ -5,7 +5,7 @@
 function highestProduct(array) {
   let largestProduct = -Infinity;
   
-  if(array.length < 3) {
+  if (!Array.isArray(array) && array.length < 3 ) {
     return 0;
   }
     
