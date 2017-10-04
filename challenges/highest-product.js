@@ -11,9 +11,10 @@ function highestProduct(array) {
     }
 
     //check positive and negative
-    array.sort();
+    array.sort((a,b) => a-b);
     if(array[0]*array[1] > array[array.length-1]*array[array.length-2]) {
         if (array[0]*array[1]*array[array.length-1] > 0) {
+            console.log(array);
             return array[0]*array[1]*array[array.length-1];
         }
     }
@@ -25,5 +26,7 @@ function highestProduct(array) {
 
     return 0;
 }
+
+console.log(highestProduct([-4,-3,-2,1]))
 
 module.exports = highestProduct;
