@@ -3,8 +3,13 @@
  */
 
 function highestProduct(array) {
-
+    let max = -Infinity;
+    array.forEach(ele => {
+        if(ele > max) {
+            max = ele;
+        }
+    })
+    return max;
 }
-
 
 module.exports = highestProduct;
