@@ -8,7 +8,20 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-
+    var split = str.split(/[^a-zA-Z]+/);
+    var parenArr = [];
+    for(var i = 0; i < split.length; i +=1) {
+        if(split[i] !== '' ) {
+            if(parenArr.length === 0) {
+                parenArr.push(split[i]);
+            } else if(split[i].toUpperCase() === parenArr[parenArr.length-1].toUpperCase().split('').reverse().join('')) {
+                parenArr.pop();
+            } else if( split[i] !== '') {
+                parenArr.push(split[i]);
+            }
+        }
+    }
+    return (parenArr.length === 0);
 }
 
 module.exports = matchWord;
