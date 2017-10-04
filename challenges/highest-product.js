@@ -3,13 +3,9 @@
  */
 
 function highestProduct(array) {
-    let max = -Infinity;
-    array.forEach(ele => {
-        if(ele > max) {
-            max = ele;
-        }
+    const pool = array.sort(function(a,b) {
+        return b-a;
     })
-    return max;
+    return pool[0]*pool[1]*pool[2]
 }
-
 module.exports = highestProduct;
