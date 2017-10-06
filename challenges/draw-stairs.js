@@ -14,7 +14,32 @@
 */
 
 function drawStairs(n) {
+<<<<<<< HEAD
+    let stair = "";
+    // edge case
+    if (n < 0 || n > 100) {
+        return 'Error';
+    }
+    for (let i = 0; i < n; i++) {
+        for (let j = 0; j < n; j++) {
+            if (i < n - j - 1) {
+                stair += " ";
+            } else {
+                stair += "*";
+            }
+        }
+        stair += '\n'
+    }
+    console.log(stair)
 
+    // let stair = '';
+    // for (var i = 1; i <= n; i++) {
+    //     stair += ' '.repeat(n - i) + '*'.repeat(i) + '\n';
+    // }
+    // return stair;
+=======
+
+>>>>>>> 33f042bb7b5fe675eb799a30535e4dc5c19cf066
 }
 
 
