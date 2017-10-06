@@ -25,8 +25,8 @@ function highestProduct(array) {
     // return product;
 
     // or sort and then take first three elements and multiply them
-    if (array.length < 3) return false;
-
+    if (array.length < 3) return 0;
+    
     let sorted = array.sort((a, b) => {
         return b - a;
     });
