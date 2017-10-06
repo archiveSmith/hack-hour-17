@@ -16,7 +16,7 @@ function zip(l1, l2) {
   if (!l2)
     return l1;
 
-  let headNode = l1;
+  let newHead = l1;
   let leftNode = l1;
   let rightNode = l2;
 
