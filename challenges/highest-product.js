@@ -12,15 +12,7 @@ function highestProduct(array) {
     let firstTwoAndLastOne = arr[0] * arr[1] * arr[arr.length - 1];
     let firstOneAndLastTwo = arr[0] * arr[arr.length - 1] * arr[arr.length - 2]
     
-    let tempArr = [lastThree, firstThree, firstTwoAndLastOne, firstOneAndLastTwo];
-    let highest = tempArr[0];
-    
-    for (let i = 0; i < 4; i++) {
-      if (tempArr[i] > highest) {
-        highest = tempArr[i];
-      }
-    }
-    return highest;
+    return Math.max(lastThree, firstThree, firstTwoAndLastOne, firstOneAndLastTwo);
 }
 
 
