@@ -3,6 +3,7 @@
  */
 
 function highestProduct(array) {
+<<<<<<< HEAD
     //get all products of three numbers from an array and find the biggest one
 
     //edge case
@@ -34,6 +35,8 @@ function highestProduct(array) {
     return sorted[0] * sorted[1] * sorted[2]
 
 
+=======
+>>>>>>> a6fd96a854362e28eef0afab26407e7ca785fd1d
 
 }
 
