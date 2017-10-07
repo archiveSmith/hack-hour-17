@@ -11,40 +11,42 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
-  var currentL1 = l1;
-  var currentL2 = l2;
-  while (currentL1 && currentL2) { // while both are not null...
-    let t1 = currentL1.next;
-    let t2 = currentL2.next;
+  if (!l1.next) {
     l1.next = l2;
-    l2.next = t1;
-    currentL1 = currentL1.next;
-    currentL2 = currentL2.next;
   }
+  let current = l1;
+  while (l1 && l2) { // while both are not null...
+    let t1 = current.next;
+    current.next = l2;
+    let t2 = l2.next;
+    l2.next = t1;
+    current = t1;
+    l2 = t2;
+  }
+  return l1;
 };
 
 module.exports = {Node: Node, zip: zip};
 
-var a = new Node(1);
-var b = new Node(2);
-var c = new Node(3);
-a.next = b;
-b.next = c
-var l1 = a;
-
-var d = new Node(4);
-var e = new Node(5);
-var f = new Node(6);
-d.next = e;
-e.next = f;
-var l2 = d;
-
-
-
-console.log(l1);
-console.log(l2);
-
-zip(l1, l2);
-
-console.log(l1);
-console.log(l2);
+// var a = new Node(1);
+// var b = new Node(3);
+// var c = new Node(5);
+//
+// var d = new Node(2);
+// var e = new Node(4);
+// var f = new Node(6);
+//
+// a.next = b;
+// b.next = c
+// var l1 = a;
+//
+// d.next = e;
+// e.next = f;
+// var l2 = d;
+//
+// zip(l1, l2);
+//
+// while (l1) {
+//   console.log(l1.value);
+//   l1 = l1.next;
+// }
