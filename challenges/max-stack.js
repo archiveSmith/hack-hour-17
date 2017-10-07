@@ -31,3 +31,4 @@ Stack.prototype.getMax = function() {
   var max = Math.max(...maxValue);
   return max;
 }
+module.exports = Stack;
