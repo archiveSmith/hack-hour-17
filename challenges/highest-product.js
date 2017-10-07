@@ -3,6 +3,7 @@
  */
 
 function highestProduct(array) {
+<<<<<<< HEAD
     if (array.length < 3) return 0;
     if (!Array.isArray(array)) return 0;
 
@@ -52,5 +53,10 @@ const highestProduct = (array) => {
     // Return higher product between the two configurations
     return Math.max(biggest.one * biggest.two * biggest.three, biggest.one * smallest.one * smallest.two);
   };
+=======
+
+}
+
+>>>>>>> a6fd96a854362e28eef0afab26407e7ca785fd1d
 
 module.exports = highestProduct;
