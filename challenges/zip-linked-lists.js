@@ -11,6 +11,20 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
+  //create new linked list
+  let zipList = new Node(l1,l2);
+  //set up head to be l1.val at index 0
+  let head = l1.value;
+  zipList.head = curr;
+  //this part repeats
+  //udpate this.next to l2.value at index 0
+  while (l1, l2){
+    zipList.next = l2.value;
+    curr = l1.value;
+    zipList.next = l1.value;
+    
+  }
+
 };
 
 module.exports = {Node: Node, zip: zip};
