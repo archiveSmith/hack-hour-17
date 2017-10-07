@@ -4,6 +4,7 @@
 
 function highestProduct(array) {
 	if (array.length < 3) return 0;
+	
 	var myMax = (arr) => {
 	 return arr.reduce((acc, cur) => {
 	 	return cur > acc ? cur : acc
