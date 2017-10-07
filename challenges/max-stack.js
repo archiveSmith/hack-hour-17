@@ -8,8 +8,6 @@
 
 function Stack() {
   // body...
-  function Stack(element) {
-  // body...
   this.stack = [];
 }
 Stack.prototype.push = function (element) {
