@@ -1,0 +1,21 @@
+/**
+ * Given an array of integers, find the highest product you can get from three of the integers.
+ */
+function highestProduct(array) {
+  var temp = [];
+  for(let i = 0; i < 3; i++){
+    var max = array.reduce(function(a, b) {
+      return Math.max(a, b);
+    });
+    temp.push(max);
+
+    for(let x = 0; x < array.length; x++){
+      if(array[x] === max){
+        array.splice(x, 1);
+      }
+    }
+  }
+  return temp.reduce(function(a,b){return a*b;});
+}
+
+module.exports = highestProduct;
