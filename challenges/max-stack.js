@@ -8,12 +8,11 @@
 
 function Stack() {
   // is stack an object... or array? or both?
-  let stack = {};
-  let stack.array = [];
+  let stack = new Array();
   //doesn't array.push automatically return length?
-  stack.push = function (x) {this.array.push(x)};
-  stack.pop = function () {return this.array.pop()};
-  stack.getMax = function () {return Math.max(array)};
+  this.push = function (x) {this.push(x)};
+  this.pop = function () {return this.pop()};
+  this.getMax = function () {return Math.max(stack)};
 
   return stack;
 }
