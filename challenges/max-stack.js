@@ -8,6 +8,28 @@
 
 function Stack() {
   // body...
+  //push
+  push = arr => {
+    if (!Array.isArray(arr) ||  arr.length < 1) throw 'error';
+    arr[arr.length] = arr;
+    return arr.length;
+  }
+
+  //pop
+  pop = arr => {
+    if (!Array.isArray(arr) ||  arr.length < 1) throw 'error';
+    if (Array.isArrary(arr)) return arr.slice(-1,1);
+  }
+
+  //getMax
+  getMax = (arr) => {
+    for (let i = 0; i < arr.length; i += 1){
+      //loop through stack 
+      //store value to compare in temp var
+      //compare to the next
+      //return the temp
+    }
+  }
 }
 
 module.exports = Stack;
