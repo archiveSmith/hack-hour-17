@@ -9,13 +9,13 @@
 function Stack() {
   this.storage = {};
   this.index = 0;
-  this.highestVal = -Infinity;
+  this.highestVal = [-Infinity];
 }
 
 Stack.prototype.push = function(val) {
   this.storage[this.index] = val;
-  if (val > this.highestVal) {
-    this.highestVal = val;
+  if (val > this.highestVal[this.highestVal.length -1]) {
+    this.highestVal.push(val);
   }
   this.index++; 
   return this.index;
@@ -23,6 +23,9 @@ Stack.prototype.push = function(val) {
 
 Stack.prototype.pop = function() {
   let element = this.storage[this.index-1];
+  if (element === this.highestVal[this.highestVal.length-1]) {
+    this.highestVal.splice(this.highestVal.length - 1, 1);
+  }
   delete this.storage[this.index-1];
   this.index--;
   return element; 
@@ -31,7 +34,10 @@ Stack.prototype.pop = function() {
 
 Stack.prototype.getMax = function() {
   // O(1) solution
-  return this.highestVal;
+  if (this.highestVal[this.highestVal.length -1] === -Infinity) {
+    return undefined;
+  }
+  return this.highestVal[this.highestVal.length -1];
   // O(n) solution
   // let value = -Infinity;
   // for (x = 0; x < this.index; x += 1) {
@@ -51,9 +57,10 @@ module.exports = Stack;
 // stack.push(3);
 // stack.push(2);
 // // console.log(stack);
-// // stack.pop();
-// // stack.pop();
+// stack.pop();
+// stack.pop();
+// stack.pop();
 // console.log(stack);
 // console.log('getMax', stack.getMax());
-// console.log('pop', stack.pop());
-// console.log('pop', stack.pop());
+// // console.log('pop', stack.pop());
+// // console.log('pop', stack.pop());
