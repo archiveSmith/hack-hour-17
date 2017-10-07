@@ -14,7 +14,26 @@
  */
 
 function reverseInPlace(array) {
-
+  // input array
+  // output array reversed in place
+  // iterate forwards and unshift
+  // create a len variable to store the current length
+  // increment i by 2 to account for appending items to same array with each iteration
+  if (array.constructor !== Array) {
+    return 'not an array';
+  }
+  let len = array.length;
+  let originalLen = array.length;
+  for (let i = 0; i < len; i+=2) {
+    let num = array[i];
+    array.unshift(num);
+    len += 1;
+  }
+  // iterate backwards and splice one item
+  for (let i = len-1; i >= originalLen; i--) {
+    array.splice(i,1);
+  }
+  return array;
 }
-
+console.log(reverseInPlace([1,2,3,4,5,6,7]))
 module.exports = reverseInPlace;
