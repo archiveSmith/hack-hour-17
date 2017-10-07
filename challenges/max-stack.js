@@ -7,7 +7,12 @@
  */
 
 function Stack() {
-  // body...
+  // is stack an object... or array? or both?
+  let object = {};
+  let object.array = [];
+  object.push = function (x) {this.array.push(x)};
+  object.pop = function () {return this.array.pop()};
+  object.getMax = function () {return Math.max(array)};
 }
 
 module.exports = Stack;
