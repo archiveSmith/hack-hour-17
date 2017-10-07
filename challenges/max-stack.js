@@ -7,7 +7,26 @@
  */
 
 function Stack() {
-  // body...
+  
+  this.stack = [];
+
+  this.push = function(val) {
+    this.stack = this.stack.concat(val);
+    return this.stack.length;
+  };
+  
+  this.pop = function() {
+    let popped = this.stack[this.stack.length - 1];
+    this.stack.splice(-1, 1);
+    return temp;
+  };
+
+  this.getMax = function() {
+    let temp = this.stack.sort((a, b) => b - a);
+    return temp[0];
+  };
+  
+  return this.stack;
 }
 
 module.exports = Stack;
