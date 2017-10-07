@@ -7,7 +7,23 @@
  */
 
 function Stack() {
-  // body...
+  this.stack = [];
+  this.largestOrder = [];
+}
+
+Stack.prototype.push = function(itemToAdd) {
+  this.stack = this.stack.concat(itemToAdd);
+  return this.stack.length;
+}
+
+Stack.prototype.pop = function() {
+  const retItem = this.stack[this.stack.length - 1];
+  this.stack.length = this.stack.length - 1;
+  return retItem;
+}
+
+Stack.prototype.getMax = function() {
+  return this.stack.reduce((acc, curr) => curr > acc ? curr : acc);
 }
 
 module.exports = Stack;
