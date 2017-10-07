@@ -8,10 +8,15 @@
 
 function Stack() {
   this.stack = [];
-  this.largestOrder = [];
+  this.largestItem;
 }
 
 Stack.prototype.push = function(itemToAdd) {
+  if (this.stack.length === 0) {
+    this.largestItem = itemToAdd;
+  } else {
+    this.largestItem = this.largestItem < itemToAdd ? itemToAdd : this.largestItem;
+  }
   this.stack = this.stack.concat(itemToAdd);
   return this.stack.length;
 }
@@ -19,11 +24,14 @@ Stack.prototype.push = function(itemToAdd) {
 Stack.prototype.pop = function() {
   const retItem = this.stack[this.stack.length - 1];
   this.stack.length = this.stack.length - 1;
+  if (retItem === this.largestItem) {
+    this.largestItem = this.stack.reduce((acc, curr) => curr > acc ? curr : acc);
+  }
   return retItem;
 }
 
 Stack.prototype.getMax = function() {
-  return this.stack.reduce((acc, curr) => curr > acc ? curr : acc);
+  return this.largestItem;
 }
 
 module.exports = Stack;
