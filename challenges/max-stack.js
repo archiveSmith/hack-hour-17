@@ -20,6 +20,7 @@ Stack.prototype.pop = function () {
 }
 
 Stack.prototype.getMax = function () {
+  if (this.stack = []) return undefined;
   let max;
   for (let i = 0; i < this.stack.length; i += 1) {
     if (!max || max < this.stack[i]) {
