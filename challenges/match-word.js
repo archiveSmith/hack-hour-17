@@ -8,10 +8,15 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
+    //if str is not a string, finish the function.
 if(typeof str !== 'string') return;
+    //if str is empty string, return true. because ... i dont know
 if(str ==='') return true;
 
-const words = str.split(/[^a-zA-Z]/).filter(elem => elem !=='').map(word => word.toLowerCase())
+
+const words = str.split(/[^a-zA-Z]/)
+.filter(elem => elem !=='')
+.map(word => word.toLowerCase())
 
 const wordStack = [];
 //for each word, compare reverse with top of wordstack
