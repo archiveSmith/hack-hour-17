@@ -12,12 +12,13 @@ function Stack() {
 }
 Stack.prototype.push = function (element) {
   this.stack[this.stack.length] = element;
+  return this.stack.length;
 };
 
 Stack.prototype.pop = function () {
-  console.log(this.stack[this.stack.length-1]);
+  let popped = this.stack[this.stack.length-1];
   this.stack.length = this.stack.length-1;
-  return this.stack[this.stack.length-1];
+  return popped;
 };
 
 Stack.prototype.getMax = function () {
@@ -26,6 +27,5 @@ Stack.prototype.getMax = function () {
   });
   return max;
 };
-}
 
 module.exports = Stack;
