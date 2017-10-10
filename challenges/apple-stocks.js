@@ -13,6 +13,34 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
+    if(Array.isArray(stock_prices_yesterday) === false) {
+        return 0;
+    }
+    
+    const change = stock_prices_yesterday;
+
+    let max = -Infinity
+    for(let i=0; i<change.length; i++) {
+        if(typeof change[i] !== 'number') {
+            return 0
+        }
+        
+        if(change[i] > max) {
+            max = change[i];
+                console.log(max)
+
+        }
+    }
+    let low = Infinity
+    for(let i=0; i<change.length; i++) {
+        if(change[i] < low) {
+            low = change[i];
+        }
+    }
+    if(low === max) {
+        return 0;
+    }
+    return max-low;
 
 }
 
