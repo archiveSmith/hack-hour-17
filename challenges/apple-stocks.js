@@ -33,13 +33,13 @@ function bestProfit(stock_prices_yesterday) {
 
 module.exports = bestProfit;
 
-const test = [500, 100, 700, 200];
-const test1 = {};
-const test2 = [];
-const test3 = [500, 400, 300, 200];
-const test4 = [500, 300, 500, 500];
-console.log('best profit should be 600', bestProfit(test));
-console.log('not valid, should return 0', bestProfit(test1));
-console.log('not valid, should return 0', bestProfit(test2));
-console.log('no profit, should return 0', bestProfit(test3));
-console.log('best profit should be 200', bestProfit(test4));
+// const test = [500, 100, 700, 200];
+// const test1 = {};
+// const test2 = [];
+// const test3 = [500, 400, 300, 200];
+// const test4 = [500, 300, 500, 500];
+// console.log('best profit should be 600', bestProfit(test));
+// console.log('not valid, should return 0', bestProfit(test1));
+// console.log('not valid, should return 0', bestProfit(test2));
+// console.log('no profit, should return 0', bestProfit(test3));
+// console.log('best profit should be 200', bestProfit(test4));
