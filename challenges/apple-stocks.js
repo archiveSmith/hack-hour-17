@@ -13,7 +13,19 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
-
+    //edge cases
+    if (!Array.isArray(stock_prices_yesterday) || stock_prices_yesterday.length === 0 || !stock_prices_yesterday) return 0;
+    if (stock_prices_yesterday.length === 1) return stock_prices_yesterday[0];
+    //one buy and one sell
+    //get max and min values
+    let max = Math.max(...stock_prices_yesterday);
+    let min = Math.min(...stock_prices_yesterday);
+    if (max - min <= 0) return 0;
+    return max - min;
 }
+
+const test1 = [2, 2, 3, 4, 5, 10];
+
+console.log(bestProfit(test1));
 
 module.exports = bestProfit;
