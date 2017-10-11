@@ -31,14 +31,15 @@ function bestProfit(stock_prices_yesterday) {
         }
     }
 
-    if((max - min) > profit)
-        profit = max - min;
+    // if((max - min) > profit)
+    //     profit = max - min;
 
-    return profit;
+    // return profit;
+    return (max - min) > profit ? max - min : profit;
 }
 
 
-// console.log(bestProfit([7,5,4,1,2,4,3,7,0,7,3]));
+console.log(bestProfit([7,5,4,1,2,4,3,7,0,7,3]));
 
 
 module.exports = bestProfit;
