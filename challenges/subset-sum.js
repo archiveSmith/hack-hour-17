@@ -9,7 +9,26 @@
  */
 
 function subsetSum(array, target) {
+//check for individual pair matches
+  for (let i = 1; i < array.length; i += 1) {
+    if (array[0] + array[i] === target) {
+      return true;
+    }
+  }
+
+//pull one number out of array and compare against rest
+function subArrayCheck (array, subArray = array.slice(1)) {
+  for (let i = 0; i < array.length; i += 1) {
+    for (let j = 0; j < subArray.length; j += 1) {
+      if (array[0] + 
+    }
+  }
+}
+
+return false;
 
 }
 
 module.exports = subsetSum;
+
+console.log(subsetSum([3, 7, 4], 5));
