@@ -13,25 +13,54 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
-const maxPrice = 0;
-const minPrice = 0;
-const arr = stock_prices_yesterday;
-//find highest number in array
-for (let i = 0; i < arr.length; i++) {
-    if (arr[i] > maxPrice) {
-        maxPrice = arr[i];
+    let maxPrice = 0;
+    let minPrice = Infinity;
+    const arr = stock_prices_yesterday;
+    let result;
+    if (!Array.isArray(arr) || !arr.length) return 0;
+    //find highest number in array
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > maxPrice) {
+            maxPrice = arr[i];
+        }
     }
+    // get same array with all number before the highest one
+    arr.splice(arr.indexOf(maxPrice));
+
+    //find lowest number in new arrays
+    for (let j = 0; j < arr.length; j++) {
+        if (arr[j] < minPrice) {
+            minPrice = arr[j];
+        }
+    }
+    result = maxPrice - minPrice;
+    return result;
 }
 
-newArr = arr.splice()
+// function bestProfit(prices) {
+//     // Edge cases: Input not an array or empty array. Return 0.
+//     if (!Array.isArray(prices) || !prices.length) return 0;
+  
+//     // Use first price to initialize lowest price to buy.
+//     // Initialize highest profit as 0.
+//     let buy = prices[0], profit = 0;
+  
+//     // Loop through array.
+//     for (let i = 0; i < prices.length; i++) {
+  
+//       // If we see a price lower than our lowest price so far,
+//       // set our lowest price so far to that lower price.
+//       buy = Math.min(buy, prices[i]);
+  
+//       // Set profit to highest between itself and newest price
+//       // minus lowest price.
+//       profit = Math.max(profit, prices[i] - buy);
+//     }
+  
+//     // Return profit value at the end.
+//     return profit;
+//   }
 
-
-//find lowest number in array before the highest number happens
-for (let j = 0; j < arr.length; j++) {
-    if (arr[j] < maxPrice) {
-        minPrice = arr[j];
-    }
-}
 
 //return the difference as the max profit
 
