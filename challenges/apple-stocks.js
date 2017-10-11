@@ -13,7 +13,28 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
+  let high = Math.max(...stock_prices_yesterday);
+  let highIndex = stock_prices_yesterday.indexOf(high);
+  let low = Math.min(...stock_prices_yesterday);
+  let lowIndex = stock_prices_yesterday.indexOf(Math.min(...stock_prices_yesterday));
 
+  if (lowIndex < highIndex) {
+    return high - low;
+  }
+
+  //if low comes after high in array
+  let newArray = stock_prices_yesterday.slice(lowIndex);
+  high = Math.max(...newArray);
+  let difference = high - low;
+  
+  if (difference > 0) {
+    return difference;
+  }
+
+  return 0;
+ 
 }
 
 module.exports = bestProfit;
+
+console.log(bestProfit([76,23,56,44]));

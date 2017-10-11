@@ -8,7 +8,38 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
+  if (str.length === 0) {
+    return true;
+  }
+  if (str.length <= 3) {
+    return false;
+  }
+
+  //grab words from str
+  let matches = str.match(/[a-zA-Z]+/g);
+  console.log(matches);
+ 
+
+  // for (let i = 0; i < letters.length; i += 1) {
+  //   let checkedWord = '';
+  //   for (var j = 0; j < letters[i].length; j++) {
+  //     if (/[a-zA-Z]/.test(letters[i][j])) {
+  //     checkedWord += letters[i][j];
+  //     }
+  //     firstWord = checkedWord;
+  //   }
+  // } 
+
+
+
+//capture word and store it to be compared
+
+//loop through string from back to find word
+
+//check if words mirror
 
 }
 
 module.exports = matchWord;
+
+console.log(matchWord('for $$if rof fi'));
