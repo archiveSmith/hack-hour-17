@@ -14,6 +14,7 @@
  */
 
 function mergeArrays(arr1, arr2) {
+<<<<<<< HEAD
   const mergedArr = [];
   for(let i = 0, j = 0; i < arr1.length || j < arr2.length;) {
     if (i === arr1.length) {
@@ -35,4 +36,9 @@ function mergeArrays(arr1, arr2) {
 // var another_array = [1,5,8,12,14,19];
 // console.log(mergeArrays(my_array, another_array));
 
+=======
+
+}
+
+>>>>>>> 51ba34afc03fef78fa318bc21b18d0552fbc9fd1
 module.exports = mergeArrays;
