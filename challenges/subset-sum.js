@@ -9,7 +9,53 @@
  */
 
 function subsetSum(array, target) {
+    // base cases
+    if (array.indexOf(target) !== -1) {
+    return true;
+    } else if (array.length === 0) {
+        return false;
+    }
+    let allCombos = [];
 
+    //creates all 2 combos
+    if (array.length >= 2) {
+        for (let x = 0; x < array.length; x++) {
+            for(let y = x+1; y < array.length; y++) {
+                let tempArr = [array[x]];
+                tempArr.push(array[y]);
+                allCombos.push(tempArr);
+            }
+        }
+    } 
+    // creates all 3 combos
+    if (array.length >= 3) {
+        for (let x = 0; x < array.length; x++) {
+            let tempArr = [array[x]];
+            for(let y = 1; y <= 2; y++) {
+                let num = y;
+                let total = x + num;
+                if (total > array.length -1) {
+                    total = total - array.length;
+                }
+                tempArr.push(array[total]);
+            }
+            allCombos.push(tempArr);
+        }
+    }
+
+    // check if any array in allCombos sums to target
+    for (let i = 0; i < allCombos.length; i++) {
+        var sum = allCombos[i].reduce(function(sum, value) {
+            return sum + value;
+          }, 0);
+        if (sum === target) {
+            return true;
+        }
+    }
+
+    return allCombos;
 }
 
-module.exports = subsetSum;
+// module.exports = subsetSum;
+
+console.log(subsetSum([3, 7, 4, 2], 5));
