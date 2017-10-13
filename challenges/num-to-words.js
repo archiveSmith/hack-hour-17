@@ -23,7 +23,7 @@ function threeDigit(num) {
 
   //check hundreds
   if (Math.floor(num / 100) > 0) {
-    console.log(num, Math.floor(num / 100), ones[Math.floor(num / 100)])
+    // console.log(num, Math.floor(num / 100), ones[Math.floor(num / 100)])
     numWord += ones[Math.floor(num / 100)] + 'Hundred'
     num -= Math.floor(num / 100) * 100;
   }
@@ -65,15 +65,15 @@ function numToWords(num) {
   return word;
 }
 
-console.log([
-  // numToWords(0), //-> 'Zero'
-  // numToWords(43), //-> 'FortyThree'
-  // numToWords(99), //-> 'NinetyNine'
-  // numToWords(2999), //-> 'TwoThousandNineHundredNintyNine'
-  // numToWords(15), //-> 'Fifteen'
-  // numToWords(2483579411), //-> 'TwoBillionFourHundredEightyThreeMillionFiveHundredSeventyNineThousandFourHundredEleven'
-  // numToWords(300525151340440), //-> 'ThreeHundredTrillionFiveHundredTwentyFiveBillionOneHundredFiftyOneMillionThreeHundredFortyThousandFourHundredForty'
-  numToWords(92120000000000000), //-> 'NintyTwoQuadrillionOneHundredTwentyTrillion'
-])
+// console.log([
+//   // numToWords(0), //-> 'Zero'
+//   // numToWords(43), //-> 'FortyThree'
+//   // numToWords(99), //-> 'NinetyNine'
+//   // numToWords(155), //-> 'Fifteen'
+//   // numToWords(2999), //-> 'TwoThousandNineHundredNintyNine'
+//   // numToWords(2483579411), //-> 'TwoBillionFourHundredEightyThreeMillionFiveHundredSeventyNineThousandFourHundredEleven'
+//   // numToWords(300525151340440), //-> 'ThreeHundredTrillionFiveHundredTwentyFiveBillionOneHundredFiftyOneMillionThreeHundredFortyThousandFourHundredForty'
+//   // numToWords(92120000000000000), //-> 'NintyTwoQuadrillionOneHundredTwentyTrillion'
+// ])
 
 module.exports = numToWords;
