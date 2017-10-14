@@ -14,7 +14,27 @@
  */
 
 function mergeArrays(arr1, arr2) {
+    // let concatArr = arr1.concat(arr2);
 
+    // concatArr.sort(function (a, b) {
+    //     return a - b;
+    // });
+
+    // return concatArr;
+
+    let pointer1 = 0;
+    let pointer2 = 0;
+    let arr = [];
+    while (arr1[pointer1] !== undefined || arr2[pointer2] !== undefined) {
+        if (arr1[pointer1] < arr2[pointer2]) {
+            arr.push(arr1[pointer1++])
+        } else if (arr1[pointer1] >= arr2[pointer2]) {
+            arr.push(arr2[pointer2++])
+        } else {
+            arr.push(arr1[pointer1++]) || arr.push(arr2[pointer2++])
+        }
+    }
+    return arr;
 }
 
 module.exports = mergeArrays;

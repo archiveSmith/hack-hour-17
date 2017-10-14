@@ -13,8 +13,20 @@
  * DO NOT USE THE BUILT IN REVERSE METHOD
  */
 
+// idea is to go to the half of array and swap last with thoose at beggining
 function reverseInPlace(array) {
+    let len = array.length;
+    let halfOfArray = Math.floor(len / 2);
 
+    for (let i = 0; i < halfOfArray; i += 1) {
+        // let temp = array[i];
+        // array[i] = array [len - 1 - i];
+        // array[len - 1 - i] = temp;
+
+        //using es6 way for swapping 
+        [array[i], array[len - 1 - i]] = [array[len - 1 - i], array[i]]
+    }
+    return array;
 }
 
 module.exports = reverseInPlace;

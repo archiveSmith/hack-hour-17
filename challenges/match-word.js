@@ -8,7 +8,19 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
+    // if string is empty
+    if (str === '') return true;
 
+    str = str.replace(/^[^a-z]+/i, "");
+
+    let arrayOfStr = str.match(/[a-z]+/ig);
+    // console.log(arrayOfStr)
+    if (arrayOfStr.length < 2) return false;
+
+    let first = arrayOfStr[0].toLowerCase();
+    let lastReversed = arrayOfStr[arrayOfStr.length - 1].split('').reverse().join('').toLowerCase();
+
+    return first === lastReversed;
 }
 
 module.exports = matchWord;
