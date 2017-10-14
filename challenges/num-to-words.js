@@ -40,11 +40,11 @@ let digits = {
 };
 
 let postfix = { // key: length, val: postfix
-  0: '', // just the number
-  1: 'ty',
-  2: 'Hundred',
-  3: 'Thousand',
-  4: ' "tens" Thousand',
+  ones: '', // just the number
+  tens: 'ty',
+  hundrends: 'Hundred',
+  thousands: 'Thousand',
+  bigs: ['Million, Billion'],
   5: '"hundred" Thousand',
   6: 'million'
 }
@@ -53,8 +53,9 @@ let postfix = { // key: length, val: postfix
 function numToWords(num) {
   let result = '';
   let i = 0;
-  if (num === 0) return 'Zero';
   let numDigits = num.toString().length;
+  
+  if (num === 0) return 'Zero';
 
   if (num.toString()[numDigits - 2] === '1') { //teens
     var numStr = num.toString();
@@ -72,6 +73,23 @@ function numToWords(num) {
   }
   return result;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 console.log(numToWords(20));
 
