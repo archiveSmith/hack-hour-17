@@ -53,6 +53,7 @@ function Queue() {
 
 let queue = new Queue();
 
+/*
 console.log([
     queue.push(1),
     queue.push(2),
@@ -68,5 +69,6 @@ console.log([
     queue.pop(),
     queue.pop()
     ]);
+    */
 
 module.exports = { Stack: Stack, Queue: Queue };
