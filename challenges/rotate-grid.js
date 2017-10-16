@@ -19,13 +19,21 @@
  */
 
 function rotateGrid(grid, n) {
-   for (let i = grid[grid.length - 1]; i > 0; i--) {
-     for (let j = 0; j < n; j++) {
-         
-
-     }
-   }
-
+  var newGrid = [];
+  for (var i = 0; i < n; i++) {
+    var newRow = [];
+    // gets all the rows from the column
+    // starting from the bottom row
+    for (var j = n-1; j >= 0; j--) {
+      newRow.push(grid[j][i]);
+    }
+    newGrid.push(newRow);
+  }
+  return newGrid;
 }
+
+
+
+
 
 module.exports = rotateGrid;
