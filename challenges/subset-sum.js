@@ -1,5 +1,4 @@
-/* You are given an array of integers and a target number. Write a function that returns true if
- * there is a subset of the array that sums up to the target and returns false otherwise. A subset
+/* You are given an array of integers and a target number. Write a function that returns true if * there is a subset of the array that sums up to the target and returns false otherwise. A subset
  * can be any size and the elements do not have to appear consecutively in the array.
  *
  * subsetSum([3, 7, 4, 2], 5) - > true, 3 + 2 = 5
@@ -11,13 +10,16 @@
 function subsetSum(array, target) {
 	// outer loop to check arrays of all lengths (from 1 to array.length)
 	let subLength = 1;
+  debugger
 	while (subLength < array.length) {
 		// create ALL sub arrays with length subLength (not just consecutive!)
 		for (let i = 0; i < array.length; i += 1) {
 			for (let j = 0; j < array.length; j += 1) {
 				if (i !== j) {
 					let subArray = [array[i], array[j]];
-					if (sum(subArray) === target)
+					if (sum(subArray) === target) {
+            return true;
+          }
 				}
 			}
 		}
