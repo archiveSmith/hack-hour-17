@@ -14,7 +14,8 @@ function Stack() {
     }
 
     this.pop = () => {
-        
+        if (!this.length)
+            return undefined;
         this.length--;
         const e = this.stack[this.length];
         delete this.stack[this.length];
@@ -34,13 +35,16 @@ function Queue() {
     this.left = true;
     this.length = 0;
 
-    this.push = (e) => {
+    this.enqueue = (e) => {
             this.leftStack.push(e);       
         this.length += 1;
         return e;
     }
 
-    this.pop = (e) => {
+    this.dequeue = (e) => {
+        if(!this.rightStack.length && !this.leftStack.length)
+            return undefined;
+
         if(!this.rightStack.length) {
             for(let i = 0; i < this.length; i++) {
                 this.rightStack.push(this.leftStack.pop());
@@ -53,20 +57,20 @@ function Queue() {
 
 let queue = new Queue();
 
-console.log([
-    queue.push(1),
-    queue.push(2),
-    queue.push(3),
-    queue.push(4),
-    queue.pop(),
-    queue.pop(),
-    queue.push(5),
-    queue.push(6),
-    queue.pop(),
-    queue.push(7),
-    queue.pop(),
-    queue.pop(),
-    queue.pop()
-    ]);
+// console.log([
+//     queue.enqueue(1),
+//     queue.enqueue(2),
+//     queue.enqueue(3),
+//     queue.enqueue(4),
+//     queue.dequeue(),
+//     queue.dequeue(),
+//     queue.enqueue(5),
+//     queue.enqueue(6),
+//     queue.dequeue(),
+//     queue.enqueue(7),
+//     queue.dequeue(),
+//     queue.dequeue(),
+//     queue.dequeue()
+//     ]);
 
 module.exports = { Stack: Stack, Queue: Queue };
