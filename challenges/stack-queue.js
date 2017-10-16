@@ -35,16 +35,13 @@ class Queue {
     this.index = 0;
   }
 
-  unshift(val) {
-    let newStorage = {};
-    newStorage[0] = val;
-    Object.keys(this.storage).map(key => newStorage[Number(key) + 1] = this.storage[key]);
-    this.storage = newStorage;
+  enqueue(val) {
+    this.storage[this.index] = val;
     this.index++;
-    return this.storage;
+    return val;
   }
 
-  shift() {
+  dequeue() {
     let removedVal = this.storage[0];
     delete this.storage[0];
     let newStorage = {};
@@ -72,9 +69,9 @@ class Queue {
 // console.log('');
 
 // let queue = new Queue();
-// console.log(queue.unshift('Stella'));
-// console.log(queue.unshift('Booger'));
-// console.log(queue.unshift('Bailey'));
-// console.log(queue.shift());
+// console.log(queue.enqueue('Stella'));
+// console.log(queue.enqueue('Booger'));
+// console.log(queue.enqueue('Bailey'));
+// console.log(queue.dequeue());
 
 module.exports = {Stack: Stack, Queue: Queue};
