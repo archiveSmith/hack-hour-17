@@ -14,7 +14,19 @@
 */
 
 function drawStairs(n) {
-
+	function drawStairs(n) {
+	//let start = n;
+	let string = '';
+	//starting from start, add asterisks and log and increment.
+	for (let start = 0; start <= n; start++) {
+	  //for each step, add that many asterisks.
+	   for (let i = 0; i <= start; i++) {
+	     string += '*';
+	   }
+	   console.log(string);
+	   string = '';
+	}
+	}
 }
 
 

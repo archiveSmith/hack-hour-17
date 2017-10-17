@@ -13,7 +13,28 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
-
+    let possibleProfits = [];
+    let purchased;
+    let sold;
+    let tempProfit;
+    
+    for (let i = 0; i < stock_prices_yesterday.length; i++) {
+      purchased = stock_prices_yesterday[i];
+      tempProfit = 0;
+      for (let j = i+1; j < stock_prices_yesterday.length; j++) {
+        sold = stock_prices_yesterday[j];
+        temp = purchased - sold;
+        if(temp > tempProfit){
+          tempProfit = temp;
+        }
+      }
+      possibleProfits.push(tempProfit);
+    }
+    let greatestProfit = possibleProfits[0];
+    for (let k = 0; k < possibleProfits.length; k++) {
+      if(possibleProfits[k] > greatestProfit) greatestProfit = possibleProfits[k];
+    }
+    return greatestProfit;
 }
 
 module.exports = bestProfit;

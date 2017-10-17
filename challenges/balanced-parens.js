@@ -24,8 +24,19 @@
  *
  */
 
-function balancedParens(input){
-
-}
+ function balancedParens(input){
+    if(input.length % 2 !== 0) return false;
+    input = input.split('');
+    
+    for (let i = 0; i < input.length; i++) {
+      for (let j = input.length-1; j > 0; j--) {
+        if(input[i] !== '(' && input[j] !== ')') {
+          return false;
+        }
+      }
+    }
+    return true;
+  }
 
 module.exports = balancedParens;
+
