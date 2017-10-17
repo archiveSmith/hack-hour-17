@@ -8,7 +8,8 @@
  */
 
 function gcd(a, b) {
-
+  //mvoing backwards from the highest number, check if any number divided from both has no remainder.
+  //if it doesn't, return that number.
 }
 
 module.exports = gcd;
