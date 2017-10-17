@@ -13,8 +13,37 @@
  * DO NOT USE THE BUILT IN REVERSE METHOD
  */
 
-function reverseInPlace(array) {
+// helper function to reverse string
 
+function reverseStringIndex(string, size) {
+  let newString = '';
+
+  console.log(string.split(' '));
+
+  for (let i = string.length - 1; i >= 0; i--) {
+    if (!string[i] === ' ') {
+      newString += string[i];
+    }
+  }
+
+  return newString;
+}
+function reverseInPlace(array) {
+  // convert the input array into string with a space with each element
+  let string = array.join(' ');
+  const size = array.length;
+  console.log(string)
+  // call the reverse string helper function
+  let newString = reverseStringIndex(string, size);
+  // console.log(newString);
+
+  // get the return string function, and split back to array
+  const newArray = newString.split(',');
+  // console.log(newArray);
+  // return the array
+  return newArray;
 }
 
+console.log(reverseInPlace([41,51,991,21,18]));
+// console.log(reverseInPlace(['hh','ee','ll','ll','o1']));
 module.exports = reverseInPlace;
