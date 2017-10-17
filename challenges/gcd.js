@@ -11,6 +11,8 @@ function gcd(a, b) {
   let low = (a <= b) ? a : b,
    high = (b >= a) ? b : a;
 
+if (high % low === 0)
+  return low;
   for (let i = Math.floor(low/2); i>=1; i--) {
     if (low % i === 0 && high % i === 0)
       return i;
