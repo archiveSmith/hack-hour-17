@@ -20,16 +20,16 @@ function validBST(tree) {
 
   const leftSide = () => { validBST(tree.left) };
   if(tree.left === null) {
-    leftSide = true;
+    leftSide = () => true;
   }
 
   const rightSide = () => {  validBST(tree.right) };
   if(tree.right === null) {
-    rightSide = true;
+    rightSide = () => true;
   }
 
   if ((tree.left.value < tree.value) && (tree.right.value > tree.value)) {
-    return leftSide && rightSide;  
+    return leftSide() && rightSide();  
   } 
   return false;
 }
