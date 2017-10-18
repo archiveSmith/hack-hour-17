@@ -13,17 +13,17 @@ function BinaryTree(val) {
 }
 
 function validBST(tree) {
-  let prevValue = this.value;
 
-  return function recurseTree(tree) {       //use dfs
+
+  return function recurseTree(tree,prevValue) {       //use dfs
     //going left
-    recurseTree(tree.left);
+    recurseTree(tree.left,tree.value);
     if (tree.value > prevValue) return false;
-    prevValue = tree.value;
+
     //going right
-    recurseTree(tree.right);
+    recurseTree(tree.right,tree.value);
     if (tree.value < prevValue) return false;
-    prevValue = tree.value;
+  
   }
   return true;
 }
