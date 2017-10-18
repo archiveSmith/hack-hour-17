@@ -33,7 +33,6 @@ function validBST(tree) {
     if (tree.value < largest)
       return false;
     else {
-      console.log(largest, tree.value);
       largest = tree.value;
     }
 
