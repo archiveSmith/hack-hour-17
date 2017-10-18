@@ -23,7 +23,7 @@ function bestProfit(stock_prices_yesterday) {
   let min = Math.min(...stock_prices_yesterday);
   if (stock_prices_yesterday.indexOf(min) < stock_prices_yesterday.indexOf(max)) {
     return max - min;
-  }
+  } 
   
   // more time consuming other cases if first case doesn't work
   let pairs = [];

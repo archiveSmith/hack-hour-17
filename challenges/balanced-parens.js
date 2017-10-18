@@ -142,8 +142,6 @@ console.log(balancedParens('[(]{)}'));
 //             // return true;
 //         }
 //     }
-
-
 // }
 
 // function checkTwo(arr) {

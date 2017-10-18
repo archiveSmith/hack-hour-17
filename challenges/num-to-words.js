@@ -94,6 +94,7 @@ function numToWords(num) {
 
   function Hundreds(num) {
     let numStr = num.toString().split("");
+    console.log(numStr);
     let hundred = parseInt(numStr[0]);
 
     let leftover = parseInt(numStr.splice(1,2).join(""));
@@ -134,8 +135,8 @@ function numToWords(num) {
 }
 
 
-module.exports = numToWords;
+// module.exports = numToWords;
 
-// // Test 
-// let num = 1619;
-// console.log(numToWords(num));
+// Test 
+let num = 619;
+console.log(numToWords(num));

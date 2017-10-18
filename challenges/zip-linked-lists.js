@@ -75,22 +75,22 @@ function zip(l1, l2) {
 
 module.exports = {Node: Node, zip: zip};
 
-// // Test
-// let list1 = new LinkedList();
-// list1.push(0);
-// list1.push(1);
-// list1.push(2);
-// list1.push(3);
-// // console.log(list1);
-// let list2 = new LinkedList();
-// list2.push('a');
-// list2.push('b');
-// list2.push('c');
-// list2.push('d');
-// // console.log(list2);
+// Test
+let list1 = new LinkedList();
+list1.push(0);
+list1.push(1);
+list1.push(2);
+list1.push(3);
+// console.log(list1);
+let list2 = new LinkedList();
+list2.push('a');
+list2.push('b');
+list2.push('c');
+list2.push('d');
+// console.log(list2);
 
-// // console.log(list1.contains());
-// let zipped = zip(list1, list2);
-// console.log(zipped);
-// console.log(zipped.head.next.next);
-// console.log(zipped.contains());
+// console.log(list1.contains());
+let zipped = zip(list1, list2);
+console.log(zipped);
+console.log(zipped.head.next.next);
+console.log(zipped.contains());
