@@ -17,13 +17,13 @@ function validBST(tree) {
 
   return function recurseTree(tree,prevValue) {       //use dfs
     //going left
-    recurseTree(tree.left,tree.value);
+    if (tree.left!==null) recurseTree(tree.left,tree.value);
     if (tree.value > prevValue) return false;
 
     //going right
-    recurseTree(tree.right,tree.value);
+    if (tree.right!==null) recurseTree(tree.right,tree.value);
     if (tree.value < prevValue) return false;
-  
+
   }
   return true;
 }
