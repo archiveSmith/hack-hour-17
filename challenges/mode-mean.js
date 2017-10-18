@@ -11,7 +11,20 @@
 
 
 function modemean(array) {
-
+  const modeObj = {};
+  if (array.length === 0) {
+    return true;
+  }
+  array.forEach((num) => {
+    modeObj[num] = modeObj.hasOwnProperty(num) ? modeObj[num] += 1 : 1;
+  });
+  const mode = (Number)(Object.entries(modeObj).reduce((acc, curr) => {
+    return ((acc[1] < curr[1]) || (acc[1] === curr[1] && acc[0] < curr[0])) ? curr : acc;
+  })[0]);
+  const mean = Math.floor(array.reduce((acc, curr) => {
+    return acc + curr;
+  }, 0) / array.length);
+  return mode === mean;
 }
 
 module.exports = modemean;
