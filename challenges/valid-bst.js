@@ -19,10 +19,13 @@ function validBST(tree) {
     //going left
     recurseTree(tree.left);
     if (tree.value > prevValue) return false;
+    prevValue = tree.value;
     //going right
     recurseTree(tree.right);
-    (tree.value < prevValue) return false;
-    return true; 
+    if (tree.value < prevValue) return false;
+    prevValue = tree.value;
+  }
+  return true;
 }
 
 
