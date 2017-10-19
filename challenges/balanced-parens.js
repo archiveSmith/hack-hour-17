@@ -25,7 +25,7 @@
  */
 
 function balancedParens(input){
-<<<<<<< HEAD
+
     if (input === undefined || typeof(input) !== 'string' || input.length % 2 !== 0) return false;
     const open = ['(', '[', '{'];
     const close = [')', ']', '}'];
@@ -40,9 +40,4 @@ function balancedParens(input){
     return stack.length === 0;
   }	
   
-=======
-
-}
-
->>>>>>> 87f06dc0d55fb788bfa384c8ef02a514745661a4
 module.exports = balancedParens;
