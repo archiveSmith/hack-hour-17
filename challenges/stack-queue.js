@@ -7,11 +7,11 @@ function Stack() {
   this.stack = {};
   this.size = 0;
 
-  this.add = (el) => {
+  this.push = (el) => {
     this.size += 1;
     this.stack[this.size] = el;
   };
-  this.remove = () => {
+  this.pop = () => {
     const toDelete = this.stack[this.size];
     delete this.stack[this.size];
     this.size -= 1;
@@ -36,17 +36,17 @@ function Queue() {
   this.pushStack = new Stack();
 
   this.enqueue = (el) => {
-    this.pushStack.add(el);
+    this.pushStack.push(el);
   };
 
   this.dequeue = () => {
     if (this.popStack.size === 0) {
       if (this.pushStack.size === 0) return undefined;
       while (this.pushStack.size !== 0) {
-        this.popStack.add(this.pushStack.remove());
+        this.popStack.push(this.pushStack.pop());
       }
     }
-    return this.popStack.remove();
+    return this.popStack.pop();
   };
 }
 
