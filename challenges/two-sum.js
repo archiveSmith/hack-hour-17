@@ -3,6 +3,7 @@
  */
 
 function twoSum(arr, n) {
+
   if (arr.length < 2) return false;
   for (let i = 0; i < arr.length; i += 1) {
     const one = [arr[i]];
@@ -18,7 +19,13 @@ function twoSum(arr, n) {
 
 module.exports = twoSum;
 
-const test = [0, 8, -3, 4];
-const target = 5;
-console.log(twoSum(test, target));
+// const test = [0, 8, -3, 4];
+// const target = 5;
+// console.log(twoSum(test, target));
+
+
+
+}
+
+module.exports = twoSum;
 
