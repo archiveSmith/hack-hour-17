@@ -22,10 +22,3 @@ module.exports = twoSum;
 // const test = [0, 8, -3, 4];
 // const target = 5;
 // console.log(twoSum(test, target));
-
-
-
-}
-
-module.exports = twoSum;
-
