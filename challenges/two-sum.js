@@ -3,7 +3,16 @@
  */
 
 function twoSum(arr, n) {
+    const compliment = {};
+    for(let i = 0; i < arr.length; i++) {
+        if(compliment[arr[i]] !== undefined) {
+            return true;
+        } else {
+            compliment[n-arr[i]] = i;
+        }
+    }
 
+    return false;
 }
 
 module.exports = twoSum;
