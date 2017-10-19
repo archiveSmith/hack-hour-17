@@ -3,46 +3,58 @@
  */
 
 
-//LIFO
+// queue using two stacks
+
+// last in first out
 function Stack() {
-  this.length = 0
+  this.index = 0;
   this.storage = {};
 }
 
-Stack.prototype.push = function(value){
-  this.storage[this.length++]=value
+Stack.prototype.push = function(value) {
+  this.storage[this.index++] = value;
 }
 
 Stack.prototype.pop = function() {
-  let value = this.storage[this.length - 1];
-  delete this.storage[this.length - 1];
-  this.length--;
-  return value;
+  let popped = this.storage[this.index - 1];
+  delete this.storage[this.index - 1];
+  this.index--;
+  return popped;
 }
 
+// let stack = new Stack();
+// stack.push(1);
+// stack.push(2);
+// stack.push(3);
+// console.log('pushing inside stack', stack)
+// stack.pop();
+// stack.pop();
+// console.log('after poping 2', stack)
 
-//FIFO
 function Queue() {
-  this.stack1 = new Stack();
-  this.stack2 = new Stack();
+  this.in = new Stack();
+  this.out = new Stack();
 }
 
 Queue.prototype.enqueue = function(value) {
-  this.stack1.push(value)
+  this.in.push(value)
 }
 
 Queue.prototype.dequeue = function() {
-  let len1 = this.stack1.length;
-  let len2 = this.stack2.length;
-  
-  if(len2 === 0){
-    if(len1 === 0) return undefined;
-    
-    while(len1 !== 0) {
-      this.stack2.push(this.stack1.pop())
+  if (this.out.index === 0) {
+    if(this.in.index === 0) return undefined;
+    while (this.in.index !== 0) {
+      this.out.push(this.in.pop());
     }
   }
-  return this.stack2.pop();
+  return this.out.pop();
 }
+
+// let queue = new Queue();
+// queue.enqueue(4)
+// queue.enqueue(5)
+// console.log('enqueue queue', queue)
+// queue.dequeue();
+// console.log(queue)
 
 module.exports = {Stack: Stack, Queue: Queue};
