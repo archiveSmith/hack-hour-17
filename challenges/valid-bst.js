@@ -5,34 +5,61 @@
  * Assume that each value in the tree is unique.
  */
 
+ // if (!tree.value) {
+ //   return true;
+ // }
+ //
+ // if (tree.right) {
+ //   if (tree.right.value > tree.value) {
+ //     validBST(tree.right);
+ //   } else {
+ //     return false
+ //   }
+ // }
+ //
+ // if (tree.left) {
+ //   if (tree.left.value > tree.value) {
+ //     validBST(tree.left);
+ //   } else {
+ //     return false
+ //   }
+ // }
+
 
 function BinaryTree(val) {
     this.value = val;
     this.left = null;
     this.right = null;
 }
-debugger;
+
 function validBST(tree) {
 
-  if (!tree.value) {
-    return true;
+  function validLeft (tree, parent) {
+    if (tree.value > parent.value || tree.left > tree.value) return false;
+    if (tree.left) {
+      validLeft(tree.left, tree)
+    }
+    if (tree.right) {
+      validRight(tree.right, tree)
+    }
+    if (!tree.left && !tree.right) return true;
+
   }
 
-  if (tree.right) {
-    if (tree.right.value > tree.value) {
-      validBST(tree.right);
-    } else {
-      return false
+  function validRight (tree, parent) {
+    if (tree.value < parent.value || tree.right < tree.value) return false;
+    if (tree.left) {
+      validLeft(tree.left, tree)
     }
+    if (tree.right) {
+      validRight(tree.right, tree)
+    }
+    if (!tree.left && !tree.right) return true;
+
   }
 
-  if (tree.left) {
-    if (tree.left.value > tree.value) {
-      validBST(tree.left);
-    } else {
-      return false
-    }
-  }
+  return validLeft(tree.left, tree) && validRight(tree.right, tree);
+
 }
 
 let b1 = new BinaryTree(5);
@@ -48,7 +75,7 @@ b4.right = b5
 b3.right = b4;
 
 let input = b3;
-console.log(input);
+
 
 console.log(validBST(input));
 
