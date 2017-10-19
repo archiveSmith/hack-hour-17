@@ -17,7 +17,23 @@
 //                     16 ]
 
 function fizzbuzz(num) {
-
+  const result = [];
+  for (let i = 1; i < num + 1; i += 1) {
+    let check = i;
+    if (i % 3 === 0 && i % 5 === 0) {
+      check = 'fizzbuzz';
+    } else if (i % 5 === 0) {
+      check = 'buzz';
+    } else if (i % 3 === 0) {
+      check = 'fizz';
+    }
+    result.push(check);
+  }
+  return result;
 }
 
 module.exports = fizzbuzz;
+//should iterate 1-num
+//if divisible by 3: 'fizz' 
+//if div by 5: 'buzz'
+//if div by both: 'fizzbuzz'

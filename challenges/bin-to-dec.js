@@ -14,7 +14,20 @@
  */
 
 function binToDec(binary) {
-
+//convert string to array
+//loop through 
+//last digit is length-1
+//for every #, multiply [i] by last digit - i
+  let newArr = binary.split('');
+  let last = newArr.length - 1;
+  let decimalEquiv = 0;
+  for (let i in newArr) {
+    decimalEquiv += newArr[i] * (Math.pow(2, last - i));
+  }
+  return decimalEquiv;
 }
 
 module.exports = binToDec;
+
+let test = "1111";
+console.log(binToDec(test));

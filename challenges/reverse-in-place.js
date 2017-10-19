@@ -14,7 +14,29 @@
  */
 
 function reverseInPlace(array) {
+    
+// if array is empty, return array
+// loop through array
+// use array deconstruction to reassign left to right
+// cannot use 'i' assignment; must use temporary assignments to null or else will repeat i
 
+  let right = null; 
+  let left = null;
+  const length = array.length;
+
+  for (left = 0; left < Math.floor(length / 2); left += 1) {
+    right = length - 1 - left;
+    [array[left], array[right]] = [array[right], array[left]];
+  }
+  return array;
 }
 
 module.exports = reverseInPlace;
+
+
+const test = ['f', 'a', 'r', 'm'];
+const test2 = ['c', 'a', 't'];
+const test3 = [];
+console.log(reverseInPlace(test));
+console.log(reverseInPlace(test2));
+console.log(reverseInPlace(test3));
