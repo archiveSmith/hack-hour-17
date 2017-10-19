@@ -20,7 +20,7 @@ function zip(l1, l2) {
   while (l1 && l2) {
     if (!current.next) {
       current.next = l2;
-      console.log('l1:', l1);
+      // console.log('l1:', l1);
       break;
     } else {
       // get l1's next node and store in temp1
@@ -41,9 +41,9 @@ function zip(l1, l2) {
   return l1;
 }
 
-let l1 = { value: 1, next: { value: 2, next: null } };
-let l2 = { value: 3, next: { value: 4, next: null } };
+// let l1 = { value: 1, next: { value: 2, next: null } };
+// let l2 = { value: 3, next: { value: 4, next: null } };
 
-console.log(zip(l1, l2));
+// console.log(zip(l1, l2));
 
 module.exports = { Node, zip };
