@@ -8,38 +8,32 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-  if (str.length === 0) {
-    return true;
-  }
-  if (str.length <= 3) {
-    return false;
-  }
+  if (typeof str !== 'string') return;
+  if (str === '') return true;
+  
+  const words = str
+    .split(/[^a-zA-Z]/)
+    .filter(elem => elem !== '')
+    .map(word => word.toLowerCase())
+    
+  const wordStack = [];
+  
+  // For each word, compare reverse of the word with top of wordStack
+    // if equal -> pop the wordStack
+    // if not -> push the word to the stack
+  words.forEach(word => {
+    const reversedWord = word.split('').reverse().join('');
+    const topOfStack = wordStack[wordStack.length - 1];
+    if (reversedWord === topOfStack) wordStack.pop();
+    else wordStack.push(word);
+  })
+  
+  return wordStack.length === 0;
 
   //grab words from str
-  let matches = str.match(/[a-zA-Z]+/g);
-  console.log(matches);
+  // let matches = str.match(/[a-zA-Z]+/g);
+  // console.log(matches);
  
-
-  // for (let i = 0; i < letters.length; i += 1) {
-  //   let checkedWord = '';
-  //   for (var j = 0; j < letters[i].length; j++) {
-  //     if (/[a-zA-Z]/.test(letters[i][j])) {
-  //     checkedWord += letters[i][j];
-  //     }
-  //     firstWord = checkedWord;
-  //   }
-  // } 
-
-
-
-//capture word and store it to be compared
-
-//loop through string from back to find word
-
-//check if words mirror
-
 }
 
 module.exports = matchWord;
-
-console.log(matchWord('for $$if rof fi'));
