@@ -70,10 +70,10 @@ function balancedParens(input){
     return false;
 }
 
-// module.exports = balancedParens;
+module.exports = balancedParens;
 
 // Tests
-console.log(balancedParens('[(]{)}'));
+// console.log(balancedParens('[(]{)}'));
 
 
 // Original Try
