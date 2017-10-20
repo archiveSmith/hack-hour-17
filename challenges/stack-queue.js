@@ -8,15 +8,18 @@ function Stack() {
 }
 
 Stack.prototype.push = function (value) {
-  this.storage[index] = value;
-  this.index += 1;
-  return index;
+  this.storage[this.index] = value;
+  this.index++;
+  return this.index;
 };
 
 Stack.prototype.pop = function () {
-  index -= 1;
-  let element = this.storage[index];
-  this.storage.length = index;
+  if (this.index === 0) {
+    return undefined;
+  }
+  this.index--;
+  let element = this.storage[this.index];
+  this.storage.length = this.index;
   return element;
 };
 
@@ -31,16 +34,17 @@ function Queue() {
 
 Queue.prototype.enqueue = function (value) {
   if (this.out.index === 0) {
-    this.push(value);
+    this.out.push(value);
   } else {
-    //put into in stack
-    for (let x = 0; x < this.out.index; x += 1) {
-      let element = this.out.pop;
+    // move from out to in stack
+    for (let x = 0; x < this.out.index; x++) {
+      let element = this.out.pop();
       this.in.push(element);
     }
     this.in.push(value);
-    for (let y = 0; y < this.in.index; y++) {
-      let element = this.out.pop;
+
+    for (let y = 0; y <= this.in.index; y++) {
+      let element = this.in.pop();
       this.out.push(element);
     }
   }
@@ -48,14 +52,20 @@ Queue.prototype.enqueue = function (value) {
 
 
 Queue.prototype.dequeue = function () {
+  if (this.out.index === 0) {
+    return undefined;
+  }
   return this.out.pop();
 };
 
 
 module.exports = {Stack: Stack, Queue: Queue};
 
+// let queue = new Queue();
+// console.log(queue);
 
-
-
-
-
+// queue.enqueue(1);
+// console.log(queue);
+// queue.enqueue(2);
+// // queue.enqueue(3);
+// console.log(queue);
