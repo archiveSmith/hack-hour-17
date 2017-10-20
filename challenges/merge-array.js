@@ -23,7 +23,7 @@ function mergeArrays(arr1, arr2) {
     } else if (arr1[0] > arr2[0]) {
       return 'arr2';
     } else {
-      if (arr1[0].length !== 0) {
+      if (arr1.length !== 0) {
         return 'arr1';
       } else {
         return 'arr2';
@@ -53,6 +53,6 @@ function mergeArrays(arr1, arr2) {
 
 module.exports = mergeArrays;
 
-// let arr1 = [3,4,6,10,11,15,21];
-// let arr2 = [1,5,8,12,14,19];
-// console.log(mergeArrays(arr1,arr2));
+let arr1 = [3,4,6];
+let arr2 = [1,5,8,12];
+console.log(mergeArrays(arr1,arr2));
