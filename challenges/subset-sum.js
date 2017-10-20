@@ -17,45 +17,83 @@ function subsetSum(array, target) {
     }
     let allCombos = [];
 
-    //creates all 2 combos
-    if (array.length >= 2) {
-        for (let x = 0; x < array.length; x++) {
-            for(let y = x+1; y < array.length; y++) {
-                let tempArr = [array[x]];
-                tempArr.push(array[y]);
-                allCombos.push(tempArr);
-            }
+    function findPermutations(string) {
+        if (string.length < 2) return string; // break out of function if string is < 2 chars
+        let permutations = [];  // array to hold permutations
+    
+        for (let x = 0; x < string.length; x++) {
+          let char = string[x];
+    
+          // still trying to figure out why this is needed
+          // console.log(string.indexOf(char), x);
+          if (string.indexOf(char) != x) {
+            continue;
+          }
+    
+          let remainingString = string.slice(0,x) + string.slice(x+1, string.length);
+          console.log(remainingString);
+    
+          //find permutations recursively until you hit the base case of 2 chars?
+          for (let subPermutation of findPermutations(remainingString)) {
+            permutations.push(char + subPermutation);
+          }
         }
-    } 
-    // creates all 3 combos
-    if (array.length >= 3) {
-        for (let x = 0; x < array.length; x++) {
-            let tempArr = [array[x]];
-            for(let y = 1; y <= 2; y++) {
-                let num = y;
-                let total = x + num;
-                if (total > array.length -1) {
-                    total = total - array.length;
-                }
-                tempArr.push(array[total]);
-            }
-            allCombos.push(tempArr);
-        }
-    }
+        return permutations;
+      }
 
-    // check if any array in allCombos sums to target
-    for (let i = 0; i < allCombos.length; i++) {
-        var sum = allCombos[i].reduce(function(sum, value) {
-            return sum + value;
-          }, 0);
-        if (sum === target) {
-            return true;
-        }
-    }
-
-    return allCombos;
+      return findPermutations(array);
 }
 
 // module.exports = subsetSum;
 
 console.log(subsetSum([3, 7, 4, 2], 5));
+
+
+// old try
+// function subsetSum(array, target) {
+//     // base cases
+//     if (array.indexOf(target) !== -1) {
+//     return true;
+//     } else if (array.length === 0) {
+//         return false;
+//     }
+//     let allCombos = [];
+
+//     //creates all 2 combos
+//     if (array.length >= 2) {
+//         for (let x = 0; x < array.length; x++) {
+//             for(let y = x+1; y < array.length; y++) {
+//                 let tempArr = [array[x]];
+//                 tempArr.push(array[y]);
+//                 allCombos.push(tempArr);
+//             }
+//         }
+//     } 
+//     // creates all 3 combos
+//     if (array.length >= 3) {
+//         for (let x = 0; x < array.length; x++) {
+//             let tempArr = [array[x]];
+//             for(let y = 1; y <= 2; y++) {
+//                 let num = y;
+//                 let total = x + num;
+//                 if (total > array.length -1) {
+//                     total = total - array.length;
+//                 }
+//                 tempArr.push(array[total]);
+//             }
+//             allCombos.push(tempArr);
+//         }
+//     }
+
+//     // check if any array in allCombos sums to target
+//     for (let i = 0; i < allCombos.length; i++) {
+//         var sum = allCombos[i].reduce(function(sum, value) {
+//             return sum + value;
+//           }, 0);
+//         if (sum === target) {
+//             return true;
+//         }
+//     }
+
+//     return allCombos;
+// }
