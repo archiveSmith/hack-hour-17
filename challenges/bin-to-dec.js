@@ -13,8 +13,22 @@
  * Write a function that converts a decimal number to binary (then maybe hexadecimal)
  */
 
-function binToDec(binary) {
-
+function binToDec(num) {
+    // binary string to decimal
+    if (typeof num === "string") {
+        let dec = parseInt(num,2);
+        return dec;
+    } 
+    // decimal number to binary string
+    else if (typeof num === "number") {
+        let bin = num.toString(2);
+        return bin;
+    }
 }
 
+
 module.exports = binToDec;
+
+// Tests
+// console.log(binToDec('0101'));
+// console.log(binToDec(4));

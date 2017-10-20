@@ -13,7 +13,44 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
-
+  // base case
+  if (Array.isArray(stock_prices_yesterday) === false) {
+    return 0;
+  }
+  
+  // best case scenario first
+  let max = Math.max(...stock_prices_yesterday);
+  let min = Math.min(...stock_prices_yesterday);
+  if (stock_prices_yesterday.indexOf(min) < stock_prices_yesterday.indexOf(max)) {
+    return max - min;
+  } 
+  
+  // more time consuming other cases if first case doesn't work
+  let pairs = [];
+  // create pairs by giving max that occurs after each index 
+  for (let x = 0; x < stock_prices_yesterday.length-1; x++) {
+    let pair = [stock_prices_yesterday[x]];
+    let max = -Infinity;
+    for (let y = x + 1; y < stock_prices_yesterday.length; y++) {
+      if (stock_prices_yesterday[y] > max) {
+        max = stock_prices_yesterday[y];
+      }
+    }
+    pair.push(max);
+    pairs.push(pair);
+  }
+  // console.log(pairs);
+  // subtract min from max in each pair
+  pairs.forEach(function(element,index) {
+    pairs[index] = element[1]-element[0];
+  });
+  // find max result out of pairs and return 
+  let result = Math.max(...pairs);
+  return result;
 }
 
 module.exports = bestProfit;
+
+// // Test
+// var array = [200, 40, 20, 100, 70, 50, 120];
+// console.log(bestProfit(array));
