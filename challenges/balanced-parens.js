@@ -43,16 +43,6 @@ function balancedParens(input){
         return false;
     }
 
-    // isCounterParts: function (a, b) {
-    //     if (this.openers.includes(a)) {
-    //       return this.openers.indexOf(a) === this.closers.indexOf(b);
-    //     } else if (this.closers.includes(a)) {
-    //       return this.closers.indexOf(a) === this.openers.indexOf(b);
-    //     } else {
-    //       return false;
-    //     }
-    //   },
-
     function isMatch(char1, char2) {
         if (openers.indexOf(char2) === closers.indexOf(char1)) {
             return true;
