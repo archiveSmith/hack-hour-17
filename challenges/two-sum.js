@@ -3,7 +3,13 @@
  */
 
 function twoSum(arr, n) {
-
-}
+    const numsVisited = {};
+    for (let i = 0; i < arr.length; i++) {
+      if (nums[n - arr[i]]) return true;
+      numsVisited[arr[i]] = 'Visited';
+    }
+  
+    return false;
+  }
 
 module.exports = twoSum;
