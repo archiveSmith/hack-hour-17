@@ -13,30 +13,22 @@
 
 */
 
-// input: Number size
-// output: string of *
+/**
+ * 
+ * @param {*} n 
+ * 
+ * takes in number signigying how many stairs
+ * (from 1 to num)
+ * 
+ * print spaces and '*' based on those numbers
+ */
 function drawStairs(n) {
-  // let symbol = '';
-  //
-  // for (let i = 0, j = n; i < n; i++) {
-  //   symbol += ' '.padStart(j) + '*'.repeat(i) + '\n';
-  //   // symbol += '*'.padStart(i);
-  //   j -= 1;
-  // }
-  //
-  // return symbol;
   if (!Number.isInteger(n) || n < 1 || n > 100 ) return;
 
-  const space = ' ';
-  const start = '*';
-  var string = '';
-
-  for (var i = 1; i <= n; i += 1) {
-    string += space.repeat(n-i)+start.repeat(i)+'\n';
+  for (let i = 1; i <= n; i += 1) {
+    console.log(' '.repeat(n - i) + '*'.repeat(i));
   }
-
-  return string;
 }
 
-// console.log(drawStairs(100));
+// console.log(drawStairs(6));
 module.exports = drawStairs;

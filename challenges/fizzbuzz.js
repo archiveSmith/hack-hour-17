@@ -21,30 +21,39 @@
 // condition: divisble by 3 => replace with fizz
 // condition: divisible by 5 => replace with buzz
 // condition: divisible by 3 & 5 => replace fizzbuzz
-function fizzbuzz(num) {
-  const f = 'fizz';
-  const b = 'buzz';
-  const fb = f + b;
-  // create an empty array
-  const result = [];
 
-  // iterate each array number from 1 to number
+/**
+ * 
+ * @param {*} num
+ * 
+ * Pseudocode (lower level)
+ * 
+ * 
+ * Print 'fizz', 'buzz', 'fizzbuzz', or the number as appropriate
+ * 
+ *   takes in a number as an input
+ *   declare an array to return
+ *   declares an empty string to possibly add in place of the number
+ *   if the number is divisible by 3, add 'fizz' to the string
+ *   if the number divisible by 5, add 'buzz' to the string.
+ *   if the string is truthy (not still empty), add the string to the array
+ *   if the string is still empty, add the number to the array instead
+ * 
+ *   return the array 
+ */
+function fizzbuzz(num) {
+  let resultArr = [];
+  let currString = '';
+
   for (let i = 1; i <= num; i += 1) {
-    // go through the three condition
-    // if a condition pass, push the result to the empty array
-    if (i % 3 === 0 && i % 5 === 0) {
-      result.push(fb);
-    } else if (i % 5 === 0) {
-      result.push(b);
-    } else if (i % 3 === 0) {
-      result.push(f);
-    } else {
-      result.push(i);
-    }
-    // otherwise, pussh the result as a regular counting numbe
+    if (i % 3 === 0) currString += 'fizz';
+    if (i % 5 === 0) currString += 'buzz';
+    if (currString) resultArr.push(currString);
+    else resultArr.push(i);
+    currString = '';
   }
-  // return the empty array
-  return result;
+
+  return resultArr;
 }
 
 // console.log(fizzbuzz(16));
