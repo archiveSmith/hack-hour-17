@@ -24,22 +24,59 @@ function Node(val) {
   this.next = null;
 }
 
-// Define a a function call kthToLastNode that takes the parameters of k and head
-// k is the index starting from the last node
-// make a temp variable call currNode to store the head node
+
+/**
+ * 
+ * @param {*} k, or the integer representing how close the desired Node is to the last Node
+ * (1 being the last, 2 being second to last, etc)
+ * @param {*} head, or the first/head with which to begin your structure
+ * 
+ */
+
+ /**
+  * Approach 3
+  * Handle edge cases.
+  * Store each node value in an array
+  * While loop through linked list
+  * Use length property of array to pinpoint kth to last node.
+  */
+// function kthToLastNode(k, head) {
+//   if (!Number.isInteger(k) || k < 1 || !head) return
+//   const storeNode = [];
+
+  
+//   while(head) {
+//     storeNode.push(head.value);
+//     head = head.next;
+//   }
+
+//   return storeNode[storeNode.length - k];
+// }
+
+
+/**
+ * Approach 4
+ * Store each node value in an array
+ * Use recursion to loop through linked list.
+ * Use length property of array to pinpoint kth to last node.
+ */
 function kthToLastNode(k, head) {
-  // console.log(head);
-  // console.log(k);
-  const string = 'out of index range';
-  if (k < 0) return string;
-  let currNode = head;
-  for (let i = 0; i <= k; i += 1) {
-    currNode = currNode.next;
-    if (!currNode.next) return undefined;
+  if (!Number.isInteger(k) || k < 1 || !head) return
+  const storeNode = [];
+
+  let tranverseNode = (node) => {
+    storeNode.push(node);
+
+    if (node.next === null) return;
+    tranverseNode(node.next);
   }
 
-  return currNode.value;
+  tranverseNode(head);
+  if (k > storeNode.length) return;
+  return storeNode[storeNode.length - k].value;
 }
+
+
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
 
