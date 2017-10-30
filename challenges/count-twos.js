@@ -8,7 +8,23 @@
 
 
 function countTwos(num) {
-
+    // check edge case
+    if (!Number.isInteger(num)) return 0;
+    let count = 0;
+    while (num >= 0) {
+        // convert num to String
+        let string = num.toString().split('');
+        console.log(string);
+        string.forEach( (char) => {
+            if (char === '2') {
+                count += 1;
+            }
+        })
+        num -= 1;
+    }
+    return count;
 }
+
+console.log(countTwos(1000));
 
 module.exports = countTwos;
