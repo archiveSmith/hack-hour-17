@@ -8,7 +8,15 @@
 
 
 function countTwos(num) {
-
+  let count = 0;
+  
+  for (let i = 1; i <= num; i += 1) {
+    const str = i.toString();
+    const matched = str.match(/2/g);
+    const freq = matched === null ? 0 : matched.length;
+    count += freq;
+  }
+  return count;
 }
 
 module.exports = countTwos;
