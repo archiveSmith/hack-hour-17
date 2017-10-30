@@ -27,7 +27,7 @@
 
 
 // this must be the dumbest way to do it but can't figure out any other
-// ways without using apply or spread operator...
+// ways without using apply or spread operator... and it forces everything to strings lol..
 
 function applyIt(func, args) {
   return function() {
