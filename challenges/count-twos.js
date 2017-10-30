@@ -8,7 +8,23 @@
 
 
 function countTwos(num) {
-
+  // input number
+  // output number of twos while counting up to target
+  // iterate up to num
+  // convert to string
+  // iterate through string and count 2s
+  let twoCount = 0;
+  for (let i = 0; i <= num; i++) {
+    let digits = i.toString().split('');
+    twoCount += digits.reduce(function(acc, digit, i) {
+      if (digit === '2') {
+        return acc + 1;
+      } else {
+        return acc;
+      }
+    }, 0);
+  }
+  return twoCount;
 }
-
+console.log(countTwos(11420));
 module.exports = countTwos;
