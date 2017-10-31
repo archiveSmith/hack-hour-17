@@ -81,17 +81,17 @@ function addLinkedList(l1, l2) {
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
 
-// Test
-let list1 = new LinkedList();
-list1.push(2);
-list1.push(1);
-list1.push(5);
-console.log(list1);
-let list2 = new LinkedList();
-list2.push(5);
-list2.push(9);
-list2.push(2);
-// console.log(list2);
+// // Test
+// let list1 = new LinkedList();
+// list1.push(2);
+// list1.push(1);
+// list1.push(5);
+// console.log(list1);
+// let list2 = new LinkedList();
+// list2.push(5);
+// list2.push(9);
+// list2.push(2);
+// // console.log(list2);
 
-console.log(addLinkedList(list1, list2));
+// console.log(addLinkedList(list1, list2));
 
