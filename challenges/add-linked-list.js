@@ -36,13 +36,14 @@ function addLinkedList(l1, l2) {
     carryOver = 0;
   }
 
+  l1 = l1.next;
+  l2 = l2.next
   let node = sumLinkedList;
 
   while (l1 !== null && l2 !== null) {
     let val1 = l1.value || 0;
     let val2 = l2.value || 0;
     let sum = val1 + val2;
-    console.log(sum);
     if (sum >= 10) {
       sum -= 10;
       node.next = new Node(sum + carryOver);
@@ -68,6 +69,6 @@ function addLinkedList(l1, l2) {
 // list2.next = new Node(9);
 // list2.next.next = new Node(2);
 
-// console.log(addLinkedList(list1, list2).next);
+// console.log(addLinkedList(list1, list2));
 
 module.exports = { Node: Node, addLinkedList: addLinkedList };
