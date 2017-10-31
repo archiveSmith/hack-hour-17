@@ -18,6 +18,7 @@
  }
 
  function addLinkedList(l1, l2) {
+   if (!l1.value && !l2.value) return;
    const addNodes = (node1, node2, carry = 0) => {
      let nextCarry = 0;
      let val1 = node1 ? node1.value : 0;
@@ -34,7 +35,7 @@
      if (!node2) node2 = new Node(); // node*.next doesn't throw error
                                      // if node* is already null.
 
-     if (node1.next || node2.next) {
+     if (node1.next || node2.next || nextCarry === 1) {
        newNode.next = addNodes(node1.next, node2.next, nextCarry);
      }
      return newNode;
