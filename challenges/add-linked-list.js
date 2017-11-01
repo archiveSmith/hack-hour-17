@@ -18,7 +18,38 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
+  const newL = new Node(l1.value + l2.value);
+  let holder = newL;
+  let curr1 = l1.next;
+  let curr2 = l2.next;
+  let carryOver = 0;
 
+  while (curr1) {
+    const numStack = [];
+    console.log('carryover', carryOver)
+    let sum = curr1.value + curr2.value;
+
+    while (sum) {
+      numStack.push(sum % 10);
+      sum = Math.floor(sum / 10);
+    }
+    const temp = new Node(numStack[0] + carryOver);
+
+    holder.next = temp;
+    holder = temp;
+    carryOver = numStack[1] || 0;
+    curr1 = curr1.next;
+    curr2 = curr2.next;
+  }
+  return newL;
 }
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
+
+// let test = new Node(2);
+// test.next = new Node(1);
+// test.next.next = new Node(5);
+// let test2 = new Node(5);
+// test2.next = new Node(9);
+// test2.next.next = new Node(2);
+// console.log(addLinkedList(test, test2));
