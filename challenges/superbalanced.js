@@ -32,30 +32,4 @@ function superbalanced(tree) {
 
 }
 
-// let bt = new BinaryTree(10);
-// bt.left = new BinaryTree(6);
-// bt.left.left = new BinaryTree(3);
-// bt.left.right = new BinaryTree(8);
-// bt.left.right.left = new BinaryTree(7);
-// bt.right = new BinaryTree(12);
-// bt.right.right = new BinaryTree(13);
-
-// console.log('true ->', superbalanced(bt));
-
-// let bt2 = new BinaryTree(20);
-// bt2.left = new BinaryTree(15);
-// bt2.left.left = new BinaryTree(10);
-// bt2.left.left.left = new BinaryTree(8);
-// bt2.left.left.right = new BinaryTree(12);
-// bt2.left.left.right.left = new BinaryTree(11);
-// bt2.left.right = new BinaryTree(16);
-// bt2.left.right.right = new BinaryTree(18);
-// bt2.left.right.right.left = new BinaryTree(17);
-// bt2.right = new BinaryTree(25);
-// bt2.right.right = new BinaryTree(28);
-// bt2.right.left = new BinaryTree(23);
-
-// console.log('false ->', superbalanced(bt2));
-
-
 module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
