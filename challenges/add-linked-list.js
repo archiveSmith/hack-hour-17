@@ -18,6 +18,7 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
+<<<<<<< HEAD
   if (!(l1 instanceof Node) || !(l2 instanceof Node)) {
     return;
   }
@@ -73,3 +74,9 @@ list2.next.next = new Node(2);
 console.log(addLinkedList(list1, list2));
 
 module.exports = { Node: Node, addLinkedList: addLinkedList };
+=======
+
+}
+
+module.exports = {Node: Node, addLinkedList: addLinkedList};
+>>>>>>> db36a376bcf35b0b1601d683c94818389433578a
