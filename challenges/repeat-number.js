@@ -11,7 +11,14 @@
  */
 
 function repeatNumbers(array) {
-
+  const duplicate = array.reduce((acc, curr, i, arr) => {
+    if (arr.indexOf(curr) !== i && acc.indexOf(curr) < 0) acc.push(curr);  
+    return acc;
+  }, []);
+  return duplicate[0];
 }
 
 module.exports = repeatNumbers;
+
+// let test = [1, 2, 3, 3, 5];
+// console.log(repeatNumbers(test));
