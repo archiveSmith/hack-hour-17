@@ -11,7 +11,13 @@
  */
 
 function repeatNumbers(array) {
-
+  let num = 0;
+  for(let i in array) { 
+    num += array[i] - i;
+  }
+  return num;
 }
+
+// console.log(repeatNumbers([1,2,3,4,5,2]));
 
 module.exports = repeatNumbers;
