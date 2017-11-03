@@ -6,6 +6,23 @@
 3) The difference between heights of left subtree and right subtree is not more than 1.
 example: http://www.geeksforgeeks.org/wp-content/uploads/balanced_tree.GIF
  */
+// function height(tree) {
+//   if (tree === null) {
+//       return 0;
+//   }
+//   return 1 + Math.max(height(tree.left), height(tree.right));
+// }
+
+// function superbalanced(tree) {
+//   if (tree === null) {
+// return true;
+//   }
+//   return Math.abs(height(tree.left) - height(tree.right)) <= 
+//   1 && superbalanced(tree.left) && superbalanced(tree.right);
+// }
+
+// OR
+
 
 function BinaryTree(value) {
   this.value = value;
