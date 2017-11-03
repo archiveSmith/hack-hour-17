@@ -18,6 +18,17 @@
 
 function rotateGrid(grid, n) {
 
+  const newOrientationArr = Array(n).fill(null).map(row => Array(n));
+
+  for (let y = 0; y < n; y += 1) {
+    let oldX = 0;
+    for (let x = n - 1; x > -1; x -= 1) {
+      const temp = 
+      newOrientationArr[y][x] = grid[oldX][y];  
+      oldX += 1;
+    }
+  }
+  return newOrientationArr;
 }
 
 module.exports = rotateGrid;

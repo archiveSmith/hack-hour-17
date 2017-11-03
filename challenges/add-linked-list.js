@@ -17,8 +17,39 @@ function Node(val) {
   this.next = null;
 }
 
-function addLinkedList(l1, l2) {
+Node.prototype.add = function (val) {
+  let currNode = this;
+  while(currNode.next != null) {
+    currNode = currNode.next;  
+  }
+  currNode.next = new Node(val);
+};
 
+function addLinkedList(l1, l2) {
+  const retList = new Node();
+  let l1Pos = l1;
+  let l2Pos = l2;
+  let carry = 0;
+  while (l1Pos !== null && l2Pos !== null) {
+
+    let sum = l1Pos.value + l2Pos.value;
+    if (carry !== 0) {
+      sum += carry;
+      carry = 0;
+    }
+    const rem = sum % 10;
+    carry = (sum - rem) / 10;
+    
+    if (retList.value) {
+      retList.add(rem);
+    } else {
+      retList.value = rem;
+    } 
+    l1Pos = l1Pos.next;
+    l2Pos = l2Pos.next;
+  }
+  return retList;
 }
+
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};

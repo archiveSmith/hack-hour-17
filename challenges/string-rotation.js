@@ -16,6 +16,8 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
+  // check strings same length
+  return isSubstring(s2.concat(s2), s1);
 
 }
 

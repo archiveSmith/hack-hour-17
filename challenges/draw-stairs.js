@@ -14,7 +14,16 @@
 */
 
 function drawStairs(n) {
-
+ if(n < 1 || n > 100) {
+   return;
+ }
+  for (let i = 1; i <= n; i += 1) {
+    var step = '';
+    for (let j = n; j > 0; j -= 1) { 
+      step += j > i ? ' ' : '*';
+    }
+    console.log(step);
+  }
 }
 
 
