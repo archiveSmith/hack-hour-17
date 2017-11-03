@@ -11,7 +11,42 @@
 
 
 function mergeRanges(array) {
+  let earliest = Infinity;
+  let latest = -Infinity;
+  for(let meeting of array) {
+    if(meeting[0] < earliest) {
+      earliest = meeting[0];
+    }
+    if(meeting[1] > latest) {
+      latest = meeting[1];
+    }
+  }
 
+  const meetingTimes = new Array(latest+1).fill(0);
+  for(let meeting of array) {
+    meetingTimes[meeting[0]] -= 1;
+    meetingTimes[meeting[1]] += 1;
+  }
+
+  const newRanges = [];
+  let potentialRange = [];
+  let meetingCount = 0;
+  for(let i = earliest; i < meetingTimes.length; i += 1) {
+    meetingCount += meetingTimes[i];
+    if(potentialRange.length === 0 && meetingCount === -1) {
+      potentialRange.push(i);
+    }
+    if(potentialRange.length === 1 && meetingCount === 0) {
+      potentialRange.push(i);
+      newRanges.push(potentialRange);
+      potentialRange = [];
+    }
+  }
+
+  return newRanges;
 }
+
+// var times = [[0, 1], [3, 5], [4, 8], [10, 12], [9, 10]]
+// console.log(mergeRanges(times)); //-> [[0, 1], [3, 8], [9, 12]]
 
 module.exports = mergeRanges;
