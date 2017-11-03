@@ -12,59 +12,23 @@ function BinaryTree(value) {
   this.left = null;
   this.right = null;
 }
-BinaryTree.prototype.add = function (value) {
-  let current = this;
-  if (value > current.value) {
-    if (current.right) {
-      current.right.add(value);
-    } else {
-      let node = new BinaryTree(value);
-      current.right = node;
-    }
+
+function height(tree) {
+  if(tree ===  null) {
+    return 0;
   }
-  if (value < current.value) {
-    if (current.left) {
-      current.left.add(value);
-    } else {
-      let node = new BinaryTree(value);
-      current.left = node;
-    }
-  }
+  return 1 + Math.max(height(tree.left)-height(tree.right))
 }
 
 function superbalanced(tree) {
-  let maxDepth = null;
-  let current = {depth:0, tree:tree}
-  console.log(current)
-  let queue = [];
-  while (current) {
-    if (current.tree.left) {
-      queue.push({tree: current.tree.left, depth: current.depth+1});
-    }
-    if (current.tree.right) {
-      queue.push({tree: current.tree.right, depth: current.depth+1})
-    }
-    if (!current.tree.left && !current.tree.right) {
-      if (!maxDepth) {
-        maxDepth = current.depth
-      } else {
-        if (Math.abs(maxDepth-current.depth)>1) {
-          return false;
-        }
-      }
-    }
-    current = queue.shift();
+  if(tree === null) {
+    return true;
   }
-  return true;
+  return Math.abs(height(tree.left)-height(tree.right)) <= 1
+   && superbalanced(tree.left) && superbalanced(tree.right)
 }
 
-let tree =new BinaryTree(5)
-tree.add(7)
-tree.add(2)
-tree.add(6)
-tree.add(10)
-tree.add(29)
-tree.add(1)
+
 
 console.log(tree)
 
