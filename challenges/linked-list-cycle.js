@@ -33,6 +33,7 @@ var Node = function(value) {
 }
 
 function hasCycle(head) {
+  if (!head) return false;
   const cache = new Map();
   let currNode = head;
   while (currNode.next) {
