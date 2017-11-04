@@ -58,6 +58,6 @@ function hasCycle(head) {
 // var node5 = node4.next = new Node('5');
 // console.log(hasCycle(node1)); // => false
 // node5.next = node2;
-console.log(hasCycle(5)); // => true
+// console.log(hasCycle(5)); // => true
 
 module.exports = {Node: Node, hasCycle: hasCycle}
