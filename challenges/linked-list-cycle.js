@@ -32,16 +32,36 @@ var Node = function(value) {
   this.next = null;
 }
 
+// =============================== //
+// O(n) time, O(n) space - working //
+// =============================== //
+// function hasCycle(head) {
+//   let seen = {};
+//   let curNode = head;
+//   while(curNode){
+//     if(seen[curNode.value]) return true;
+//     seen[curNode.value] = true;
+//     curNode = curNode.next;
+//   }
+//   return false;
+// }
+
+// =================================== //
+// O(n) time, O(1) space - NOT working //
+// =================================== //
 function hasCycle(head) {
-  let seen = {};
-  let curNode = head;
-  while(curNode){
-    if(seen[curNode.value]) return true;
-    seen[curNode.value] = true;
-    curNode = curNode.next;
+  let slow = head;
+  let fast = head;
+  while(slow && fast && fast.next){
+    slow = slow.next;
+    fast = fast.next.next;
+    if(slow === fast){
+      return true;
+    }
   }
   return false;
 }
+
 
 // var node1 = new Node('1');
 // var node2 = node1.next = new Node('2');
@@ -52,4 +72,4 @@ function hasCycle(head) {
 // node5.next = node2;
 // console.log('true ->', hasCycle(node1)); // => true
 
-module.exports = {Node: Node, hasCycle: hasCycle}
+module.exports = { Node: Node, hasCycle: hasCycle }
