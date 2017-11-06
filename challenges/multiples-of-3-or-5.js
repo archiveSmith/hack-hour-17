@@ -7,10 +7,11 @@
 
 function sumMultiples3Or5Below1000() {
   let sum = 0;
+  let upper = 1000-1
 
-  let threes = Math.floor(10 / 3);
-  let fives = Math.floor(10 / 5);
-  let both = Math.floor(10 / (5 * 3));
+  let threes = Math.floor(upper / 3);
+  let fives = Math.floor(upper / 5);
+  let both = Math.floor(upper / (5 * 3));
 
   sum += 3 * (threes * (threes + 1)) / 2;
   sum += 5 * (fives * (fives + 1)) / 2;
