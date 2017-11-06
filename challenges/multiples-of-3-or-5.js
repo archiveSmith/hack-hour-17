@@ -13,7 +13,7 @@ function sumMultiples3Or5Below1000() {
   const y = 5;
   const z = 1000;
   let i = 0;
-  while(xSum <= z || ySum <= z) {
+  while(xSum < z || ySum < z) {
     i += 1;
     xSum = i * x;
     if (xSum < z) {
@@ -34,7 +34,7 @@ function sumMultiplesXOrYBelowZ(x, y, z) {
   let xSum = 0;
   let ySum = 0;
   let i = 0;
-  while(xSum <= z || ySum <= z) {
+  while(xSum < z || ySum < z) {
     i += 1;
     xSum = i * x;
     if (xSum < z) {
