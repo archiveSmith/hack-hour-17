@@ -15,11 +15,11 @@ function sumMultiples3Or5Below1000() {
   let i = 0;
   while(xSum <= z || ySum <= z) {
     i += 1;
-    xSum = i * 3;
+    xSum = i * x;
     if (xSum < z) {
       sum += xSum;
     }
-    ySum = i * 5;
+    ySum = i * y;
     if (ySum < z) {
       sum += ySum;
     }
@@ -36,11 +36,11 @@ function sumMultiplesXOrYBelowZ(x, y, z) {
   let i = 0;
   while(xSum <= z || ySum <= z) {
     i += 1;
-    xSum = i * 3;
+    xSum = i * x;
     if (xSum < z) {
       sum += xSum;
     }
-    ySum = i * 5;
+    ySum = i * y;
     if (ySum < z) {
       sum += ySum;
     }
