@@ -21,7 +21,7 @@ function sumMultiples3Or5Below1000() {
 function sumMultiplesXOrYBelowZ(x, y, z) {
   let sum = 0;
   for (let i = 1; i < z; i += 1) {
-    if (i % x || i % y) {
+    if (i % x === 0 || i % y === 0) {
       sum += i;
     }
   }
