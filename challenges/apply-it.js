@@ -26,7 +26,14 @@
  */
 
 function applyIt(func, args) {
-
-}
+    let arr =[];
+  for(var i=0; i<arguments[1].length; i++) {
+    arr.push(arguments[1][i])
+  }
+    return function hello() {
+  return func(args)
+  
+    }
+  }
 
 module.exports = applyIt;

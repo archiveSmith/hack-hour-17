@@ -13,7 +13,11 @@
  */
 
 function numToWords(num) {
+const one = ['zero','one','two','three','four','five','six','seven','eight','nine']
+const teny = ['ten','twenty','thirty','fifty','sixty','seventy','eighty','ninety']
+const tendiff = ['eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen']
 
+
+const numtoarr = num.split('');
 }
-
 module.exports = numToWords;

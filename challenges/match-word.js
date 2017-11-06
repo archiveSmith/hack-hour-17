@@ -8,7 +8,29 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
+    //if str is not a string, finish the function.
+if(typeof str !== 'string') return;
+    //if str is empty string, return true. because ... i dont know
+if(str ==='') return true;
 
+
+const words = str.split(/[^a-zA-Z]/)
+.filter(elem => elem !=='')
+.map(word => word.toLowerCase())
+
+const wordStack = [];
+//for each word, compare reverse with top of wordstack
+//if equal -> pop the wordstack
+//if not - > push the word to the stack.
+
+words.forEach(word => {
+    const reversedWord = word.split('').reverse().join('');
+    const topOfStack = wordStack[wordStack.length-1]
+    if(reversedWord === topofStack) wordStack.pop();
+    else wordStack.push(word)
+})
+
+return wordStack.length === 0;
 }
 
 module.exports = matchWord;

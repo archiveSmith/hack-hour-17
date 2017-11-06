@@ -8,7 +8,11 @@
  */
 
 function gcd(a, b) {
-
-}
+    for(let i=a; i>=0; i--) {
+      if(Math.abs(a)%i===0 && Math.abs(b)%i === 0) {
+        return i
+      }
+    }
+    }
 
 module.exports = gcd;
