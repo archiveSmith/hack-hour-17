@@ -8,7 +8,21 @@
  */
 
 function maxSubarray(arr) {
+  let maxWithPos = arr[0];
+  let max = arr[0];
 
+  for(let i = 1; i < arr.length; i++) {
+    maxWithPos = Math.max(arr[i], arr[i] + maxWithPos);
+    if(maxWithPos > max)
+      max = maxWithPos;
+  }
+  
+  return max;
 }
+
+// console.log([
+//   maxSubarray([1, -2, 3, 10, -4, 7, 2, -5]), //-> 18 from [3, 10, -4, 7, 2]
+//   maxSubarray([15,20,-5,10]) // -> 40
+// ])
 
 module.exports = maxSubarray;
