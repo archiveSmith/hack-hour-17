@@ -8,7 +8,15 @@
  */
 
 function maxSubarray(arr) {
-
+  if (!Array.isArray(arr)) return;
+  let max = -Infinity;
+  for (let i = 0; i < arr.length - 1; i += 1) {
+    for (let j = arr.length - 1; j > i; j -= 1) {
+     let sum = arr.slice(i, j + 1).reduce((a, c) => a + c);
+     if (sum > max) max = sum;
+    }
+  }
+  return max;
 }
 
 module.exports = maxSubarray;
