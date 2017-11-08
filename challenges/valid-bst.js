@@ -5,14 +5,13 @@
  * Assume that each value in the tree is unique.
  */
 
-
-function BinaryTree(val) {
+function BinaryTree (val) {
   this.value = val;
   this.left = null;
   this.right = null;
 }
 
-function validBST(tree) {
+function validBST (tree) {
   // if(!tree)
   //     return true;
   // if(tree.left !== null && tree.left.value > tree.value)
@@ -24,26 +23,23 @@ function validBST(tree) {
 
   // take 2, total BST
   let largest = -Infinity;
-  function traverse(tree) {
+  function traverse (tree) {
+    if (tree.left) {
+      if (!traverse(tree.left)) { return false; }
+    }
 
-    if (tree.left)
-      if (!traverse(tree.left))
-        return false;
-
-    if (tree.value < largest)
-      return false;
-    else {
+    if (tree.value < largest) { return false; } else {
       largest = tree.value;
     }
 
-    if (tree.right)
-      if (!traverse(tree.right))
-        return false;
-    
+    if (tree.right) {
+      if (!traverse(tree.right)) { return false; }
+    }
+
     return true;
   }
 
-  return traverse(tree)
+  return traverse(tree);
 }
 
 // let a = new BinaryTree(1);

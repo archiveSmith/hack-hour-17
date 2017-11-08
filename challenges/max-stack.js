@@ -6,32 +6,31 @@
  * BONUS: The getMax method should retrieve the maximum value from the stack in O(1) time.
  */
 
-function Stack() {
+function Stack () {
   this.stack = {};
   this.maxStack = {};
   this.length = 0;
 
-  this.push = function(element) {
+  this.push = function (element) {
     this.stack[this.length] = element;
-    this.maxStack[this.length-1] < element || this.maxStack[this.length-1] === undefined ? 
-      this.maxStack[this.length] = element : 
-      this.maxStack[this.length] = this.maxStack[this.length-1];
+    this.maxStack[this.length - 1] < element || this.maxStack[this.length - 1] === undefined
+      ? this.maxStack[this.length] = element
+      : this.maxStack[this.length] = this.maxStack[this.length - 1];
     this.length += 1;
     return this.length;
   },
 
-  this.pop = function() {
-    if(this.length === 0) { return;}
+  this.pop = function () {
+    if (this.length === 0) { return; }
     const retVal = this.stack[this.length - 1];
-    delete this.stack[this.length - 1]
-    delete this.maxStack[this.length - 1]
+    delete this.stack[this.length - 1];
+    delete this.maxStack[this.length - 1];
     this.length -= 1;
-    return retVal; 
+    return retVal;
   },
 
-  this.getMax = function(){
-    return this.maxStack[this.length - 1]
-
+  this.getMax = function () {
+    return this.maxStack[this.length - 1];
 
     // O(n) solutions, both iterative and functional
 
@@ -42,8 +41,7 @@ function Stack() {
     //   max = Math.max(max, this.stack[i])
     // }
     // return max;
-  }
-
+  };
 }
 
 module.exports = Stack;

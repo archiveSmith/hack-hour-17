@@ -1,7 +1,6 @@
 // Write a function that takes a number as an argument and returns its english word representation as a string. Answers should be in upper camel case (a.k.a. Pascal case). Don't worry about spaces.
 // Include support for 11-19 ('Eleven', 'Twelve', 'Thirteen', ... 'Nineteen').
 
-
 /**
  * numToWords(0) -> 'Zero'
  * numToWords(43) -> 'FortyThree'
@@ -18,43 +17,42 @@ const ones = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Ei
 const tens = ['Zero', 'Ten', 'Twenty', 'Thirty', 'Fourty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninty'];
 
 // helper function that returns 3 digit numbers
-function threeDigit(num) {
+function threeDigit (num) {
   let numWord = '';
 
-  //check hundreds
+  // check hundreds
   if (Math.floor(num / 100) > 0) {
     // console.log(num, Math.floor(num / 100), ones[Math.floor(num / 100)])
-    numWord += ones[Math.floor(num / 100)] + 'Hundred'
+    numWord += ones[Math.floor(num / 100)] + 'Hundred';
     num -= Math.floor(num / 100) * 100;
   }
 
-  //check tens
+  // check tens
   if (Math.floor(num / 10) > 1) {
-    numWord += tens[Math.floor(num / 10)]
+    numWord += tens[Math.floor(num / 10)];
     num -= Math.floor(num / 10) * 10;
   }
 
-  //check 0-19
+  // check 0-19
   if (num) {
-    numWord += ones[num]
+    numWord += ones[num];
   }
 
   return numWord;
 }
 
+// main function
+function numToWords (num) {
+  if (!Number.isInteger(num)) return;
+  if (num === 0) return 'Zero';
 
-// main function 
-function numToWords(num) {
-  if(!Number.isInteger(num)) return;
-  if(num === 0) return 'Zero';
-
-  let word = ''
+  let word = '';
 
   // figure out powers of 100
   for (let i = 5; i >= 1; i -= 1) {
     if (num - Math.pow(1000, i) > 0) {
-      word += threeDigit((Math.floor(num/Math.pow(1000, i)))) + powerThousand[i];
-      num -= Math.floor(num/Math.pow(1000, i))*Math.pow(1000, i);
+      word += threeDigit((Math.floor(num / Math.pow(1000, i)))) + powerThousand[i];
+      num -= Math.floor(num / Math.pow(1000, i)) * Math.pow(1000, i);
     }
   }
 
