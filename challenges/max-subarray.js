@@ -7,8 +7,19 @@
  *
  */
 
-function maxSubarray(arr) {
-
+const maxSubarray = (arr, idx = 0, max = -Infinity) => {
+  // if (idx > arr.length - 1) return max;
+  // if(idx === 0 && arr.length === 1) return arr[0];
+  // if (idx === 1 && arr.length === 2) return Math.max.apply(null, [arr[0], arr[0] + arr[1], arr[1]]);
+  // if (idx === 0 && arr.length > 1) maxSubarray(arr, idx + 1, arr[idx]);
+  // else {
+  //   let total = arr[0];
+  //   let cache = [];
+  //   for (let prev = 0, cur = 1; cur <= idx; prev++ , cur++) {
+  //     total += ;
+  //     cache.push(prev + cur)
+  //   }
+  // }
 }
 
 module.exports = maxSubarray;
