@@ -8,10 +8,14 @@
  */
 
 function maxSubarray(array) {
-    var currentMax = 0;
-    var max = 0;
+  const currentMax = 0;
+  const max = 0;
+  const maxInArr = Math.max(...arr);
+
+  if (maxInArr <= 0) return maxInArr;
+
     for (var i = 0; i < array.length; i += 1) {
-      currentMax = Math.max(-infinity , currentMax + array[i]);
+      currentMax = Math.max(0 , currentMax + array[i]);
       max = Math.max(max, currentMax);
     }
     return max;
