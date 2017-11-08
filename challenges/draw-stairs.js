@@ -14,7 +14,13 @@
 */
 
 function drawStairs(n) {
+<<<<<<< HEAD
+    for(var floor = 1; floor <= n; floor++) {
+        console.log(' '.repeat(n-floor) + '*'.repeat(floor));         
+      }
+=======
 
+>>>>>>> 33f042bb7b5fe675eb799a30535e4dc5c19cf066
 }
 
 

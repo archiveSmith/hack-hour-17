@@ -24,8 +24,24 @@
  *
  */
 
-function balancedParens(input){
+function balancedParens (input) {
+  const string = input.split('');
+  const parens = [];
+  const parenMatch = {
+    '[': ']',
+    '(': ')',
+    '{': '}'
+  };
+  const left = Object.keys(parenMatch);
+  const right = Object.values(parenMatch);
 
+  for (let i = 0; i < string.length; i++) {
+    if (left.some((paren) => (paren === string[i]))) {
+      parens.push(string[i]);
+    } else if (right.some((paren) => (paren === string[i]))) { if (parenMatch[parens.pop()] !== string[i]) { return false; } }
+  }
+
+  return (parens.length === 0);
 }
 
 module.exports = balancedParens;
