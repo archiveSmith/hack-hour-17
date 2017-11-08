@@ -11,16 +11,15 @@
  *              stringRotation("hello", "ollhe") -> false (not a rotation, just an anagram)
  */
 
-function isSubstring(s1, s2) {
+function isSubstring (s1, s2) {
   return s1.indexOf(s2) >= 0;
 }
 
-function stringRotation(s1, s2) {
+function stringRotation (s1, s2) {
   // check edge case where the strings aren't the same length
-  if(s1.length !== s2.length)
-    return false;
+  if (s1.length !== s2.length) { return false; }
 
-  // s1 + s1 contains every rotation possible of s1 
+  // s1 + s1 contains every rotation possible of s1
   const doubleString = s1 + s1;
   return isSubstring(doubleString, s2);
 }

@@ -9,8 +9,7 @@
  * Do not assume the ranges are in order
  */
 
-
-function mergeRanges(array) {
+function mergeRanges (array) {
   // let earliest = Infinity;
   // let latest = -Infinity;
   // for(let meeting of array) {

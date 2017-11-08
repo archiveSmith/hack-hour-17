@@ -9,23 +9,17 @@
  *
  */
 
-function permPalin(str) {
-    const strArr = str.split('');
-    const accLetters = {}
+function permPalin (str) {
+  const strArr = str.split('');
+  const accLetters = {};
 
-    for(index in strArr) {
-        if(accLetters[strArr[index]] !== 1)
-            accLetters[strArr[index]] = 1;
-        else
-            accLetters[strArr[index]] = 0;
-    }
+  for (index in strArr) {
+    if (accLetters[strArr[index]] !== 1) { accLetters[strArr[index]] = 1; } else { accLetters[strArr[index]] = 0; }
+  }
 
-    let unmatched = Object.keys(accLetters).reduce((acc, val) => acc + accLetters[val], 0);
+  let unmatched = Object.keys(accLetters).reduce((acc, val) => acc + accLetters[val], 0);
 
-    if(unmatched > 1)
-        return false;
-    else
-        return true;
+  if (unmatched > 1) { return false; } else { return true; }
 }
 
 // console.log([

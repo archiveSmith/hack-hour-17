@@ -5,12 +5,12 @@
  * BONUS: Do this in place
  */
 
-function Node(val) {
+function Node (val) {
   this.value = val;
   this.next = null;
 }
 
-function zip(l1, l2) {
+function zip (l1, l2) {
   // if (!l1)
   //   return l2;
   // if (!l2)
@@ -40,14 +40,14 @@ function zip(l1, l2) {
   function zip (l1, l2) {
     if (!l1) return l2;
     if (!l2) return l1;
-    
+
     // var curr = new Node(l1.value);
-    l1Next = l1.next
+    l1Next = l1.next;
     l1.next = l2;
     zip(l2, l1Next);
     return l1;
   }
-};
+}
 
 node1 = new Node(1);
 node2 = new Node(2);

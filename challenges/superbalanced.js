@@ -7,14 +7,13 @@
 example: http://www.geeksforgeeks.org/wp-content/uploads/balanced_tree.GIF
  */
 
-function BinaryTree(value) {
+function BinaryTree (value) {
   this.value = value;
   this.left = null;
   this.right = null;
 }
 
-function superbalanced(tree) {
-
+function superbalanced (tree) {
   // let nextLev = [];
   // let currLev = [tree];
   // let lastLevel = false;
@@ -41,21 +40,18 @@ function superbalanced(tree) {
 
   // return true;
 
-  function treeHeight(tree) {
-    if (tree === null) { return 0 }
+  function treeHeight (tree) {
+    if (tree === null) { return 0; }
 
     return Math.max(treeHeight(tree.left), treeHeight(tree.right)) + 1;
   }
 
-  if (tree === null)
-    return true;
+  if (tree === null) { return true; }
   if (superbalanced(tree.left) && superbalanced(tree.right)) {
-    if (Math.abs(treeHeight(tree.left) - treeHeight(tree.right)) <= 1)
-      return true;
+    if (Math.abs(treeHeight(tree.left) - treeHeight(tree.right)) <= 1) { return true; }
   }
 
   return false;
-
 }
 
 // let tree = new BinaryTree(1);

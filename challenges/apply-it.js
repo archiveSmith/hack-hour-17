@@ -25,12 +25,12 @@
  *  DO NOT USE THE BUILT IN APPLY METHOD OR THE SPREAD OPERATOR
  */
 
-function applyIt(func, args) {
-  function appIt(func, args, counter) {
+function applyIt (func, args) {
+  function appIt (func, args, counter) {
     if (counter < args.length) {
       let prevArg = args[counter];
       console.log(prevArg);
-      return appIt( (arg, arg1, arg2) => func(prevArg, arg, arg1, arg2), args, counter + 1);
+      return appIt((arg, arg1, arg2) => func(prevArg, arg, arg1, arg2), args, counter + 1);
     } else {
       return func;
     }
@@ -39,11 +39,10 @@ function applyIt(func, args) {
   return appIt(func, args, 0);
 }
 
-
 var jae = function (name, age, location, x) {
-  return name + " is " + age + " and he lives in " + location + ' ' + x;
+  return name + ' is ' + age + ' and he lives in ' + location + ' ' + x;
 };
-var jaero = applyIt(jae, ["Jae", 19, "South Carolina", 'asd']);
-console.log(jaero()); //Returns "Jae is 19 and he lives in South Carolina"
+var jaero = applyIt(jae, ['Jae', 19, 'South Carolina', 'asd']);
+console.log(jaero()); // Returns "Jae is 19 and he lives in South Carolina"
 
 module.exports = applyIt;

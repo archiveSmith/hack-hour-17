@@ -6,8 +6,7 @@
 // countTwos(1000);  -> 300
 // countTwos(11420);  -> 4483
 
-
-function countTwos(num) {
+function countTwos (num) {
   // let numTwos = 0;
   // if(num < 2 && num/10 > 0) {
   //   return false;
@@ -35,35 +34,31 @@ function countTwos(num) {
   let originalNum = num;
   let power = 1;
   let i = 0;
-  let numTwos = 0;            
+  let numTwos = 0;
 
-  while (num > 0)
-  {
-      let digit = num % 10;
-      num = Math.floor(num/10);
+  while (num > 0) {
+    let digit = num % 10;
+    num = Math.floor(num / 10);
 
-      numTwos += Math.floor(digit * (power * i) / 10);
+    numTwos += Math.floor(digit * (power * i) / 10);
 
-      if (digit > 2)
-          numTwos += power;
-      else if (digit == 2)
-          numTwos += originalNum % power + 1;
+    if (digit > 2) { numTwos += power; } else if (digit == 2) { numTwos += originalNum % power + 1; }
 
-      power *= 10;
-      i++;
+    power *= 10;
+    i++;
   }
 
   return numTwos;
 }
 
 console.log(
-[
-countTwos(1),  //-> 0
-countTwos(3),  //-> 1
-countTwos(13),  //-> 2
-countTwos(20),  //-> 3
-countTwos(1000),  //-> 300
-countTwos(11420), //-> 4483
-]);
+  [
+    countTwos(1),  // -> 0
+    countTwos(3),  // -> 1
+    countTwos(13),  // -> 2
+    countTwos(20),  // -> 3
+    countTwos(1000),  // -> 300
+    countTwos(11420) // -> 4483
+  ]);
 
 module.exports = countTwos;

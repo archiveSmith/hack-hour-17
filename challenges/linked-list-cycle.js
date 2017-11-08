@@ -27,23 +27,23 @@
  *
  */
 
-var Node = function(value) {
+var Node = function (value) {
   this.value = value;
   this.next = null;
-}
+};
 
-function hasCycle(head) {
-  if(!(head instanceof Node)) {
+function hasCycle (head) {
+  if (!(head instanceof Node)) {
     return false;
   }
 
   let slow = head;
   let fast = head;
 
-  while(fast.next !== null && fast.next.next !== null) {
+  while (fast.next !== null && fast.next.next !== null) {
     slow = slow.next;
     fast = fast.next.next;
-    if(slow === fast) {
+    if (slow === fast) {
       return true;
     }
   }
@@ -60,4 +60,4 @@ function hasCycle(head) {
 // node5.next = node2;
 // console.log(hasCycle(5)); // => true
 
-module.exports = {Node: Node, hasCycle: hasCycle}
+module.exports = {Node: Node, hasCycle: hasCycle};

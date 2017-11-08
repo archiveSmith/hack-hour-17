@@ -23,20 +23,15 @@
 // }
 
 // recursive, using Euler's algo!
-function gcd(a, b) {
-  if (!Number.isInteger(a) && !Number.isInteger(b))
-    return undefined;
-  if( a === 0 || b === 0)
-    return 0;
-  if (a === 1 || b === 1)
-    return 1;
-  if (a === b)
-    return a;
+function gcd (a, b) {
+  if (!Number.isInteger(a) && !Number.isInteger(b)) { return undefined; }
+  if (a === 0 || b === 0) { return 0; }
+  if (a === 1 || b === 1) { return 1; }
+  if (a === b) { return a; }
 
-  const large = Math.max(a,b);
-  const small = Math.min(a,b);
-  return gcd(large-small, small);
-
+  const large = Math.max(a, b);
+  const small = Math.min(a, b);
+  return gcd(large - small, small);
 }
 
 // console.log(gcd(10, 8)) // -> 2
