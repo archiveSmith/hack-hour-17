@@ -10,7 +10,7 @@
 function maxSubarray(array) {
   const currentMax = 0;
   const max = 0;
-  const maxInArr = Math.max(...arr);
+  const maxInArr = Math.max(...array);
 
   if (maxInArr <= 0) return maxInArr;
 
