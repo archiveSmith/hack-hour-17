@@ -10,10 +10,42 @@
  * How would you solve this problem if a temporary buffer is not allowed?
  */
 
-
-
-function deleteDups(head) {
-
+class Node {
+  constructor (val) {
+    this.value = val;
+    this.next = null;
+  }
 }
+
+const deleteDups = (head) => {
+  if (!head) return;
+  if (!head.next) return head;
+  let cache = {};
+  cache[head.value] = true;
+  let prevNode = head;
+  let curNode = head.next;
+  while (curNode) {
+    if (cache[curNode.value]) {
+      prevNode.next = curNode.next;
+      curNode = prevNode.next;
+    } else {
+      cache[curNode.value] = true;
+      prevNode = curNode;
+      curNode = prevNode.next;
+    }
+  }
+  return head;
+};
+
+// const list = new Node(5);
+// list.next = new Node(2);
+// list.next.next = new Node(3);
+// list.next.next.next = new Node(3);
+// list.next.next.next.next = new Node(2);
+// list.next.next.next.next.next = new Node(4);
+// list.next.next.next.next.next.next = new Node(5);
+// list.next.next.next.next.next.next.next = new Node(1);
+
+// console.log('5, 2, 3, 4, 1 =>', deleteDups(list));
 
 module.exports = deleteDups;
