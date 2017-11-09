@@ -20,7 +20,6 @@ function deleteDups(head) {
     if (collection[currNode.next.value]) {
       let delVal = currNode.next.value;
       deleteCurrNodeAndConnect(currNode);
-      delete collection[delVal];
     } else {
       collection[currNode.next.value] = true; 
     }
