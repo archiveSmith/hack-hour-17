@@ -17,7 +17,7 @@ function anagrams (string) {
   const grams = {};
   for (let i = 0; i < string.length; i += 1) {
     const availLetters = string.substring(0, i) + string.substring(i + 1);
-    let gram = anagrams(availLetters).map((combos) => [string[i], ...combos]);
+    let gram = anagrams(availLetters).map((combos) => string[i].concat(combos));
     for (let prop of gram) {
       grams[prop] = true;
     }
@@ -26,6 +26,6 @@ function anagrams (string) {
   return Object.keys(grams);
 }
 
-// console.log(anagrams('abcc'));
+console.log(anagrams('abc'));
 
 module.exports = anagrams;
