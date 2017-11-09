@@ -17,10 +17,12 @@ function deleteDups(head) {
   let prevNode = null;
   let currNode = head;
   while (currNode) {
-    (cache.hasOwnProperty(currNode.value))
-      ? prevNode.next = currNode.next
-      : cache[currNode.value] = true;
-    prevNode = currNode;
+    if (cache.hasOwnProperty(currNode.value)) {
+      prevNode.next = currNode.next;
+    } else {
+      cache[currNode.value] = true;
+      prevNode = currNode;
+    }
     currNode = currNode.next;
   }
   return head;
