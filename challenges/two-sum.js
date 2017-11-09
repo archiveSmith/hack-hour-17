@@ -15,8 +15,4 @@ function twoSum(arr, n) {
   return false;
 }
 
-
-
-console.log(arr)
-
 module.exports = twoSum;
