@@ -14,7 +14,6 @@
 */
 
 function drawStairs(n) {
-<<<<<<< HEAD
     let stair = "";
     // edge case
     if (n < 0 || n > 100) {
@@ -37,9 +36,6 @@ function drawStairs(n) {
     //     stair += ' '.repeat(n - i) + '*'.repeat(i) + '\n';
     // }
     // return stair;
-=======
-
->>>>>>> 33f042bb7b5fe675eb799a30535e4dc5c19cf066
 }
 
 
