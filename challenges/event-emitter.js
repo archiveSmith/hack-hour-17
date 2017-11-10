@@ -27,16 +27,22 @@ class EventEmitter {
   }
 }
 
-EventEmitter.prototype.on = function(funcName, func) {
-  this.actions[funcName] = func;
+EventEmitter.prototype.on = function (funcName, func) {
+  if (!this.actions[funcName]) this.actions[funcName] = [func];
+  else this.actions[funcName].push(func);
 };
 
-EventEmitter.prototype.trigger = function(funcName, ...args) {
-  this.actions[funcName](...args);
+EventEmitter.prototype.trigger = function (funcName, ...args) {
+  if (this.actions[funcName]) {
+    for (let i = 0; i < this.actions[funcName].length; i++) {
+      this.actions[funcName][i](...args);
+    }
+  }
 };
 
 // const instance = new EventEmitter();
 // let counter = 0;
+// let counter2 = 0;
 // let sum = 0;
 // instance.on('increment', function () {
 //   counter++;
@@ -47,8 +53,11 @@ EventEmitter.prototype.trigger = function(funcName, ...args) {
 // instance.on('updateSum', function (n1, n2) {
 //   sum += n1 + n2;
 // });
+// instance.on('increment', function () {
+//   counter2++;
+// });
 
-// instance.trigger('updateSum', 20, 30);
-// console.log('sum: 50 ->', sum);
+// instance.trigger('increment');
+// console.log('counter:', counter, 'counter2:', counter2);
 
 module.exports = EventEmitter;
