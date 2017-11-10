@@ -39,4 +39,6 @@ function deleteDups(head) {
 // head.next.next.next = new Node(3);
 // console.log(deleteDups(head));
 
+}
+
 module.exports = deleteDups;
