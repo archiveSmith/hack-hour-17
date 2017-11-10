@@ -3,12 +3,12 @@
  * Make an EventEmitter that
  *
  * Example:
- * var instance = new EventEmitter();
- * var counter = 0;
- * instance.on('increment', function() {
- *   counter++;
- * }); // counter should be 0
- * instance.trigger('increment'); // counter should be 1
+ var instance = new EventEmitter();
+ var counter = 0;
+ instance.on('increment', function() {
+    counter++;
+  }); // counter should be 0
+  instance.trigger('increment'); // counter should be 1
  * instance.trigger('increment'); // counter should be 2
  *
  *
@@ -22,15 +22,23 @@
  */
 
 function EventEmitter() {
-
+  let funcObj={}
 }
 
 EventEmitter.prototype.on = function(funcName, func) {
-
+ funcObj[funcName] = func;
 };
 
 EventEmitter.prototype.trigger = function(funcName, ...args) {
-
+  let finner= funcObj[funcName];
+  return finner(...args); 
 };
 
 module.exports = EventEmitter;
+
+var instance = new EventEmitter();
+var counter = 0;
+instance.on('increment', function() {
+   counter++;
+ }); // counter should be 0
+ instance.trigger('increment'); // counter should be 1
