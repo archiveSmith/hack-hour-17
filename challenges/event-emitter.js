@@ -21,16 +21,34 @@
  * - It is not necessary to write a way to remove listeners.
  */
 
-function EventEmitter() {
-
+class EventEmitter {
+  constructor () {
+    this.actions = {};
+  }
 }
 
 EventEmitter.prototype.on = function(funcName, func) {
-
+  this.actions[funcName] = func;
 };
 
 EventEmitter.prototype.trigger = function(funcName, ...args) {
-
+  this.actions[funcName](...args);
 };
+
+// const instance = new EventEmitter();
+// let counter = 0;
+// let sum = 0;
+// instance.on('increment', function () {
+//   counter++;
+// });
+// instance.on('decrement', function () {
+//   counter--;
+// });
+// instance.on('updateSum', function (n1, n2) {
+//   sum += n1 + n2;
+// });
+
+// instance.trigger('updateSum', 20, 30);
+// console.log('sum: 50 ->', sum);
 
 module.exports = EventEmitter;
