@@ -21,7 +21,7 @@
  * - It is not necessary to write a way to remove listeners.
  */
 
-function EventEmitter () {
+function EventEmitter() {
   this.listeners = {};
 }
 
@@ -34,9 +34,8 @@ EventEmitter.prototype.on = function (funcName, func) {
 };
 
 EventEmitter.prototype.trigger = function (funcName, ...args) {
-  if (!this.listeners.hasOwnProperty(funcName)) { return undefined; }
-  for (let func of this.listeners[funcName]) {
-    func.apply(this, args);
+  if (this.listeners.hasOwnProperty(funcName)) {
+    this.listeners[funcName].forEach(func => func(...args));
   }
 };
 
