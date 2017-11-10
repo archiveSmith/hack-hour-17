@@ -26,18 +26,12 @@ function EventEmitter() {
 }
 
 EventEmitter.prototype.on = function (funcName, func) {
-  // if (this.listeners.hasOwnProperty(funcName)) {
-  //   this.listeners[funcName].push(func);
-  // } else {
-  //   this.listeners[funcName] = [func];
-  // }
-
   this.listeners[funcName] = this.listeners[funcName] || [];
   this.listeners[funcName].push(func);
 };
 
 EventEmitter.prototype.trigger = function (funcName, ...args) {
-  if (this.listeners.hasOwnProperty(funcName)) {
+  if (this.listeners[funcName]) {
     this.listeners[funcName].forEach(func => func(...args));
   }
 };
