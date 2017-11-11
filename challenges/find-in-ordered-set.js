@@ -10,9 +10,12 @@ findInOrderedSet(nums, 2);  -> false
  */
 
 
-function findInOrderedSet(arr, target) {
-
-}
+ function findInOrderedSet(arr, target) {
+   let i = Math.floor(arr.length / 2);
+   if (arr[i] === target) return true;
+   if (arr.length < 3) return arr.indexOf(target) > -1;
+   return target < arr[i] ? findInOrderedSet(arr.slice(0,i + 1), target) : findInOrderedSet(arr.slice(i + 1), target);
+ }
 
 
 module.exports = findInOrderedSet;
