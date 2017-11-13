@@ -9,6 +9,7 @@ findInOrderedSet(nums, 2);  -> false
 
  */
 
+<<<<<<< HEAD
 function findInOrderedSet (arr, target) {
   // let length = arr.length / 2;
   // let center = Math.round(arr.length / 2);
@@ -36,5 +37,12 @@ function findInOrderedSet (arr, target) {
 var nums = [1, 4, 6, 7, 9, 17, 45, 58];
 console.log(findInOrderedSet(nums, 5));  // -> true
 console.log(findInOrderedSet(nums, 1));  // -> false
+=======
+
+function findInOrderedSet(arr, target) {
+
+}
+
+>>>>>>> 87470ee6239f47d2b6a75382d885a60a2fee3d4e
 
 module.exports = findInOrderedSet;
