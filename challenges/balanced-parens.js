@@ -25,7 +25,43 @@
  */
 
 function balancedParens(input){
+//if there is closing bracket before opening, unbalanced
+const bracket = {
+opners: ['(','[','{'],
+closers:
+
+
+
+
+//     let arr1 = [];
+//     let arr2 = [];
+//     let arr3 = [];
+//     let arr4 = [];
+//     let arr5 = [];
+//     let arr6 = [];
+//     let open1 = false;
+//     let open2 = false;
+//     let open3 = false;
+    
+    
+//     for(var i=0; i<input.length; i++) {
+//         if(input[i] === '(') {
+//             arr1.push(input[i])
+//             open1 = true;
+//         }
+//         else if(input[i] === ')') {
+//             arr2.push(input[i]);
+//             open1 = false;
+//         }
+//     }
+
+// if(arr1.length === arr2.length && open === false) { 
+//   return true
+// }
+// else {
+//   return false;
+
+// }
 
 }
-
 module.exports = balancedParens;

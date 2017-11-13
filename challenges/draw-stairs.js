@@ -14,8 +14,20 @@
 */
 
 function drawStairs(n) {
+  let str = ''
+  if(n < 1 && n> 100) {
+  	return;
+  }
+  for(var i=1; i<=n; i++) {
+    if(i<n) {
+    str += ' '.repeat(n-i) + '*'.repeat(i) + '\n'
+    }
+    else if(i===n) {
+      str += ' '.repeat(n-i) + '*'.repeat(i)
+    }
+    }
+    console.log(str)
 
 }
-
 
 module.exports = drawStairs;

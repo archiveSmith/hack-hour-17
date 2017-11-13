@@ -13,8 +13,16 @@
  *
  */
 
-function mergeArrays(arr1, arr2) {
 
-}
+function mergeArrays(arr1, arr2) {
+    let newarr;
+    newarr = arr1.concat(arr2);
+    return newarr.sort(function(a,b) {
+      return a-b;
+    })
+    
+    }
+
+
 
 module.exports = mergeArrays;

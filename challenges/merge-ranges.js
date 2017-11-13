@@ -11,7 +11,10 @@
 
 
 function mergeRanges(array) {
-
+let arr;
+for(let i=0; i<array.length; i++) {
+    arr = array[0].concat(array[i])
+}
 }
 
 module.exports = mergeRanges;
