@@ -11,7 +11,7 @@
  */
 
 
-
+// Nested loops
 function deleteDups(head) {
     let inner;
     for (let outer = head; outer; outer = outer.next){
@@ -22,5 +22,19 @@ function deleteDups(head) {
       }
     }
   }
+
+  // Hashing/Object
+// function deleteDups(head) {
+//     var data = {};
+//     var prev;
+//     for (var curr = head; curr; curr = curr.next) {
+//       if (curr.value in data) {
+//         prev.next = curr.next;
+//       } else {
+//         data[curr.value] = true;
+//         prev = curr;
+//       }
+//     }
+//   }
 
 module.exports = deleteDups;
