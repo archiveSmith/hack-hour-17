@@ -13,8 +13,62 @@ function BinaryTree(value) {
   this.right = null;
 }
 
+BinaryTree.prototype.add = function(value) {
+  let currentNode = this;
+  let node;
+
+  while (currentNode) {
+    if (value < currentNode.value) {
+      if (currentNode.left) {
+        currentNode = currentNode.left;
+      } else {
+        node = new BinaryTree(value);
+        currentNode.left = node;
+        break;
+      }
+    } else {
+      if (currentNode.right) {
+        currentNode = currentNode.right;
+      } else {
+        node = new BinaryTree(value);
+        currentNode.right = node;
+        break;
+      }
+    }
+  }
+};
+
+
 function superbalanced(tree) {
+  let currentNode = tree;
+
+  if (!tree.left && !tree.right) {
+    return true;
+  }
+
+  
+  
+  let countLeft = 0;
+  let countRight = 0;
+
+
+  console.log(currentNode);
+
+
 
 }
+
+// My tests
+let tree = new BinaryTree(8);
+tree.add(5);
+tree.add(3);
+tree.add(6);
+tree.add(10);
+// console.log(tree);
+// console.log(tree.contains(3));
+// console.log(tree.contains(7));
+
+console.log(superbalanced(tree));
+
 
 module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
