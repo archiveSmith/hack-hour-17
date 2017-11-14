@@ -11,11 +11,11 @@ findInOrderedSet(nums, 2);  -> false
 
 //  // O(log n)
 function findInOrderedSet (arr, target) {
-  if (!arr || !arr.length) return false;
-  let middle = Math.floor(arr.length / 2);
-  if (target === arr[middle]) return true;
-  if (target < arr[middle]) return findInOrderedSet(arr.slice(0, middle), target);
-  if (target > arr[middle]) return findInOrderedSet(arr.slice(middle + 1), target);
+  // if (!arr || !arr.length) return false;
+  // let middle = Math.floor(arr.length / 2);
+  // if (target === arr[middle]) return true;
+  // if (target < arr[middle]) return findInOrderedSet(arr.slice(0, middle), target);
+  // if (target > arr[middle]) return findInOrderedSet(arr.slice(middle + 1), target);
 }
 
 // // O(log n) time, O(1) space
