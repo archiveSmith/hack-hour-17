@@ -10,7 +10,20 @@
  *
  */
 function uniqueNumber(array) {
-
+  let storage = {};
+  for (let i = 0; i < array.length; i += 1) {
+    if (!storage[array[i]]) {
+      storage[array[i]] = 0
+    }
+    storage[array[i]]++;
+  }
+  let answer;
+  for (let item in storage) {
+    if (storage[item] === 1) {
+      answer = item;
+    }
+  }
+  return answer;
 }
 
 module.exports = uniqueNumber;
