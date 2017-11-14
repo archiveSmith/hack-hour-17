@@ -10,7 +10,13 @@
  *
  */
 function uniqueNumber(array) {
-
+  sorted = array.sort((a,b)=>{return a-b});
+  while(sorted.length) {
+    popped = sorted.pop();
+  if (sorted.pop()!==popped)
+    return popped;
 }
 
+}
+console.log(uniqueNumber([1,2,1,3,3]))
 module.exports = uniqueNumber;
