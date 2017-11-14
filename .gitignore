@@ -1,1 +1,6 @@
 node_modules
+.DS_Store
+.eslintrc.js
+.vscode/
+0. incomplete.md
+package-lock.json
