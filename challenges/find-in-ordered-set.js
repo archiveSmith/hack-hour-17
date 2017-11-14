@@ -11,6 +11,7 @@ findInOrderedSet(nums, 2);  -> false
 
 
 function findInOrderedSet(arr, target) {
+<<<<<<< HEAD
   const mid = Math.floor(arr.length / 2);
   if (arr.length === 0) return false;
   if (target === arr[mid]) return true;
@@ -23,11 +24,17 @@ function findInOrderedSet(arr, target) {
     return findInOrderedSet(newArr, target);
   }
   return false;
+=======
+
+>>>>>>> 42fce4c7af781d1a07c0c9399440e3f3c6da45f3
 }
 
 
 module.exports = findInOrderedSet;
+<<<<<<< HEAD
 
 // let nums = [1, 4, 6, 7, 9, 17, 45]
 // console.log(findInOrderedSet(nums, 4));  // -> true
 // console.log(findInOrderedSet(nums, 2));  // -> false
+=======
+>>>>>>> 42fce4c7af781d1a07c0c9399440e3f3c6da45f3
