@@ -10,7 +10,16 @@
  *
  */
 function uniqueNumber(array) {
-
+  const holder = {};
+  for (let i = 0; i < array.length; i += 1) {
+    if (holder[array[i]]) {
+      delete holder[array[i]];
+    } else {
+      holder[array[i]] = true;
+    }
+  }
+  return Object.keys(holder)[0];
 }
+// console.log(uniqueNumber([1,2,1,3,3]));
 
 module.exports = uniqueNumber;
