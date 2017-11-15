@@ -20,7 +20,7 @@ function getAllProducts(array) {
         )
         copyArray.push(tmp);
     }
-    return result;
+    return result; 
 }
 
 console.log(getAllProducts([1, 7, 3, 4]));
