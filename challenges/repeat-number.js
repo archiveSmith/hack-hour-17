@@ -11,7 +11,27 @@
  */
 
 function repeatNumbers(array) {
+/**
+ * 1, 2, 3, 4, 5, 3
+ */
+
+ if (!Array.isArray(array)) return;
+ let copyArray = Array.from(array);
+ let sameVal;
+
+ copyArray = copyArray.sort((a, b) => a - b);
+
+ for (let i = 0; i < copyArray.length; i += 1) {
+     if (copyArray[i] === i) {
+         sameVal = i;
+         break;
+     }
+ }
+
+ return sameVal;
 
 }
+
+console.log(repeatNumbers([1, 4, 3, 2, 5, 3]));
 
 module.exports = repeatNumbers;
