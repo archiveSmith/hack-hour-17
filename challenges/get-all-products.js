@@ -10,7 +10,17 @@
  */
 
 function getAllProducts(array) {
-
+  let result = [];
+  for (let i in array) {
+    let n = 1;
+    for (let j in array) {
+      if (i != j) {
+        n *= array[j];
+      }
+    }
+    result.push(n);
+  }
+  return result;
 }
 
 module.exports = getAllProducts;
