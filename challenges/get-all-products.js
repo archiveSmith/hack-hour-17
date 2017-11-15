@@ -11,6 +11,20 @@
 
 function getAllProducts(array) {
 
+  //o(n^2)
+  let finArr=[];
+  let temp, product=1;
+  for (let i = 0; i < array.length; i++) {
+    for  (let j = 0; j < array.length-1; j++) {
+      product*= array[j];
+    }
+    finArr.push(product);
+    product=1
+    temp=array.pop();
+    array.unshift(temp);
+  }
+  return finArr;
 }
+console.log(getAllProducts([1,7,3,4]))
 
 module.exports = getAllProducts;
