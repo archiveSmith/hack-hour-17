@@ -10,6 +10,7 @@
  */
 
 function getAllProducts (array) {
+  if (!Array.isArray(array)) return [0];
   const forward = new Array(array.length).fill(1);
   for (let i = 1; i < array.length; i += 1) {
     forward[i] = array[i - 1] * forward[i - 1];
