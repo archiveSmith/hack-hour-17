@@ -11,6 +11,9 @@
 
 function getAllProducts(array) {
   const retArr = [];
+  if (array.length == 0) {
+    return [0];
+  }
   for (let i = 0; i < array.length; i += 1) {
     retArr.push(array.slice(0 , i).concat(array.slice(i + 1))
       .reduce((acc, curr) => acc * curr));
@@ -18,7 +21,7 @@ function getAllProducts(array) {
   return retArr;
 }
 
-// console.log(getAllProducts([1, 7, 3, 4]))
+console.log(getAllProducts([1, 7, 3, 4]))
 
 
 module.exports = getAllProducts;
