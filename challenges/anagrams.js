@@ -12,21 +12,35 @@
   * console.log(result); // [ 'abc', 'acb', 'bac', 'bca', 'cab', 'cba' ]
   */
 
-function anagrams(string) {
-  if (string.length === 1) {
-    return string;
-  }
-  let anagram = []
-  for (let i=0; i<string.length; i+=1) {
-    let first = string[0]
-    let comb = anagrams(string.slice(1, string.length));
+// function anagrams(string) {
+//   // if (string.length === 1) {
+//   //   return string;
+//   // }
+//   // let anagram = []
+//   // for (let i=0; i<string.length; i+=1) {
+//   //   let first = string[0]
+//   //   let comb = anagrams(string.slice(1, string.length));
 
-    for (let j=0; j<comb.length; j+=1) {
-      anagram.push(first + comb[j])
-    }
-    string = string.substr(1, string.length - 1) + first
-  }
-  return anagram
-}
+//   //   for (let j=0; j<comb.length; j+=1) {
+//   //     anagram.push(first + comb[j])
+//   //   }
+//   //   string = string.substr(1, string.length - 1) + first
+//   // }
+//   // return anagram
+// }
+
+const anagrams = function getAllAnagrams(string) {
+  if (string.length === 1) return [string];
+
+  const anagramsSet = new Set();
+
+  string.split('').forEach((currentLetter, i) => {
+    const slicedString = string.slice(0, i) + string.slice(i + 1);
+    const incompleteAnagrams = anagrams(slicedString);
+    incompleteAnagrams.forEach(anagram => anagramsSet.add(currentLetter + anagram));
+  });
+
+  return Array.from(anagramsSet);
+};
 
 module.exports = anagrams;
