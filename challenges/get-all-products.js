@@ -10,7 +10,21 @@
  */
 
 function getAllProducts(array) {
-
+  const products = []
+  for (let i = 0; i < array.length; i += 1) {
+    let product = 1
+    // multiply all integers
+    for (let int = 0; int < array.length; int += 1) {
+      product = product * array[int]
+    }
+    // divide product by i
+    product = product / array[i]
+    // push result to array
+    products.push(product)
+  }
+  return products
 }
 
-module.exports = getAllProducts;
+// console.log(getAllProducts([1, 7, 3, 4]))
+
+module.exports = getAllProducts
