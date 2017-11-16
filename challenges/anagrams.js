@@ -13,7 +13,19 @@
   */
 
 function anagrams(string) {
-
-}
+  if (string.length === 1) return [string];
+  
+  const anagramsSet = new Set();
+  
+  string.split('').forEach((currentLetter, i) => {
+    const slicedString = string.slice(0, i) + string.slice(i + 1);
+    const incompleteAnagrams = anagrams(slicedString);
+    incompleteAnagrams.forEach(anagram => anagramsSet.add(currentLetter + anagram));
+  });
+    
+  return Array.from(anagramsSet);
+};
 
 module.exports = anagrams;
+
+console.log(anagrams('abc'));
