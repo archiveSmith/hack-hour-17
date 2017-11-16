@@ -11,7 +11,7 @@
 
 // O(n^2) time
 const getAllProducts = (array) => {
-  if (!array || array.length < 1) return 0;
+  if (!array || array.length < 1) return [0];
   const result = [];
   for (let i = 0; i < array.length; i++) {
     let product;
@@ -35,6 +35,6 @@ const getAllProducts = (array) => {
 
 // };
 
-// console.log('[84, 12, 28, 21] ->', getAllProducts([1, 7, 3, 4]));
+console.log('[84, 12, 28, 21] ->', getAllProducts([1, 7, 3, 4]));
 
 module.exports = getAllProducts;
