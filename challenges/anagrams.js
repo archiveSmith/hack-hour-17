@@ -13,7 +13,7 @@
   */
 
 function anagrams(string) {
-  if (string.length === 1) return [''];
+  if (string.length <= 1) return [string];
   
   const anagramsSet = new Set();
   
@@ -28,4 +28,4 @@ function anagrams(string) {
 
 module.exports = anagrams;
 
-console.log(anagrams('abc'));
+console.log(anagrams(''));
