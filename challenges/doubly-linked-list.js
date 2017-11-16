@@ -18,13 +18,11 @@ Adds a node to the end of the list
  */
 LinkedList.prototype.add = function (val) {
   const newNode = new Node(val);
-  const prevTail = this.tail;
-
   if (this.head === null) {
     this.head = this.tail = newNode;
   } else {
-    newNode.prev = prevTail;
-    prevTail.next = newNode;
+    newNode.prev = this.tail;
+    this.tail.next = newNode;
     this.tail = newNode;
   }
 };
@@ -34,23 +32,15 @@ Removes the first node with the inputted value
  */
 LinkedList.prototype.remove = function (val) {
   let currNode = this.head;
-  while (currNode !== null && currNode.val !== val) {
-    currNode = currNode.next;
-  }
+  while (currNode && currNode.val !== val) { currNode = currNode.next; }
 
-  if (currNode === this.head) {
-    this.head = currNode.next;
-  }
+  if (currNode === this.head) { this.head = currNode.next; }
 
-  if (currNode === this.tail) {
-    this.tail = currNode.prev;
-  }
+  if (currNode === this.tail) { this.tail = currNode.prev; }
 
   if (currNode !== null) {
-    const prevNode = currNode.prev;
-    const nextNode = currNode.next;
-    if (prevNode) { prevNode.next = nextNode; }
-    if (nextNode) { nextNode.prev = prevNode; }
+    if (currNode.prev) { currNode.prev.next = currNode.next; }
+    if (currNode.next) { currNode.next.prev = currNode.prev; }
   }
 };
 
