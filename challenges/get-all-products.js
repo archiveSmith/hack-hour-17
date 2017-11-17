@@ -11,6 +11,9 @@
 
 function getAllProducts(array) {
     let res = []
+    if (array.length === 0){
+        return [0]
+    }
     for (let i = 0; i < array.length; i += 1) {
         let prod = 1;
         for (let j = 0; j < array.length; j += 1) {
