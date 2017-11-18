@@ -3,6 +3,7 @@
 // https://en.wikipedia.org/wiki/Bubble_sort
 
 function bubbleSort (array) {
+  if (!Array.isArray(array)) return undefined;
   for (let i = 0; i < array.length; i++) {
     for (let j = 0; j < array.length - i; j++) {
       if (array[j] > array[j + 1]) {
