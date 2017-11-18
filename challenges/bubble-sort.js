@@ -4,8 +4,20 @@
 
 
 
-function bubbleSort(array) {
-
+function bubbleSort(arr) {
+  let swapped;
+  const array = Array.from(arr);
+  do {
+    swapped = false;
+    for (let i = 0, j = 1; i < array.length - 1; i += 1, j += 1) {
+      if (array[i] > array[j]) {
+        swapped = true;
+        const temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+      }
+    }
+  } while (swapped);
+  return array;
 }
-
 module.exports = bubbleSort;
