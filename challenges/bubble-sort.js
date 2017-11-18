@@ -11,7 +11,7 @@ function bubbleSort(array) {
   while (run) {
       run = false
       for (let i = 0; i < arr.length; i++) {
-          if (arr[i + 1] && arr[i] > arr[i + 1]) {
+          if (arr[i + 1] !== undefined && arr[i] > arr[i + 1]) {
               [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];
               run = true
           }
