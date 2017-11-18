@@ -23,7 +23,13 @@
  */
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
-
+  return r.reduce((acc, currentRadius, i) => {
+    const startDistanceFromCenter = Math.hypot(x[i] - start_x, y[i] - start_y);
+    const endDistanceFromCenter = Math.hypot(x[i] - end_x, y[i] - end_y);
+    const startPointIsInCircle = startDistanceFromCenter < currentRadius;
+    const endPointIsInCircle = endDistanceFromCenter < currentRadius;
+    return acc + (startPointIsInCircle ^ endPointIsInCircle);
+  }, 0);
 }
 
 module.exports = circleCountry;
