@@ -8,7 +8,19 @@
  */
 
 function maxSubarray(arr) {
+  const maxInArr = Math.max(...arr);
+  if (maxInArr <= 0) return maxInArr;
 
-}
+  const callback = (acc, val) => {
+    let { currentSequence, max } = acc;
+    currentSequence = Math.max(0, currentSequence + val);
+    max = Math.max(currentSequence, max);
+    return { currentSequence, max };
+  };
+
+  const accumulator = { currentSequence: 0, max: 0 };
+  return arr.reduce(callback, accumulator).max;
+};
 
 module.exports = maxSubarray;
+
