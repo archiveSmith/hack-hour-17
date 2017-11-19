@@ -12,8 +12,53 @@
  * numToWords(92120000000000000) -> 'NintyTwoQuadrillionOneHundredTwentyTrillion'
  */
 
-function numToWords(num) {
+const numWords = {
+  ones: ['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine'],
+  teens: ['', 'Eleven', 'Twelve', 'Thirteen','Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen' ],
+  tens: ['', 'Ten', 'Twenty', 'Thirty', 'Fourty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'],
+  bigs: ['', 'Thousand', 'Million', 'Billion', 'Trillion', 'Quadrillion']
+};
 
+function numToWords(num) {
+  const { bigs } = numWords;
+  let numToShave = num;
+  let output = '';
+  let bigPlace = 0;
+
+  while (numToShave > 0) {
+    output = bigs[bigPlace] + output;
+    output = smallNumToWords(numToShave % 1000) + output;
+    numToShave = Math.floor(numToShave / 1000);
+    bigPlace += 1;
+  }
+
+  return output;
 }
 
+const smallNumToWords = num => {
+  const { ones, tens } = numWords;
+  let numToShave = num;
+  let output = '';
+  let digitPlace = 1;
+  
+  while (numToShave > 0) {
+    if (digitPlace === 3) output = 'Hundred' + output;
+    let currentDigit = numToShave % 10;
+    numToShave = Math.floor(numToShave / 10);
+  
+    if (numToShave % 10 !== 1) {
+      let currentDigitToWord = digitPlace === 2 ? tens[currentDigit] : ones[currentDigit];
+      output = currentDigitToWord + output;
+      digitPlace += 1;
+    } else {
+      output = numWords.teens[currentDigit] + output;
+      numToShave = Math.floor(numToShave / 10);
+      digitPlace += 2;
+    }
+  }
+  
+  return output;
+};
+
 module.exports = numToWords;
+
