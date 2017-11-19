@@ -38,7 +38,7 @@ LinkedList.prototype.remove = function(val) {
     return current ? current : undefined;
   }
 
-  const nodeToRemove = this.getNode(val);
+  const nodeToRemove = getNode(val);
   if (!nodeToRemove) return;
 
   const isHead = nodeToRemove === this.head;
@@ -60,7 +60,7 @@ LinkedList.prototype.remove = function(val) {
   }
 
   return nodeToRemove;
-  
+
 };
 
 module.exports = LinkedList;
