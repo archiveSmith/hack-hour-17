@@ -16,7 +16,6 @@ function insertionSort(array) {
   }
   return array;
 
-
   // for (let sortEnd = 0; sortEnd < array.length; sortEnd += 1) {
   //   for (let needToSort = sortEnd - 1; needToSort >=0; needToSort -= 1) {
   // //     //put conditional statement here to check? before sorting
