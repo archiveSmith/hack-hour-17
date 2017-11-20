@@ -44,7 +44,7 @@ function modemean(array) {
     return obj;
   }, {});
 
-  return (sum/array.length) === maxMode;
+  return Math.floor(sum/array.length) === maxMode;
 }
 
 console.log(modemean([1, 2, 2, 3]));
