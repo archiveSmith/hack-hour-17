@@ -46,11 +46,11 @@ function findName(jazbook, name) {
 // console.log(findName(jazbook, 'jae'))
 // return an object literal representing the jazbook
 function makePhoneBookObject(jazbook){
-  let jazObj={};
+  this.jazObj={};
   jazbook.forEach(el => {
-    jazObj[el[0]] = el[1];
+    this.jazObj[el[0]] = el[1];
   })
-  return jazObj;
+  // return jazObj;
 }
 
 makePhoneBookObject.prototype.add = function(name,number) {
@@ -67,7 +67,7 @@ makePhoneBookObject.prototype.lookup = function(name) {
 
 let pb = new makePhoneBookObject(jazbook);
 pb.add('frank','800-212-3939')
-console.log(makePhoneBookObject(jazbook));
+console.log(pb)
 const objectToExport = {
   findName,
   makePhoneBookObject,
