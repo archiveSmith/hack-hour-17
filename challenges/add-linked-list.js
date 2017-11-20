@@ -12,13 +12,35 @@
  *
  */
 
-function Node(val) {
-  this.value = val;
-  this.next = null;
-}
+ function Node(val) {
+   this.value = val;
+   this.next = null;
+ }
 
-function addLinkedList(l1, l2) {
+ function addLinkedList(l1, l2) {
+   if (!l1.value && !l2.value) return;
+   const addNodes = (node1, node2, carry = 0) => {
+     let nextCarry = 0;
+     let val1 = node1 ? node1.value : 0;
+     let val2 = node2 ? node2.value : 0;
 
-}
+     let newNode = new Node(val1 + val2 + carry);
+
+     if (newNode.value > 9) {
+       newNode.value = newNode.value - 10;
+       nextCarry = 1;
+     }
+
+     if (!node1) node1 = new Node(); // these two lines make sure
+     if (!node2) node2 = new Node(); // node*.next doesn't throw error
+                                     // if node* is already null.
+
+     if (node1.next || node2.next || nextCarry === 1) {
+       newNode.next = addNodes(node1.next, node2.next, nextCarry);
+     }
+     return newNode;
+   }
+   return addNodes(l1, l2);
+ }
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};

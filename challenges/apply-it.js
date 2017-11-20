@@ -25,8 +25,23 @@
  *  DO NOT USE THE BUILT IN APPLY METHOD OR THE SPREAD OPERATOR
  */
 
-function applyIt(func, args) {
 
+// this must be the dumbest way to do it but can't figure out any other
+// ways without using apply or spread operator... and it forces everything to strings lol..
+
+function applyIt(func, args) {
+  return function() {
+    return eval('func(' + "'" + args.join("','") + "'" + ')');
+  }
 }
+
+// function applyIt(func, args) {
+//   return function() {
+//     for (let i = 0; i < args.length; i += 1) {
+//       arguments[i] = args[i];
+//     }
+//     return func(arguments);
+//   }
+// }
 
 module.exports = applyIt;

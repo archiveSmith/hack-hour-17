@@ -23,7 +23,19 @@
  */
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
-
+  let startCircles = [];
+  let endCircles = [];
+  for (let i = 0; i < x.length; i += 1) {
+    if (Math.pow(start_x - x[i], 2) + Math.pow(start_y - y[i], 2) < r[i] * r[i]) {
+      startCircles.push(i);
+    }
+    if (Math.pow(end_x - x[i], 2) + Math.pow(end_y - y[i], 2) < r[i] * r[i]) {
+      endCircles.push(i);
+    }
+  }
+  let startUniques = startCircles.filter(val => endCircles.indexOf(val) < 0);
+  let endUniques = endCircles.filter(val => startCircles.indexOf(val) < 0);
+  return startUniques.concat(endUniques).length
 }
 
 module.exports = circleCountry;
