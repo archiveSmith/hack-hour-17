@@ -15,6 +15,7 @@
  */
 
 const countStairs = (n) => {
+  if (!n) return 1;
   if (n < 3) {
     const base = [1, 2];
     return base[n - 1];
