@@ -14,8 +14,12 @@
  * That is a total of 8 different ways to take 5 steps, given that you can take 1 or 2 steps at a time.
  */
 
-function countStairs(n) {
-
-}
+const countStairs = (n) => {
+  if (n < 3) {
+    const base = [1, 2];
+    return base[n - 1];
+  }
+  return countStairs(n - 1) + countStairs(n - 2);
+};
 
 module.exports = countStairs;
