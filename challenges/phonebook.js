@@ -33,16 +33,15 @@ const findName = (jazbook, name) => {
 };
 
 // return an object literal representing the jazbook
-class makePhoneBookObject {
+class Phonebook {
   constructor (jazbook) {
     for (let i = 0; i < jazbook.length; i++) {
-      this.addContact(jazbook[i][0], jazbook[i][1]);
+      this.addContact(jazbook[i]);
     }
   }
 
-  addContact (name, num) {
+  addContact ([name, num]) {
     this[name] = num;
-    return {name, num};
   }
 
   getContact (name) {
@@ -53,7 +52,6 @@ class makePhoneBookObject {
   removeContact (name) {
     if (this[name]) {
       delete this[name];
-      return name;
     }
     return false;
   }
@@ -74,7 +72,7 @@ class makePhoneBookObject {
 
 const objectToExport = {
   findName,
-  makePhoneBookObject
+  makePhoneBookObject: (jazbook) => new Phonebook(jazbook)
 };
 
 module.exports = objectToExport;
