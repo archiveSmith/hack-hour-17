@@ -35,25 +35,24 @@ const findName = (jazbook, name) => {
 // return an object literal representing the jazbook
 class makePhoneBookObject {
   constructor (jazbook) {
-    this.book = {};
     for (let i = 0; i < jazbook.length; i++) {
       this.addContact(jazbook[i][0], jazbook[i][1]);
     }
   }
 
   addContact (name, num) {
-    this.book[name] = num;
+    this[name] = num;
     return {name, num};
   }
 
   getContact (name) {
-    if (this.book[name]) return this.book[name];
+    if (this[name]) return this[name];
     return false;
   }
 
   removeContact (name) {
-    if (this.book[name]) {
-      delete this.book[name];
+    if (this[name]) {
+      delete this[name];
       return name;
     }
     return false;
