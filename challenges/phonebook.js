@@ -57,3 +57,29 @@ const objectToExport = {
 };
 
 module.exports = objectToExport;
+
+// const findName = function(jazbook, name) {
+//   const contact = jazbook.find(elem => elem[0] === name);
+//   return contact ? contact[1] : false;
+// };
+
+// class Phonebook {
+//   constructor(jazbook) {
+//     jazbook.forEach(contact => this.add(contact));
+//   }
+
+//   add([name, number]) {
+//     this[name] = number;
+//   }
+
+//   remove(name) {
+//     if (this[name]) delete this[name];
+//   }
+// }
+
+// const objectToExport = {
+//   findName,
+//   makePhoneBookObject: (jazbook) => new Phonebook(jazbook)
+// };
+
+// module.exports = objectToExport;
