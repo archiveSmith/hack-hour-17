@@ -18,13 +18,13 @@
  */
 
 function newIntersections (x, y) {
-  const left = Math.min(...x);
-  const right = Math.max(...x);
-  const top = Math.max(...y);
-  const bottom = Math.min(...y);
+  const left = Math.floor(Math.min(...x));
+  const right = Math.ceil(Math.max(...x));
+  const top = Math.ceil(Math.max(...y));
+  const bottom = Math.floor(Math.min(...y));
 
-  const width = right - left - 1;
-  const height = top - bottom - 1;
+  const width = Math.max(right - left - 1, 0);
+  const height = Math.max(top - bottom - 1, 0);
   return width * height;
 }
 
