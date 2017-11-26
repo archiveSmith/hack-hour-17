@@ -18,6 +18,45 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
+  	//new list
+	let newList;
+	
+	let curr1 = l1;
+	let curr2 = l2;
+	let curr3;
+	let carryOver = 0;
+	
+	while(curr1 || curr2) {
+		let tempSum = 0;
+		if(curr1) {
+			tempSum += curr1.value;
+			curr1 = curr1.next;
+		}
+		
+		if(curr2) {
+			tempSum += curr2.value;
+			curr2 = curr2.next;
+		}
+		tempSum += carryOver;
+		if(tempSum > 9) {
+		    carryOver = 1;
+			tempSum = tempSum-10;
+		} else {
+		    carryOver = 0;
+		}
+		
+		if(!newList) {
+			newList = new Node(tempSum);
+			curr3 = newList;
+		} else {
+			curr3.next = new Node(tempSum);
+			curr3 = curr3.next;
+		}
+	}
+	if(carryOver) {
+        curr3.next = new Node(carryOver);
+	}
+	return newList;
 
 }
 
