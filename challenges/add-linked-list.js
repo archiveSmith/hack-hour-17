@@ -9,7 +9,7 @@
  * The 7 is the ones digit (2 + 5).
  * The 0 is the tens digit (1 + 9, carry the 1).
  * The 8 is the hundreds digit (1 carried over + 5 + 2).
- *
+ * 
  */
 
 function Node(val) {
@@ -61,3 +61,59 @@ function addLinkedList(l1, l2) {
 }
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
+
+
+
+/** ****************************************
+ *  *************** SOLUTION ***************
+ *  ****************************************
+ * // Write a function "countTwos" that takes a number as an argument, n. The function will return the number of 2s encountered when counting from 1 to n (inclusive). 2222 counts as having 4 2s.
+
+// countTwos(1);  -> 0
+// countTwos(3);  -> 1
+// countTwos(13);  -> 2
+// countTwos(1000);  -> 300
+// countTwos(11420);  -> 4483
+
+// brute force
+const countTwos = (num) => {
+  let count = 0;
+  for (let i = 0; i <= num; i += 1) {
+    i.toString().split('').forEach((el) => {
+      if (el === '2') count += 1;
+    });
+  }
+  return count;
+}
+
+// Faster
+const countAtDigit = (num, index) => {
+  // power at i-th digit
+  const power = Math.pow(10, index);
+  // get digit at i-th digit
+  const digit = Math.floor(num / power) % 10;
+  // rounding down if digit < 2
+  const low = num - (num % (power * 10));
+  // round up if digit > 2
+  const high = low + power * 10;
+
+  // increment count by these numbers
+  if (digit < 2) return low / 10;
+  else if (digit > 2) return high / 10;
+  // if digit is exactly 2
+  return (low / 10) + (num % power) + 1;
+}
+
+const countOccurences = (num) => {
+  // get number digits in num
+  const length = num.toString().length;
+  let count = 0;
+
+  // do countAtDigit for each digit and increment
+  for (let i = 0; i < length; i += 1) {
+    count += countAtDigit(num, i);
+  }
+  return count;
+}
+ * 
+ */
