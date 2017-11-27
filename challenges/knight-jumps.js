@@ -13,19 +13,19 @@
 function knightjumps (str) {
   let [x, y] = str.match(/\d+/g);
   // let jumps = 8;
-
+  // [x, y] = [+x, +y];
   if (x > 4) x = -(x - 9);
-  if (y > 4) x = -(y - 9);
+  if (y > 4) y = -(y - 9);
 
-  [x, y] = [+x, +y].sort();
+  [x, y] = [x, y].sort();
 
   if (x > 2) return 8;
-  if (x === 2) return (y === 1) ? 3 : 4;
-  if (y === 1) return 2;
+  if (x === 2) return (y > 2) ? 6 : 4;
   if (y === 2) return 3;
+  if (y === 1) return 2;
   return 4;
 }
 
-// console.log(knightjumps('(2 2)'));
+console.log(knightjumps('(1 8)'));
 
 module.exports = knightjumps;
