@@ -11,6 +11,23 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
+  let x = str.charAt(1);
+  let y = str.charAt(3);
+
+  if (x == 1 || x == 8) {
+    if (y == 1 || y == 8) {
+      return 3;
+    }
+    else {
+      return 5;
+    }
+  }
+
+  if (y == 1 || y == 8) {
+    return 5;
+  }
+
+  return 8;
 
 }
 
