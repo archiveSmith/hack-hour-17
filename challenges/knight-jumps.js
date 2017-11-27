@@ -17,7 +17,7 @@ function knightjumps (str) {
   if (x > 4) x = -(x - 9);
   if (y > 4) y = -(y - 9);
 
-  [x, y] = [x, y].sort();
+  [x, y] = [+x, +y].sort();
 
   if (x > 2) return 8;
   if (x === 2) return (y > 2) ? 6 : 4;
@@ -26,6 +26,6 @@ function knightjumps (str) {
   return 4;
 }
 
-console.log(knightjumps('(1 8)'));
+console.log(knightjumps('(1 1)'));
 
 module.exports = knightjumps;
