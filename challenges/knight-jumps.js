@@ -16,15 +16,15 @@ function knightjumps(str) {
 
   if (x == 1 || x == 8) {
     if (y == 1 || y == 8) {
-      return 3;
+      return 2;
     }
     else {
-      return 5;
+      return 4;
     }
   }
 
   if (y == 1 || y == 8) {
-    return 5;
+    return 3;
   }
 
   return 8;
