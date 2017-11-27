@@ -10,8 +10,21 @@
 //  example input:
 // var str = "(4 5)"
 
-function knightjumps(str) {
-
+function knightjumps(x, y) {
+  let x1 = 8 - x >= 2 ? 3 : 8 - x;
+  let x2 = x >= 3 ? 3 : x;
+  
+  let y1 = 8 - y >= 2 ? 3 : 8 - y;
+  let y2 = y >= 3 ? 3: y;
+  
+  let area = (x1 + x2 - 1) * (y1 + y2 - 1);
+  
+  if (area === 25) return 8;
+  if (area === 20) return 6;
+  if (area === 16) return 4;
+  if (area === 15) return 4;
+  if (area === 12) return 3;
+  if (area === 9) return 2;
 }
 
 module.exports = knightjumps;
