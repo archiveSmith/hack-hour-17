@@ -20,7 +20,7 @@ function knightjumps (str) {
   [x, y] = [x, y].sort();
 
   if (x > 2) return 8;
-  if (x === 2) return 4;
+  if (x === 2) return (y > 2) ? 6 : 4;
   if (y === 2) return 3;
   if (y === 1) return 2;
   return 4;
