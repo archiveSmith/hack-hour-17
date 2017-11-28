@@ -11,7 +11,23 @@
 // var str = "(4 5)"
 
 function knightjumps(str) {
-
+  const x = Number.parseInt(str[1]);
+  const y = Number.parseInt(str[3]);
+  let totalMoves = 0;
+  for (let i = -2; i < 3; i += 1) {
+    if(i === 0) continue;
+    const newX = x + i;
+    if (newX > 0 && newX < 9) {
+      const yPos = 3 - Math.abs(i);
+      if (y + yPos > 0 && y + yPos < 9) {
+        totalMoves += 1;
+      }
+      if (y - yPos > 0 && y - yPos < 9) {
+        totalMoves += 1;
+      }   
+    }
+  }
+  return totalMoves;
 }
 
 module.exports = knightjumps;
