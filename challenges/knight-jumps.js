@@ -10,8 +10,31 @@
 //  example input:
 // var str = "(4 5)"
 
-function knightjumps(str) {
+// const str = "(4 5)"
 
+function knightjumps(str) {
+  let jumps = 0
+  let x = parseInt(str[1], 10)
+  let y = parseInt(str[3], 10)
+  if(x + 2 <= 8) {
+    if(y + 1 <= 8) jumps += 1
+    if(y - 1 >= 1) jumps += 1
+  }
+  if(x - 2 >= 1) {
+    if(y + 1 <= 8) jumps += 1
+    if(y - 1 >= 1) jumps += 1
+  }
+  if(y + 2 <= 8) {
+    if(x + 1 <= 8) jumps += 1
+    if(x - 1 >= 1) jumps += 1
+  }
+  if(y - 2 >= 1) {
+    if(x + 1 <= 8) jumps += 1
+    if(x - 1 >= 1) jumps += 1
+  }
+  return jumps
 }
+
+// console.log(knightjumps(str))
 
 module.exports = knightjumps;
