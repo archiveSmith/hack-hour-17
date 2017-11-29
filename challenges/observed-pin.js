@@ -54,14 +54,12 @@ let adjacent = {
 
 function getPINs (observed) {
   let adj = observed.split('').map((i) => adjacent[i]);
-  return adj.reduce((combos, vals) => {
-    return vals.reduce((acc, val) => {
-      const newCombos = combos.map(combo => combo.concat(val));
+  return adj.reduce((currCombos, possibleVals) => {
+    return possibleVals.reduce((acc, possibleVal) => {
+      const newCombos = currCombos.map(combo => combo.concat(possibleVal));
       return [...acc, ...newCombos];
     }, []);
   });
 }
-
-// console.log(getPINs('369').length);
 
 module.exports = getPINs;
