@@ -7,7 +7,21 @@
  */
 
 function Stack() {
-  // body...
+  const stack = [];
+
+  Stack.prototype.push = (value) => {
+    this[this.length] = value;
+    return this.length;
+  };
+
+  Stack.prototype.pop = () => {
+    return this.splice(this.length, 1);
+  };
+
+  Stack.prototype.getMax = () => stack.apply.Math.math(null, stack);
+
+  return stack;
 }
+
 
 module.exports = Stack;
