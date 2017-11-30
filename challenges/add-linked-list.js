@@ -13,12 +13,71 @@
  */
 
 function Node(val) {
-  this.value = val;
-  this.next = null;
+  this.value = val
+  this.next = null
 }
+
+class LinkedList {
+  constructor() {
+    this.head = null
+    this.tail = null
+  }
+
+  add(val) {
+    // create a new node with the input value
+    const node = new Node(val)
+    // if head is null, set node at head and tail
+    if (!this.head && !this.tail) {
+      this.head = node
+      this.tail = node
+    } else {
+      // append the new node to tail
+      this.tail.next = node
+      // reset tail with the new node
+      this.tail = node
+    }
+  }
+}
+// 
+// const l1 = new LinkedList()
+// l1.add(2)
+// l1.add(1)
+// l1.add(5)
+//
+// const l2 = new LinkedList()
+// l2.add(5)
+// l2.add(9)
+// l2.add(2)
 
 function addLinkedList(l1, l2) {
-
+  const addedList = new LinkedList()
+  let quotient = 0
+  let currentL1 = l1.head
+  let currentL2 = l2.head
+  while (currentL1 && currentL2) {
+    let sum = currentL1.value + currentL2.value + quotient
+    quotient = 0
+    if (sum > 9 && currentL1.next) {
+      quotient = Math.floor(sum / 10)
+      sum -= quotient * 10
+    }
+    addedList.add(sum)
+    currentL1 = currentL1.next
+    currentL2 = currentL2.next
+  }
+  return addedList
 }
+
+// let myAddedList = addLinkedList(l1, l2)
+//
+// function logEachListNode(list) {
+//   let current = list.head
+//   while (current) {
+//     console.log(current.value)
+//     current = current.next
+//   }
+// }
+//
+// logEachListNode(myAddedList)
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
