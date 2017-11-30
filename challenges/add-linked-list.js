@@ -17,28 +17,65 @@ function Node(val) {
   this.next = null
 }
 
-class LinkedList {
-  constructor() {
-    this.head = null
-    this.tail = null
+
+function addLinkedList(l1, l2) {
+  let l1Current = l1
+  let l2Current = l2
+
+  let { addedNode, carry } = addNodes(l1Current, l2Current)
+  let current = addedNode
+
+  const newLinkedList = addedNode
+
+  while (current) {
+    l1Current = l1Current.next
+    l2Current = l2Current.next
+
+    ({ addedNode, carry } = addNodes(l1Current, l2Current, carry))
+
+    current.next = addedNode
+    current = current.next
   }
 
-  add(val) {
-    // create a new node with the input value
-    const node = new Node(val)
-    // if head is null, set node at head and tail
-    if (!this.head && !this.tail) {
-      this.head = node
-      this.tail = node
-    } else {
-      // append the new node to tail
-      this.tail.next = node
-      // reset tail with the new node
-      this.tail = node
-    }
+  return newLinkedList
+}
+
+const addNodes = (node1, node2, carry = 0) => {
+  if (!node1 && !node2 && !carry) return { addedNode: null, carry: null }
+
+  let sum = carry
+  if (node1) sum += node1.value || 0
+  if (node2) sum += node2.value || 0
+
+  return {
+    addedNode: new Node(sum % 10),
+    carry: Math.floor(sum / 10),
   }
 }
-// 
+
+// class LinkedList {
+//   constructor() {
+//     this.head = null
+//     this.tail = null
+//   }
+//
+//   add(val) {
+//     // create a new node with the input value
+//     const node = new Node(val)
+//     // if head is null, set node at head and tail
+//     if (!this.head && !this.tail) {
+//       this.head = node
+//       this.tail = node
+//     } else {
+//       // append the new node to tail
+//       this.tail.next = node
+//       // reset tail with the new node
+//       this.tail = node
+//     }
+//   }
+// }
+//
+//
 // const l1 = new LinkedList()
 // l1.add(2)
 // l1.add(1)
@@ -49,31 +86,30 @@ class LinkedList {
 // l2.add(9)
 // l2.add(2)
 
-function addLinkedList(l1, l2) {
-  const addedList = new LinkedList()
-  let quotient = 0
-  let currentL1 = l1.head
-  let currentL2 = l2.head
-  while (currentL1 && currentL2) {
-    let sum = currentL1.value + currentL2.value + quotient
-    quotient = 0
-    if (sum > 9 && currentL1.next) {
-      quotient = Math.floor(sum / 10)
-      sum -= quotient * 10
-    }
-    addedList.add(sum)
-    currentL1 = currentL1.next
-    currentL2 = currentL2.next
-  }
-  return addedList
-}
+// function addLinkedList(l1, l2) {
+//   const addedList = new LinkedList()
+//   let quotient = 0
+//   let currentL1 = l1.head
+//   let currentL2 = l2.head
+//   while (currentL1 && currentL2) {
+//     let sum = currentL1.value + currentL2.value + quotient
+//     quotient = 0
+//     if (sum > 9 && currentL1.next) {
+//       quotient = Math.floor(sum / 10)
+//     }
+//     addedList.add(sum % 10)
+//     currentL1 = currentL1.next
+//     currentL2 = currentL2.next
+//   }
+//   return addedList
+// }
 
 // let myAddedList = addLinkedList(l1, l2)
 //
 // function logEachListNode(list) {
 //   let current = list.head
 //   while (current) {
-//     console.log(current.value)
+//     console.log(current)
 //     current = current.next
 //   }
 // }
