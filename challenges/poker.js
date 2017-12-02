@@ -33,7 +33,6 @@ function poker (hand1, hand2) {
     hand.forEach(function (card) {
       numCards[card] = numCards[card] + 1 || 1;
     });
-    console.log(numCards);
 
     const combos = Object.values(numCards);
 
@@ -78,6 +77,6 @@ function poker (hand1, hand2) {
   return 'Draw';
 }
 
-// console.log(poker([4, 4, 4, 2, 14], [8, 8, 8, 4, 5]));
+console.log(poker([4, 4, 4, 2, 14], [8, 8, 8, 4, 5]));
 
 module.exports = poker;
