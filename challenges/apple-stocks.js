@@ -10,10 +10,44 @@
  *  and 1 sale of 1 Apple stock yesterday
  *
  *  Return 0 if no profit is possible OR if input is invalid.
+ * 
+ * 
+ * 
+ * /**
+ * SOLUTION
+ *  http://slides.com/codesmith/apple-stock-80?token=7Xz8WsCM
  */
 
-function bestProfit(stock_prices_yesterday) {
 
+function bestProfit(prices) {
+  // Edge cases: Input not an array or empty array. Return 0.
+  if (!Array.isArray(prices) || !prices.length) return 0;
+
+  // Use first price to initialize lowest price to buy.
+  // Initialize highest profit as 0.
+  let buy = prices[0], profit = 0;
+
+  // Loop through array.
+  for (let i = 0; i < prices.length; i++) {
+
+    // If we see a price lower than our lowest price so far,
+    // set our lowest price so far to that lower price.
+    buy = Math.min(buy, prices[i]);
+
+    // Set profit to highest between itself and newest price
+    // minus lowest price.
+    profit = Math.max(profit, prices[i] - buy);
+  }
+
+  // Return profit value at the end.
+  return profit;
 }
 
 module.exports = bestProfit;
+
+
+
+
+
+
+
