@@ -40,7 +40,65 @@
 // - if any part of the date string is missing then you can consider it an invalid date
 
 function parseDates(str) {
-  
+  let output;
+  const dateArr = str.split(' ');
+
+  const months = ['Jan', 'Feb', 'Mar', 'Apr',
+                  'May', 'Jun', 'Jul', 'Aug',
+                  'Sep', 'Oct', 'Nov', 'Dec'];
+
+  const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday',
+                'Thursday', 'Friday', 'Saturday', 'Today'];
+
+  const checkRestValidAndReturnTime = (time, ampm) => {
+    let hours = parseInt(time.split(':')[0]);
+    const minutes = parseInt(time.split(':')[1]);
+    if (Number.isNaN(hours) || Number.isNaN(minutes)) return false;
+    if (hours < 1 || hours > 12) return false;
+    if (minutes < 0 || minutes > 59) return false;
+
+    if (ampm.toUpperCase() === 'PM' && hours < 12) hours += 12;
+    else if(ampm.toUpperCase() === 'AM' && hours === 12) hours = 0;
+
+    return [hours, minutes];
+  }
+
+  if (dateArr.length === 4) {
+    if (months.indexOf(dateArr[0]) < 0) return new Date();
+    const month = months.indexOf(dateArr[0]) + 1;
+    const date = parseInt(dateArr[1]);
+    if (Number.isNaN(date)) return new Date();
+    const hoursAndMinutes = checkRestValidAndReturnTime(dateArr[2], dateArr[3]);
+    if (hoursAndMinutes) {
+      const [hours, minutes] = hoursAndMinutes;
+      output = new Date(month + '/' + date + '/' + new Date().getFullYear());
+      output.setHours(hours);
+      output.setMinutes(minutes);
+      return output;
+    }
+    else return new Date();
+  }
+  else if (dateArr.length === 3) {
+    if (days.indexOf(dateArr[0]) < 0) return new Date();
+    const currentDay = new Date().getDay();
+    const day = days.indexOf(dateArr[0]);
+    // day === 7 is "Today"
+    const daysChange = day === 7 ? 0 : day > currentDay ? day - currentDay - 7 : day - currentDay;
+    output = new Date();
+    output.setDate(output.getDate() + daysChange);
+
+    const hoursAndMinutes = checkRestValidAndReturnTime(dateArr[1], dateArr[2]);
+    if (hoursAndMinutes) {
+      const [hours, minutes] = hoursAndMinutes;
+      output.setHours(hours);
+      output.setMinutes(minutes);
+      return output;
+    }
+    else return new Date();
+  }
+  else {
+    return new Date();
+  }
 }
 
 module.exports = parseDates;
