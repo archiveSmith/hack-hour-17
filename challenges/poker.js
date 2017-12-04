@@ -15,6 +15,7 @@
  *
  * Clearly real-world poker has more complex rules for tied ranks, but we want you
  * to focus on overall architecture rather than edge cases. Have fun!
+<<<<<<< HEAD
  *
  * BONUS: Account for suits and add in Flush & Straight Flush/Royal Flush.
  * BONUS2: Create a deck of cards function that generates two random hands for you.
@@ -33,7 +34,6 @@ function poker (hand1, hand2) {
     hand.forEach(function (card) {
       numCards[card] = numCards[card] + 1 || 1;
     });
-    console.log(numCards);
 
     const combos = Object.values(numCards);
 
@@ -78,6 +78,16 @@ function poker (hand1, hand2) {
   return 'Draw';
 }
 
-// console.log(poker([4, 4, 4, 2, 14], [8, 8, 8, 4, 5]));
+console.log(poker([4, 4, 4, 2, 14], [8, 8, 8, 4, 5]));
 
+=======
+ * 
+ * BONUS: Account for suits and add in Flush & Straight Flush/Royal Flush.
+ * BONUS2: Create a deck of cards function that generates two random hands for you.
+ */
+function poker(hand1, hand2) {
+
+}
+
+>>>>>>> 62ce5c9e9590502b7493e311c4e2c7bbdec35605
 module.exports = poker;
