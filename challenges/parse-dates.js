@@ -39,7 +39,6 @@
 //   (i.e. the function will not be called with 'Jul 84th 1:00 PM') since that's not a real date
 // - if any part of the date string is missing then you can consider it an invalid date
 
-<<<<<<< HEAD
 const months = {
   'Jan': 0,
   'Feb': 1,
@@ -113,10 +112,4 @@ function parseDates (str) {
 
 console.log(parseDates('Today 12:33 PM'));
 
-=======
-function parseDates(str) {
-  
-}
-
->>>>>>> 9fd85838589f1df26782204145082c060859739e
 module.exports = parseDates;
