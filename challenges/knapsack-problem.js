@@ -27,17 +27,17 @@ function solveKnapsack (items, weightAvailable) {
     vals.forEach((val) => {
       let holder = itemList[val];
       let prevSack = i - val;
-      if (prevSack > 0) holder += itemList[prevSack] || 0;
+      if (prevSack > 0 && prevSack !== +val) holder += itemList[prevSack] || 0;
       possVals.push(holder);
     });
 
     sack[i] = Math.max(...possVals);
   }
-
+  console.log(sack);
   return Math.max(...sack);
 }
 
-let items = [{weight: 1, value: 3}, {weight: 2, value: 4}, {weight: 3, value: 5}];
+let items = [{weight: 1, value: 3}, {weight: 2, value: 7}, {weight: 3, value: 5}];
 // const itemList = items.reduce((acc, item) => {
 //   acc[item.weight] = item.value;
 //   return acc;
