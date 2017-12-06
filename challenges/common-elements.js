@@ -17,12 +17,13 @@ function commonElements (array1, array2, array3, array4) {
   const set2 = new Set(array2);
   const set3 = new Set(array3);
   const set4 = new Set(array4);
-  const count = [...set1, ...set2, ...set3, ...set4].reduce((acc, val) => {
-    acc[val] = acc[val] + 1 || 1;
-    return acc;
-  }, {});
+  const count = [...set1, ...set2, ...set3, ...set4]
+    .reduce((acc, val) => {
+      acc[val] = acc[val] + 1 || 1;
+      return acc;
+    }, {});
 
-  const common = Object.keys(count).filter((val) => count[val] === 4);
+  const common = Object.keys(count).filter((val) => count[val] === 4).map((val) => String(val));
   if (common.length > 0) return common;
   return 'Nothing in Common!';
 }
