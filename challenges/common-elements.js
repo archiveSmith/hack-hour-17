@@ -13,7 +13,42 @@
 // if there are no common numbers or strings return the string "Nothing in Common!"
 
 function commonElements(array1, array2, array3, array4){
+  if (!Array.isArray(array1) ||
+      !Array.isArray(array2) ||
+      !Array.isArray(array3) ||
+      !Array.isArray(array4) ||
+      array1.length === 0 ||
+      array2.length === 0 ||
+      array3.length === 0 ||
+      array4.length === 0) return 'Nothing in Common!';
 
+  let longest = Math.max(array1.length, array2.length, array3.length, array4.length);
+  let counts = {};
+  for (let a = 0; a < 4; a += 1) {
+    arr = arguments[a];
+    let currCounts = {};
+    for (let i = 0; i < longest; i += 1) {
+      if (arr[i]) {
+        let el = typeof arr[i] === 'number' ? 'NUM' + arr[i] : 'STR' + arr[i];
+        if (!currCounts[el]) {
+          currCounts[el] = true;
+          if (counts[el]) counts[el] += 1;
+          else counts[el] = 1;
+        }
+      }
+    }
+  }
+  let output = [];
+  Object.keys(counts).forEach((key) => {
+    if (counts[key] === 4) {
+      if (key.slice(0, 3) === 'NUM') {
+        output.push(parseInt(key.slice(3)));
+      }
+      else output.push(key.slice(3));
+    }
+  });
+  if (output.length > 0) return output;
+  return 'Nothing in Common!';
 }
 
 module.exports = commonElements;
