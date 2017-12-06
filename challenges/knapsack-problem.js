@@ -37,13 +37,13 @@ function solveKnapsack (items, weightAvailable) {
   return Math.max(...sack);
 }
 
-let items = [{weight: 1, value: 3}, {weight: 2, value: 7}, {weight: 3, value: 5}];
+// let items = [{weight: 1, value: 3}, {weight: 2, value: 7}, {weight: 3, value: 5}];
 // const itemList = items.reduce((acc, item) => {
 //   acc[item.weight] = item.value;
 //   return acc;
 // }, {});
 // console.log(findLargestVal(Object.keys(itemList), 3));
-console.log(solveKnapsack(items, 3)); // returns 7 (from items[0] and items[1])
-console.log(solveKnapsack(items, 5)); // returns 9 (from items[1] and items[2])
+// console.log(solveKnapsack(items, 3)); // returns 7 (from items[0] and items[1])
+// console.log(solveKnapsack(items, 5)); // returns 9 (from items[1] and items[2])
 
 module.exports = solveKnapsack;
