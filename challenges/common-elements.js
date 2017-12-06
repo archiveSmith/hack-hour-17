@@ -22,7 +22,9 @@ function commonElements (array1, array2, array3, array4) {
     return acc;
   }, {});
 
-  return Object.keys(count).filter((val) => count[val] === 4);
+  const common = Object.keys(count).filter((val) => count[val] === 4);
+  if (common.length > 0) return common;
+  return 'Nothing in Common!';
 }
 
 // var array1 = [1, 4, 6, 7, 'ferret', 12, 12, 99, 2000, 'dog', 'dog', 99, 1000];
