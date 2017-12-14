@@ -20,6 +20,7 @@ eachPermutation([1, 2, 3], function(perm) {
 [ 3, 2, 1 ]
 */
 
+
 const eachPermutation = function(array, callback) {
   getPermutations(array).forEach(callback);
 };
