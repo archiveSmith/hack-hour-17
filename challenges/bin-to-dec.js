@@ -2,6 +2,7 @@
  *
  * Write a function that converts the binary string to a decimal number
  *
+ * 
  * Example:
 * 	binToDec('0')   -> 0
  * 	binToDec('11')  -> 3
@@ -14,7 +15,8 @@
  */
 
 function binToDec(binary) {
-
+  let bin = binary.split('').reverse();
+  return bin.reduce((acc, ele, ind) => { return acc += ele * (Math.pow(2, ind))},0)
 }
 
 module.exports = binToDec;

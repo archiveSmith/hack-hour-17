@@ -31,7 +31,7 @@
 
 // parseDates('Jan 1st')
 // parseDates('hello')
-// parseDates('Today 2 PM')        => invalid formats, so all return Date object for today at the current time: 'Thu Dec 17 2015 11:31:00 GMT-0800 (PST)'
+// parseDates('Today 2 PM')        => invalid formats, so all return Date object for today at the current time.
 
 // FAQ:
 // - seconds / milliseconds of the returned Date object do not matter
@@ -39,8 +39,89 @@
 //   (i.e. the function will not be called with 'Jul 84th 1:00 PM') since that's not a real date
 // - if any part of the date string is missing then you can consider it an invalid date
 
+
+const DAYS = {
+  'sunday': 0,
+  'monday': 1,
+  'tuesday': 2,
+  'wednesday': 3,
+  'thursday': 4,
+  'friday': 5,
+  'saturday': 6
+};
+
+const MONTHS = {
+  'jan': 0,
+  'feb': 1,
+  'mar': 2,
+  'apr': 3,
+  'may': 4,
+  'jun': 5,
+  'jul': 6,
+  'aug': 7,
+  'sep': 8,
+  'oct': 9,
+  'nov': 10,
+  'dec': 11
+};
+
 function parseDates(str) {
-  
+  // Create variables to modify Date object
+  let ampm, times, month, dayOfMonth, day, hour, min;
+  // Split input by spaces to check which format we're dealing with and then extract data
+  const sections = str.toLowerCase().split(' ');
+  // new date object to manipulate with "set" and "get" Date API
+  // Tue Dec 05 2017 09:45:00 GMT -0800
+  const date = new Date();
+  // Check if input is properly formatted. If not, return current date.
+  if (!/^[a-zA-Z]{3,9}\s([0-9]{1,2}[a-z]{2}\s)?[0-9]{1,2}:[0-9]{2}\s(AM|PM)/.test(str)) return date;
+
+  // If given day is 'Today 2:01PM'...
+  if (sections[0] === 'today') {
+    ampm = sections[2];
+    times = sections[1].split(':');
+    hour = parseInt(times[0]);
+    min = parseInt(times[1]);
+  }
+
+  // If given day is 'Thursday 12:37 PM'
+  // Specified day of week for the past week
+  if (sections[0] in DAYS) {
+    day = sections[0];
+    ampm = sections[2];
+    times = sections[1].split(':');
+    hour = parseInt(times[0]);
+    min = parseInt(times[1]);
+    // Move one day back in case day of week matches today
+    date.setDate(date.getDate() - 1);
+    // Loop backwards a day at time to check if day of week matches
+    while (date.getDay() !== DAYS[day]) {
+      date.setDate(date.getDate() - 1);
+    }
+  }
+  // If given day is 'Jan 12th 1:09 AM'
+  // Specified month in the past year
+  if (sections[0] in MONTHS) {
+    month = MONTHS[sections[0]];
+    dayOfMonth = parseInt(sections[1].replace(/[^\d]/g, ""));
+    times = sections[2].split(':');
+    hour = parseInt(times[0]);
+    min = parseInt(times[1]);
+    ampm = sections[3];
+    // Modify date object with input's month and day
+    date.setMonth(month);
+    date.setDate(dayOfMonth);
+  }
+
+  // convert midnight to 0, otherwise increment PM hour by 12 for military time
+  if (ampm === 'am' && hour === 12) hour = 0;
+  else if (ampm === 'pm' && hour < 12) hour = hour + 12;
+
+  // Modify date object with input hour and minutes
+  date.setHours(hour);
+  date.setMinutes(min);
+
+  return date;
 }
 
 module.exports = parseDates;
