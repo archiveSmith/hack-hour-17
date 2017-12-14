@@ -21,11 +21,27 @@
  * balancedParens(' var wow  = { yo: thisIsAwesome() }'); // true
  * balancedParens(' var hubble = function() { telescopes.awesome();'); // false
  *
- *
+ * Solution
+ * http://clarkfeusier.com/2015/01/16/interview-question-balanced-parentheses-stack.html
  */
 
 function balancedParens(input){
+  const stack = [];
+  const open = { '{': '}', '[': ']', '(': ')' };
+  let closed = { '}': true, ']': true, ')': true };
+  
+  for (let i = 0; i < input.length; i ++) {
+    let chr = input[i];
+    if (open[chr]) {
+      stack.push(chr);
+    } else if (closed[chr]) {
+      if (open[stack.pop()] !== chr) return false;
+    }
+  }
+  
+  return stack.length === 0;
+};
 
-}
+console.log(balancedParens('[({})]'))
 
 module.exports = balancedParens;
