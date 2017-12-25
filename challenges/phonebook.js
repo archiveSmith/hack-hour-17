@@ -24,19 +24,28 @@
 * complete with methods to add new names and look up and remove existing entries
 */
 
-//  return the number associated with the name in the jazbook
-function findName(jazbook, name) {
+const findName = function(jazbook, name) {
+  const contact = jazbook.find(elem => elem[0] === name);
+  return contact ? contact[1] : false;
+};
 
-}
+class Phonebook {
+  constructor(jazbook) {
+    jazbook.forEach(contact => this.add(contact));
+  }
 
-// return an object literal representing the jazbook
-function makePhoneBookObject(jazbook){
+  add([name, number]) {
+    this[name] = number;
+  }
 
+  remove(name) {
+    if (this[name]) delete this[name];
+  }
 }
 
 const objectToExport = {
   findName,
-  makePhoneBookObject,
+  makePhoneBookObject: (jazbook) => new Phonebook(jazbook)
 };
 
 module.exports = objectToExport;
