@@ -10,7 +10,22 @@
  */
 
 function getAllProducts(array) {
+  //edgecase
+  if (array.length < 1) return [0];
 
+  const result = []
+  for (let j = 0; j < array.length; j++) {
+    let combos = [];
+    for (let i = 0; i < array.length; i++) {
+      if (i !== j) {
+        combos.push(array[i]);
+      }
+    }
+    //multiply contents of combos before pushing;
+    let product = combos.reduce((a, b) => (a * b));
+    result.push(product);
+  }
+  return result;
 }
 
 module.exports = getAllProducts;
