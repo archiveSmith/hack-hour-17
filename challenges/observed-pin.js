@@ -41,10 +41,32 @@ expectations = {
 
 
 
+const getPINs = function(observed) {
+  if (observed.length === 1) return getAdjacents(Number(observed));
 
-function getPINs(observed) {
+  const combos = [];
+  const firstNum = Number(observed.charAt(0));
+  const adjacents = getAdjacents(firstNum);
+  const restOfCombos = getPINs(observed.slice(1));
 
-}
+  adjacents.forEach(adjacent => restOfCombos.forEach(combo => combos.push(adjacent + combo)));
 
+  return combos;
+};
 
-module.exports = getPINs
+const getAdjacents = num => {
+  if (num === 0) return ['0', '8'];
+  
+  const adjacents = [];
+  adjacents.push(num);
+
+  if (num - 3 > 0) adjacents.push(num - 3);
+  if (num + 3 < 10) adjacents.push(num + 3);
+  if ((num - 1) % 3 !== 0) adjacents.push(num - 1);
+  if (num % 3 !== 0) adjacents.push(num + 1);
+  if (num === 8) adjacents.push(0);
+
+  return adjacents.map(elem => elem.toString());
+};
+
+module.exports = getPINs;
