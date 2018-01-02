@@ -20,10 +20,30 @@ eachPermutation([1, 2, 3], function(perm) {
 [ 3, 2, 1 ]
 */
 
-function eachPermutation(arr, callback) {
+const eachPermutation = function(array, callback) {
+  getPermutations(array).forEach(callback);
+};
 
-}
+const getPermutations = function(array) {
+  if (array.length === 1) return [array];
+  const permutations = [];
+
+  array.forEach((currentElement, index) => {
+    const permutationsExcludingCurrent = getPermutations([
+      ...array.slice(0, index),
+      ...array.slice(index + 1)
+    ]);
 
 
+    const permutationsWithCurrentAtFront = permutationsExcludingCurrent.map(perm => [
+      currentElement,
+      ...perm
+    ]);
+
+    permutations.push(...permutationsWithCurrentAtFront);
+  });
+
+  return permutations;
+};
 
 module.exports = eachPermutation;
