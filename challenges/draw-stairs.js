@@ -14,17 +14,39 @@
 */
 
 
-function drawStairs(n) {
-    let asterisks = '*';
-    let spaces = ' ';
-    let str = '';
+// using repeat func
 
-    for (let i = 1; i <= n; i++) {
-        str += spaces.repeat(n-i) + asterisks.repeat(i);
-        if (i !== n) str += '\n';
-    }
-    console.log(str);
+function drawStairs(n) {
+	const asterisk = '*';
+	const wspace = ' ';
+	let str = '';
+	
+	for (let i = 1; i <= n; i += 1) {
+		str += wspace.repeat(n-i) + asterisk.repeat(i);
+		if (i !== n) str += '\n';
+	}
+	console.log(str);
 }
 
+// without using repeat() func
+
+function drawStairs2(n) {
+	for (let i = 1; i <= n; i += 1) {
+		let str = '';
+		let j = n - i;
+		while (j > 0) {
+			str += ' ';
+			j -= 1;
+		}
+		let k = i;
+		while (k > 0) {
+			str += '*';
+			k -= 1;
+		}
+		console.log(str);
+	}
+}
+
+// drawStairs(15);
 
 module.exports = drawStairs;
