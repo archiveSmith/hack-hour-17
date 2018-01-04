@@ -16,15 +16,31 @@
 //                     'fizzbuzz',
 //                     16 ]
 
+// one version
 function fizzbuzz(num) {
-    let arr = [];
-    for (let i = 1; i <= num; i++) {
-        let str = '';
-        if (i % 3 === 0) str += 'fizz';
-        if (i % 5 === 0) str += 'buzz';
-        arr.push(str || i);
-    }
-    return arr;
+  const arr = [];
+  for (let i = 1; i <= num; i += 1) {
+		let str = '';
+		if (i % 3 === 0) str += 'fizz';
+		if (i % 5 === 0) str += 'buzz';
+		arr.push(str || i);
+	}
+  return arr;
 }
+
+// second version
+function fizzbuzz2(num) {
+  const arr = [];
+  for (let i = 0; i <= num; i += 1) {
+		let str = '';
+		if (num % 15 === 0) str = 'fizzbuzz'
+		else if (num % 3 === 0) str = 'fizz';
+		else if (num % 5 === 0) str = 'buzz'
+		arr.push(str || i);
+	}
+	return arr;
+}
+
+// console.log(fizzbuzz(100));
 
 module.exports = fizzbuzz;
