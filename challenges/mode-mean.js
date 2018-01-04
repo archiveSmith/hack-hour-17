@@ -10,30 +10,47 @@
  */
 
 
+// modularized functions: getMean and getMode
+
+// function getMean(arr) {
+//   const len = arr.length;
+//   const sum = arr.reduce((acc, curr) => acc + curr);
+//   return Math.floor(sum / len);
+// }
+
+// function getMode(arr) {
+//   return arr.reduce((acc, curr) => {
+//     let freq = acc.numMap[curr];
+//     freq = !freq ? 1 : freq + 1;
+//     acc.numMap[curr] = freq;
+//     if (freq > acc.highestFreq) {
+//       acc.highestFreq = freq;
+//       acc.mode = curr;
+//     }
+//     return acc;
+//   }, { mode: null, numMap: {}, highestFreq: 0}).mode;
+// }
+
 function modemean(array) {
-    let sum = 0;
-    let mean;
-    let obj = {};
+  let sum = 0;
+  let mean, mode;
+  const obj = {};
+  let highestFreq = 0;
 
-    for (element of array) {
-        sum += element;
-        if (obj[element]) obj[element] += 1;
-        else obj[element] = 1;
-    }
-    
-    mean = Math.floor(sum / array.length);
-    
-    let modeNum = 0;
-    let modeKey;
+  for (let element of array) {
+      sum += element;
 
-    for (key in obj) {
-        if (modeNum < obj[key]) {
-            modeNum = obj[key];
-            modeKey = Number(key);
-        }
-    }
+      let freq = obj[element];
+      freq = freq ? freq + 1 : 1;
+      obj[element] = freq;
 
-    return mean === modeKey;
+      if (freq > highestFreq) {
+        highestFreq = freq;
+        mode = element;
+      }
+  }
+  mean = Math.floor(sum / array.length);
+  return mean === mode;
 }
 
 module.exports = modemean;
