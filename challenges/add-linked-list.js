@@ -17,7 +17,40 @@ function Node(val) {
   this.next = null;
 }
 
+//get numbers from linked list
+function getSum (ll) {
+  let currNode = this.head;
+  let array = [];
+
+  while (currNode !== null) {
+    array.push(currNode.value);
+    currNode = currNode.next;
+  }
+
+  return parseInt(array.reverse().join(''));
+}
+
 function addLinkedList(l1, l2) {
+//add numbers from L1 & L2
+let first = getSum(l1);
+let second = getSum(l2);
+let result = first + second;
+
+//break numbers up into array to turn into linked list
+let digits = result.toString().split('');
+
+//add digits to a new linked list
+
+for (let i = 0; i < digits.length; i += 1) {
+  const newNode = new Node(digits[i]);
+  if (this.head === null) {
+    this.head = newNode;
+  } else {
+    this.tail.next = newNode;
+  }
+  this.tail = newNode;
+  
+}
 
 }
 
