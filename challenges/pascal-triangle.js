@@ -39,7 +39,8 @@ function pascalTriangle(numRows) {
     result[0] = [1];
   }
 
-  if (numRows === 2) {
+  if (numRows >= 2) {
+    result[0] = [1];
     result[1] = [1,1];
   }
 
