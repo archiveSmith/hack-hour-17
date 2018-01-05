@@ -23,6 +23,8 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
+  if (k < 1) return undefined;
+  
   let arrVal = [];
   let currNode = head;
 
