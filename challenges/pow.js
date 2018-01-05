@@ -3,10 +3,16 @@
  */
 
 function pow(base, power) {
-    if (power < 0) return;
-    if (power === 0) return 1;
-    if (power === 1) return base;
-    return base * pow(base, power - 1);
+  function negPow(b, p) {
+    if (p === 0) return 1;
+    return (1 / b) * negPow(b, p + 1); 
+  }
+  function posPow(b, p) {
+    if (p === 0) return 1;
+    return b * posPow(b, p - 1); 
+  }
+  if (power < 0) return negPow(base, power);
+  else return posPow(base, power);
 }
 
 module.exports = pow;
