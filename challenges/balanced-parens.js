@@ -24,53 +24,34 @@
  *
  */
 
-function balancedParens(input){
-    const brackets = ['[', ']', '{', '}', '(', ')'];
-    let tempArr = input.split('');
-    
-    let squareB = input.match(/[\[\]]/g);
-    let curlyB = input.match(/[\{\}]/g);
-    let parens = input.match(/[\(\)]/g);
-    
-    if (squareB === null) squareB = '';
-    if (curlyB === null) curlyB = '';
-    if (parens === null) parens = '';
-    
+function balancedParens(input) {
+  const complementsIndex = {
+    '[': ']',
+    ']': '[',
+    '{': '}',
+    '}': '{',
+    '(': ')',
+    ')': '('
+  };
 
-    if (squareB[0] === ']' || curlyB[0] === '}' || parens[0] === ')') return false;
-    if (squareB[squareB.length - 1] === '[' || curlyB[curlyB.length - 1] === '{' || parens[parens.length - 1] === '(') return false;
+  const justParens = input.match(/[\[\]\{\}\(\)]/g);
+  const len = justParens.length;
 
-    let count = 0;
-    let result = true;
+  // quick checks
+  if (len % 2 !== 0) return false;
+  if (justParens[0] === ']' || justParens[0] === '}' || justParens[0] === ')') return false;
+  if (justParens[len - 1] === '[' || justParens[len - 1] === '{' || justParens[len - 1] === '(') return false;
 
-    for (let i = 0; i < squareB.length; i++) {
-        if (squareB[i] === '[') count++;
-        if (squareB[i] === ']') count--;
-        if (count < 0) return false;    
+  const temp = [];
+
+  for (let i = 0; i < len; i += 1) {
+    if (i === 0) temp.push (justParens[i]);
+    else {
+      if (justParens[i - 1] === complementsIndex[justParens[i]]) temp.shift();
     }
+  }
 
-    if (count !== 0) return false;
-
-    count = 0;
-    
-    for (let i = 0; i < curlyB.length; i++) {
-        if (curlyB[i] === '{') count++;
-        if (curlyB[i] === '}') count--;
-        if (count < 0) return false;    
-    }
-
-    if (count !== 0) return false;
-
-    count = 0;
-    
-    for (let i = 0; i < parens.length; i++) {
-        if (parens[i] === '(') count++;
-        if (parens[i] === ')') count--;
-        if (count < 0) return false;    
-    }
-    if (count !== 0) return false;
-    
-    return true;
+  return temp.length ? false : true;
 }
 
 module.exports = balancedParens;
