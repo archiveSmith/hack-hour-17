@@ -16,7 +16,7 @@ function Node(value) {
 function reverseLinkedList(head) {
     // create array of nodes in original order
     let nodeArr = [];
-    if (head.next !== null) {
+    if (head !== null && head.next !== null) {
         let current = head;
         while (current) {
             nodeArr.push(current);
