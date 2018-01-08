@@ -14,7 +14,46 @@ function Node(value) {
 }
 
 function reverseLinkedList(head) {
+    // create array of nodes in original order
+    let nodeArr = [];
+    if (head.next !== null) {
+        let current = head;
+        while (current) {
+            nodeArr.push(current);
+            current = current.next;
+        }
+    } else {
+        return head;
+    }
+    // traverse and reassign
+    let current = head;
+    for (let x = nodeArr.length - 1; x >= 0; x -= 1) {
+        current = nodeArr[x];
+        current.next = nodeArr[x - 1];
+        current = current.next;
+    }
 
+    head = nodeArr[nodeArr.length - 1];
+    return head;
 }
+
+// // test linked list
+// let testD = {
+//     value: 4,
+//     next: null
+// };
+// let testC = {
+//     value: 3,
+//     next: testD
+// };
+// let testB = {
+//     value: 2,
+//     next: testC
+// };
+// let testHead = {
+//     value: 1,
+//     next: testB
+// };
+// console.log(reverseLinkedList(testHead));
 
 module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
