@@ -19,22 +19,25 @@
 
 
 function romanNumeral(n) {
-  let num = parseInt(n);
-  if (num !== n || num < 1) return;
-  if (num === 1) return 'I';
+  let num = Number(n);
+  if (typeof num !== 'number' || isNaN(num)) return undefined;
+
+  let roman = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"];
+  let arabic = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+  
   let result = '';
-  let romans = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"];
-  let numbers = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
-  for (let i = 0; i < numbers.length; i++) {
-    if (num >= numbers[i]) {
-      result += romans[i];
-      num = num - numbers[i];
+  
+  for (let i = 0; i < arabic.length; i += 1) {
+    if (num >= arabic[i]) {
+      result += roman[i];
+      num -= arabic[i];
       break;
     }
   }
-  if (num > 0) result = result + romanNumeral(num);
+  if (num > 0) result += romanNumeral(num);
   return result;
 }
+
 
 // another version
 
