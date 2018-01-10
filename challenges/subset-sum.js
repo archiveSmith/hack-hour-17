@@ -8,22 +8,44 @@
  * subsetSum([8, -2, 1, -3], 6) -> true, 8 + 1 + (-3) = 6
  */
 
-function subsetSum(array, target) {
+function subsetSum(arr) {
+  
+  // get largest number and remove it from array
+  var sum = Math.max.apply(null, arr);
+  arr.splice(arr.indexOf(sum), 1);
+  
+  // power set
+  var sets = [[]];
 
-    if (array.length === 0) return false;
-    
-    if (array.includes(target)) return true;
-
-    for (let i = 0; i < array.length; i++) {
-      
-      let newArray = [...array.slice(0, i), ...array.slice(i + 1)];
-      
-      let newTarget = target - array[i];
-      
-      if (subsetSum(newArray, newTarget)) return true;
+  // generate the power set and for each new set
+  // check if the temporary sum equals our sum above
+  for (var i = 0; i < arr.length; i++) {
+    for (var j = 0, len = sets.length; j < len; j++) {
+      var temp = sets[j].concat(arr[i]);
+      sets.push(temp);
+      var s = temp.reduce(function(p, c) { return p + c; });
+      if (s === sum) { return true; }
     }
-
-    return false;
+  }
+  return false;
 }
+
+// function subsetSum(array, target) {
+
+//     if (array.length === 0) return false;
+    
+//     if (array.includes(target)) return true;
+
+//     for (let i = 0; i < array.length; i++) {
+      
+//       let newArray = [...array.slice(0, i), ...array.slice(i + 1)];
+      
+//       let newTarget = target - array[i];
+      
+//       if (subsetSum(newArray, newTarget)) return true;
+//     }
+
+//     return false;
+// }
 
 module.exports = subsetSum;
