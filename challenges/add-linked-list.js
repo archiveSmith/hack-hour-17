@@ -18,40 +18,73 @@ function Node(val) {
 }
 
 //get numbers from linked list
-function getSum (ll) {
-  let currNode = this.head;
-  let array = [];
+// function getSum (ll) {
+//   let currNode = this.head;
+//   let array = [];
 
-  while (currNode !== null) {
-    array.push(currNode.value);
-    currNode = currNode.next;
-  }
+//   while (currNode !== null) {
+//     array.push(currNode.value);
+//     currNode = currNode.next;
+//   }
 
-  return parseInt(array.reverse().join(''));
-}
+//   return parseInt(array.reverse().join(''));
+// }
+
+// function addLinkedList(l1, l2) {
+// //add numbers from L1 & L2
+// let first = getSum(l1);
+// let second = getSum(l2);
+// let result = first + second;
+
+// //break numbers up into array to turn into linked list
+// let digits = result.toString().split('');
+
+// //add digits to a new linked list
+
+// for (let i = 0; i < digits.length; i += 1) {
+//   const newNode = new Node(digits[i]);
+//   if (this.head === null) {
+//     this.head = newNode;
+//   } else {
+//     this.tail.next = newNode;
+//   }
+//   this.tail = newNode;
+  
+// }
 
 function addLinkedList(l1, l2) {
-//add numbers from L1 & L2
-let first = getSum(l1);
-let second = getSum(l2);
-let result = first + second;
+  let l1Current = l1;
+  let l2Current = l2;
 
-//break numbers up into array to turn into linked list
-let digits = result.toString().split('');
+  let { addedNode, carry } = addNodes(l1Current, l2Current);
+  let current = addedNode;
 
-//add digits to a new linked list
+  const newLinkedList = addedNode;
 
-for (let i = 0; i < digits.length; i += 1) {
-  const newNode = new Node(digits[i]);
-  if (this.head === null) {
-    this.head = newNode;
-  } else {
-    this.tail.next = newNode;
+  while (current) {
+    l1Current = l1Current.next;
+    l2Current = l2Current.next;
+
+    ({ addedNode, carry } = addNodes(l1Current, l2Current, carry));
+
+    current.next = addedNode;
+    current = current.next;
   }
-  this.tail = newNode;
-  
+
+  return newLinkedList;
 }
 
-}
+const addNodes = (node1, node2, carry = 0) => {
+  if (!node1 && !node2 && !carry) return { addedNode: null, carry: null };
+
+  let sum = carry;
+  if (node1) sum += node1.value || 0;
+  if (node2) sum += node2.value || 0;
+
+  return {
+    addedNode: new Node(sum % 10),
+    carry: Math.floor(sum / 10)
+  };
+};
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
