@@ -55,4 +55,3 @@ function Queue() {
 }
 
 module.exports = {Stack: Stack, Queue: Queue};
-
