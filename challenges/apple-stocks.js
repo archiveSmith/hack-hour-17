@@ -13,11 +13,11 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
-  var minPrice = stockPricesYesterday[0];
+  var minPrice = stock_prices_yesterday[0];
     var maxProfit = 0;
 
-    for (var i = 0; i < stockPricesYesterday.length; i++) {
-        var currentPrice = stockPricesYesterday[i];
+    for (var i = 0; i < stock_prices_yesterday.length; i++) {
+        var currentPrice = stock_prices_yesterday[i];
 
         // ensure minPrice is the lowest price we've seen so far
         minPrice = Math.min(minPrice, currentPrice);
@@ -31,7 +31,7 @@ function bestProfit(stock_prices_yesterday) {
     }
 
     return maxProfit;
-    
+
   // let high = Math.max(...stock_prices_yesterday);
   // let highIndex = stock_prices_yesterday.indexOf(high);
   // let low = Math.min(...stock_prices_yesterday);
@@ -55,5 +55,3 @@ function bestProfit(stock_prices_yesterday) {
 }
 
 module.exports = bestProfit;
-
-console.log(bestProfit([76,23,56,44]));
