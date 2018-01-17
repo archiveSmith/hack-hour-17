@@ -13,25 +13,44 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
-  let high = Math.max(...stock_prices_yesterday);
-  let highIndex = stock_prices_yesterday.indexOf(high);
-  let low = Math.min(...stock_prices_yesterday);
-  let lowIndex = stock_prices_yesterday.indexOf(Math.min(...stock_prices_yesterday));
+  var minPrice = stockPricesYesterday[0];
+    var maxProfit = 0;
 
-  if (lowIndex < highIndex) {
-    return high - low;
-  }
+    for (var i = 0; i < stockPricesYesterday.length; i++) {
+        var currentPrice = stockPricesYesterday[i];
 
-  //if low comes after high in array
-  let newArray = stock_prices_yesterday.slice(lowIndex);
-  high = Math.max(...newArray);
-  let difference = high - low;
+        // ensure minPrice is the lowest price we've seen so far
+        minPrice = Math.min(minPrice, currentPrice);
+
+        // see what our profit would be if we bought at the
+        // min price and sold at the current price
+        var potentialProfit = currentPrice - minPrice;
+
+        // update maxProfit if we can do better
+        maxProfit = Math.max(maxProfit, potentialProfit);
+    }
+
+    return maxProfit;
+    
+  // let high = Math.max(...stock_prices_yesterday);
+  // let highIndex = stock_prices_yesterday.indexOf(high);
+  // let low = Math.min(...stock_prices_yesterday);
+  // let lowIndex = stock_prices_yesterday.indexOf(Math.min(...stock_prices_yesterday));
+
+  // if (lowIndex < highIndex) {
+  //   return high - low;
+  // }
+
+  // //if low comes after high in array
+  // let newArray = stock_prices_yesterday.slice(lowIndex);
+  // high = Math.max(...newArray);
+  // let difference = high - low;
   
-  if (difference > 0) {
-    return difference;
-  }
+  // if (difference > 0) {
+  //   return difference;
+  // }
 
-  return 0;
+  // return 0;
  
 }
 
