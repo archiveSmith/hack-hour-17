@@ -13,6 +13,10 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
+  if (stock_prices_yesterday.length < 1) {
+    return 0;
+  }
+  
   var minPrice = stock_prices_yesterday[0];
     var maxProfit = 0;
 
