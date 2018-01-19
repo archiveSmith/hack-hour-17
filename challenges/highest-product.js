@@ -3,8 +3,9 @@
  */
 
 function highestProduct(array) {
-  if (array.length < 3) return 0;
-  if (!Array.isArray(array)) return 0;
+  //edge cases
+  if (!array || !Array.isArray(array) || array.length < 3) return 0;
+
   if (array.length === 3) return array.reduce((a, b) => a * b);
 
   //this will be our target to be higher than
@@ -25,5 +26,3 @@ function highestProduct(array) {
 
 
 module.exports = highestProduct;
-
-console.log(highestProduct([-1,2,3]));
