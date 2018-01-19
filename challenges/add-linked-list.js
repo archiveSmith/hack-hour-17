@@ -61,6 +61,9 @@ function addLinkedList(l1, l2) {
       curr2 = curr2.next;
     }
   }
+
+  if (carryOver === 1) sumArr.push(1);  
+
   const temp = sumArr.map(element => new Node(element));
   
   for (let i = 0; i < temp.length - 1; i += 1) {
