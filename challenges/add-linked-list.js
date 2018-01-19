@@ -61,6 +61,13 @@ function addLinkedList(l1, l2) {
       curr2 = curr2.next;
     }
   }
+  const temp = sumArr.map(element => new Node(element));
+  
+  for (let i = 0; i < temp.length - 1; i += 1) {
+    temp[i].next = temp[i + 1];
+  }
+  
+  return temp[0];
 }
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
