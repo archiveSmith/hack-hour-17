@@ -31,7 +31,7 @@ function commonElements(array1, array2, array3, array4){
     if(obj[key] < 4) delete obj[key];
   }
 
-  if(Object.keys(obj).length === 0) return "Nothing in Common!"
+  if(Object.keys(obj).length === 0) return ["Nothing in Common!"]
 
   return Object.keys(obj);
 
