@@ -16,13 +16,35 @@
  * kthToLastNode(2, a); -> returns 'D' (the value on the second to last node)
  */
 
+// first find length of list
+//take length - k, use this as stopping index when traversing LL to find return vale
+
+
 function Node(val) {
   this.value = val;
   this.next = null;
 }
 
-function kthToLastNode(k, head) {
-
+function getLength(head) {
+	let currentSize = 0;
+	let currentNode = head;
+	while (currentNode) {
+		currentSize++;
+		currentNode = currentNode.next;
+	}
+	return currentSize;
 }
 
-module.exports = {Node: Node, kthToLastNode: kthToLastNode};
+function kthToLastNode(k, head) {
+	let stoppingIndex = getLength(head) - k;
+	let currentIndex = 0;
+	let currentNode = head;
+	while (currentNode) {
+		if (stoppingIndex === currentIndex) {
+			return currentNode.value;
+		}
+		currentIndex++;
+		currentNode = currentNode.next;
+	}
+	return undefined;
+}

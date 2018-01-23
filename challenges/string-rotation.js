@@ -15,8 +15,37 @@ function isSubstring(s1, s2) {
   return s1.indexOf(s2) >= 0;
 }
 
-function stringRotation(s1, s2) {
 
+function stringRotation(s1, s2) {
+	if (s1.length !== s2.length) return false;
+	for (let i = 0; i < s1.length; i++) {
+		if (s1 === s2) return true;
+		
+	}
 }
 
+console.log(stringRotation("hello", "hello")); // -> true
+console.log(stringRotation("hello", "llohe")); // -> true
+console.log(stringRotation("hello", "he")); // -> false
+console.log(stringRotation("hello", "ollhe")); // -> false (not a rotation, just an anagram)
+
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
+
+
+
+
+
+// var counter = 0;
+// function stringRotation(s1, s2) {
+// 	if (s1.length !== s2.length || counter === s1.length) return false;
+// 	if (s1.includes(s2)) {
+// 		return true;
+// 	} else {
+// 		counter++;
+// 		var newS2 = s2.split('');
+// 		var shifted = newS2.shift();
+// 		newS2.push(shifted);
+// 		newS2 = newS2.join('');
+// 		return stringRotation(s1, newS2);
+// 	}
+// }

@@ -10,11 +10,20 @@
  *  binToDec('0101') -> 5
  *
  * Extension:
- * Write a function that converts a decimal number to binary (then maybe hexadecimal)
+ * Write a function that converts a binary number to decimal (then maybe hexadecimal)
  */
 
 function binToDec(binary) {
-
+	
+	let result = 0;
+	let index = 0;
+	for (let i = binary.length - 1; i >= 0; i--) {
+		if (parseInt(binary[i]) === 1) {
+			result += Math.pow(2, index);
+		}
+		index++;
+	}
+	return result;
 }
 
 module.exports = binToDec;

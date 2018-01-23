@@ -17,7 +17,17 @@
 //                     16 ]
 
 function fizzbuzz(num) {
+	var resultArray = [];
+	let i = 1;
+	let iter = () => {i++};
+	if (num < 0) {
+		iter = () => {i--}
+	} else {
+		return 0;
+	}
 
 }
+
+
 
 module.exports = fizzbuzz;
