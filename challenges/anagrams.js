@@ -13,7 +13,7 @@
   */
 
 function anagrams(string) {
-  // 
+  // recursive that reduces the string to 3 chars where one is held up while the other two switches positions
 }
 
 module.exports = anagrams;
