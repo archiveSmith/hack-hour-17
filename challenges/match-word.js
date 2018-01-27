@@ -29,10 +29,6 @@ function matchWord(str) {
   })
   
   return wordStack.length === 0;
-
-  //grab words from str
-  // let matches = str.match(/[a-zA-Z]+/g);
-  // console.log(matches);
  
 }
 
