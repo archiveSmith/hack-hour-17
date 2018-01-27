@@ -10,7 +10,19 @@
  */
 
 function getAllProducts(array) {
-
+    let copyArray = Array.from(array);
+    const result = [];
+    for (let i = 0; i < array.length; i += 1) {
+        let tmp = copyArray.shift();
+        result.push(copyArray.reduce((acc, curr) => {
+                return acc *= curr;
+            })
+        )
+        copyArray.push(tmp);
+    }
+    return result; 
 }
+
+console.log(getAllProducts([1, 7, 3, 4]));
 
 module.exports = getAllProducts;
