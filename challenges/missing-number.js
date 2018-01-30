@@ -26,8 +26,8 @@ Challange:
   ** keep in mind time complexity
 */
 function missingNum(Array) {
-  for (var i = 0; i <= array.length; i++) {
-    if(array.indexOf(i+1) === -1) {
+  for (var i = 0; i <= Array.length; i++) {
+    if(Array.indexOf(i+1) === -1) {
       return i+1;
     }
   }
