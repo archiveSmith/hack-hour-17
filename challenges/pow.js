@@ -3,16 +3,18 @@
  */
 
 function pow(base, power) {
-  if (power === 0) {
-    return 1;
-  }
-  if (power === 1) {
-    return base;
-  } else {
-    return base * pow(base, power-1);
-  }
+  if (!power) return 1;
+  
+  return base * pow(base, power - 1);
+  // if (power === 0) {
+  //   return 1;
+  // }
+  // if (power === 1) {
+  //   return base;
+  // } else {
+  //   return base * pow(base, power-1);
+  // }
 }
 
 module.exports = pow;
 
-console.log(pow(2,1));
