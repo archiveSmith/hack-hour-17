@@ -10,16 +10,16 @@
 */
 
 function solveKnapsack(items, weightAvailable) {
-  if (itemsLeft.length === 0 || weightAvailable === 0) return 0;
+  if (items.length === 0 || weightAvailable === 0) return 0;
 
   // if first item is too heavy to fit, consider other items
-  if (itemsLeft[0].weight > weightAvailable) {
-    return solveKnapsack(itemsLeft.slice(1), weightAvailable);
+  if (items[0].weight > weightAvailable) {
+    return solveKnapsack(items.slice(1), weightAvailable);
   }
   //if first item does fit
   else {
-    var left = itemsLeft.slice(1);
-    var takeItem = itemsLeft[0].value + solveKnapsack(left, weightAvailable - itemsLeft[0].weight);
+    var left = items.slice(1);
+    var takeItem = items[0].value + solveKnapsack(left, weightAvailable - items[0].weight);
     var leaveItem = solveKnapsack(left, weightAvailable);
 
     return (takeItem > leaveItem) ? takeItem : leaveItem;
