@@ -33,7 +33,17 @@ var Node = function(value) {
 }
 
 function hasCycle(head) {
+  if (linkedList && linkedList.next) {
+    return findCycle(linkedList, linkedList.next);
+  }
+  return false;
+}
 
+function findCycle(tortoise, hare) {
+  if (tortoise === hare) {
+    return true;
+  }
+  return hare !== null && hare.next !== null && findCycle(tortoise.next, hare.next.next);
 }
 
 module.exports = {Node: Node, hasCycle: hasCycle}
