@@ -7,31 +7,57 @@
  */
 
 function Stack() {
-  this.stack = [];
-  this.largestItem;
+  this.length = 0;
+  this.store = {};
+  this.max = {
+    idx: 0,
+    val: Number.NEGATIVE_INFINITY
+  };
 }
 
-Stack.prototype.push = function(itemToAdd) {
-  if (this.stack.length === 0) {
-    this.largestItem = itemToAdd;
-  } else {
-    this.largestItem = this.largestItem < itemToAdd ? itemToAdd : this.largestItem;
+Stack.prototype.setNewMax = function () {
+  for (let i in this.store) {
+    if (this.store[i] > this.max.val) {
+      this.max.val = this.store[i];
+      this.max.idx = i;
+    }
   }
-  this.stack = this.stack.concat(itemToAdd);
-  return this.stack.length;
 }
 
-Stack.prototype.pop = function() {
-  const retItem = this.stack[this.stack.length - 1];
-  this.stack.length = this.stack.length - 1;
-  if (retItem === this.largestItem) {
-    this.largestItem = this.stack.reduce((acc, curr) => curr > acc ? curr : acc);
+Stack.prototype.resetMax = function () {
+  this.max.val = Number.NEGATIVE_INFINITY;
+  this.max.idx = -1;
+  return;
+}
+
+Stack.prototype.push = function (value) {
+  if (value > this.max.val) {
+    this.max.idx = this.length;
+    this.max.val = value;
   }
-  return retItem;
+  this.store[this.length] = value;
+  this.length += 1;
+  return this.length;
 }
 
-Stack.prototype.getMax = function() {
-  return this.largestItem;
+Stack.prototype.pop = function () {
+  if (this.length === 0) return undefined;
+  else {
+    const popped = this.store[this.length - 1]
+    if (popped === this.max.val) {
+      this.resetMax();
+      this.setNewMax();
+    }
+    delete this.store[this.length - 1]
+  }
+  this.length -= 1;
+  return popped;
 }
+
+Stack.prototype.getMax = function () {
+  return this.length === 0 ? undefined : this.max.val;
+}
+
+
 
 module.exports = Stack;
